@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "3\n0 0\n10000 10000\n20000 20000\n5\n0 2\n6 67\n43 71\n39 107\n189 140\n0\n",
+      "salida": "INFINITY\n36.2215\n"
+    }
+  ]
+}

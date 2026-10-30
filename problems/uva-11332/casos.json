@@ -1,0 +1,32 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "2\n11\n47\n1234567892\n0\n",
+  "salida": "2\n2\n2\n2\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "solo el terminador (0)",
+  "entrada": "0\n",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "n = 1",
+  "entrada": "1\n0\n",
+  "salida": "1\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "valores frontera 9, 10, 19, 99999",
+  "entrada": "9\n10\n19\n99999\n0\n",
+  "salida": "9\n1\n1\n9\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "valor máximo",
+  "entrada": "2000000000\n1999999999\n0\n",
+  "salida": "2\n1\n",
+  "ejemplo": false
+ }
+]

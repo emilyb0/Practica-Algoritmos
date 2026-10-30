@@ -1,0 +1,32 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "0 4 1111\n204 5 10101\n255 6 000000\n154 16 1000000000000000\n",
+  "salida": "GARDEN OF EDEN\nREACHABLE\nGARDEN OF EDEN\nGARDEN OF EDEN\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "entrada vacía",
+  "entrada": "",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "regla 0 con todo en cero",
+  "entrada": "0 4 0000\n",
+  "salida": "REACHABLE\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "regla 255",
+  "entrada": "255 6 111111\n",
+  "salida": "REACHABLE\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "N = 32",
+  "entrada": "90 32 10001011011101011010010000010110\n30 32 10001011011101011010010000010110\n110 32 10001011011101011010010000010110\n",
+  "salida": "GARDEN OF EDEN\nREACHABLE\nGARDEN OF EDEN\n",
+  "ejemplo": false
+ }
+]

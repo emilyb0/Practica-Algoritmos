@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "0 4 1111\n204 5 10101\n255 6 000000\n154 16 1000000000000000\n",
+      "salida": "GARDEN OF EDEN\nREACHABLE\nGARDEN OF EDEN\nGARDEN OF EDEN\n"
+    }
+  ]
+}

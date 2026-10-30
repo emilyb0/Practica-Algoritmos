@@ -1,0 +1,2238 @@
+{
+  "generado": "2026-10-29",
+  "temas": {
+    "dyc": "Dividir y conquistar",
+    "bt": "Backtracking",
+    "dp": "Programación dinámica",
+    "voraz": "Algoritmos voraces",
+    "np": "NP-completitud (entrada pequeña)",
+    "repaso": "Repaso / lectura de entrada"
+  },
+  "problemas": [
+    {
+      "id": "UVa 11332",
+      "slug": "11332",
+      "fuente": "UVa",
+      "nombre": "Summing Digits",
+      "enlace": "https://onlinejudge.org/external/113/11332.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBk6j6JBiKyMkSG9XJf0gHzUq_Cm9uam/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T1",
+        "2024-1 clase"
+      ],
+      "tema": "repaso",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Suma repetidamente los dígitos de n hasta que quede un solo dígito. La entrada termina en 0.",
+      "pista": "Ciclo while mientras n >= 10; o la fórmula de la raíz digital 1 + (n-1) % 9.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11987",
+      "slug": "11987",
+      "fuente": "UVa",
+      "nombre": "Almost Union-Find",
+      "enlace": "https://onlinejudge.org/external/119/11987.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBk6j6JBiKyMkSG9XJf0gHzUq_Cm9uam/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T1"
+      ],
+      "tema": "repaso",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Union-Find con una operación extra: mover un elemento a otro conjunto; consultar tamaño y suma.",
+      "pista": "Para mover p sin romper su conjunto, dale a p un nodo 'virtual' nuevo y guarda tamaño y suma en la raíz.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 13190",
+      "slug": "13190",
+      "fuente": "UVa",
+      "nombre": "Rockabye Tobby",
+      "enlace": "https://onlinejudge.org/external/131/13190.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBk6j6JBiKyMkSG9XJf0gHzUq_Cm9uam/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T1"
+      ],
+      "tema": "repaso",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Simula k tomas de medicamentos con frecuencias distintas, desempatando por prioridad.",
+      "pista": "Montículo (heapq) con tuplas (tiempo, prioridad, frecuencia); saca k veces y reinserta tiempo+frecuencia.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 13054",
+      "slug": "13054",
+      "fuente": "UVa",
+      "nombre": "Hippo Circus",
+      "enlace": "https://onlinejudge.org/external/130/13054.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBk6j6JBiKyMkSG9XJf0gHzUq_Cm9uam/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T1",
+        "2024-1 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Hipopótamos pasan una puerta solos o de a dos (uno encima); minimizar el tiempo total.",
+      "pista": "Ordena alturas; empareja el más alto con el más bajo posible usando dos índices (o búsqueda binaria).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11402",
+      "slug": "11402",
+      "fuente": "UVa",
+      "nombre": "Ahoy, Pirates!",
+      "enlace": "https://onlinejudge.org/external/114/11402.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBk6j6JBiKyMkSG9XJf0gHzUq_Cm9uam/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Cadena binaria enorme con operaciones de asignar/invertir rangos y contar unos en un rango.",
+      "pista": "Árbol de segmentos con propagación perezosa (lazy) que guarda el tipo de operación pendiente.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10606",
+      "slug": "10606",
+      "fuente": "UVa",
+      "nombre": "Opening Doors",
+      "enlace": "https://onlinejudge.org/external/106/10606.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Nh_XBZlUNcsHbITdErKHQVY1MOq8fD6F/view",
+      "semestres": [
+        "2024-1",
+        "2025-2"
+      ],
+      "apariciones": [
+        "2024-1 T2",
+        "2025-2 T1",
+        "2024-1 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Las puertas abiertas al final son los cuadrados perfectos; hallar el mayor cuadrado <= N (N muy grande).",
+      "pista": "Raíz cuadrada entera por búsqueda binaria (o math.isqrt) y eleva al cuadrado.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10057",
+      "slug": "10057",
+      "fuente": "UVa",
+      "nombre": "A Mid-summer Night's Dream",
+      "enlace": "https://onlinejudge.org/external/100/10057.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Nh_XBZlUNcsHbITdErKHQVY1MOq8fD6F/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T2"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Hallar A que minimiza la suma de |X_i - A|, cuántos X_i lo alcanzan y cuántos A posibles hay.",
+      "pista": "La mediana minimiza la suma de distancias absolutas; con n par sirve todo el rango entre las dos medianas.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 13142",
+      "slug": "13142",
+      "fuente": "UVa",
+      "nombre": "Destroy the Moon to Save the Earth",
+      "enlace": "https://onlinejudge.org/external/131/13142.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Nh_XBZlUNcsHbITdErKHQVY1MOq8fD6F/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T2"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Calcular cuántas toneladas agregar o quitar a la Luna para cambiar su velocidad y recorrer D km extra.",
+      "pista": "Despeja: delta de velocidad (mm/s) = D·10^6 / (T·86400); cuidado con el signo y el truncamiento.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11627",
+      "slug": "11627",
+      "fuente": "UVa",
+      "nombre": "Slalom",
+      "enlace": "https://onlinejudge.org/external/116/11627.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Nh_XBZlUNcsHbITdErKHQVY1MOq8fD6F/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T2",
+        "2024-1 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Escoger los esquís más rápidos con los que todavía se pueden pasar todas las puertas.",
+      "pista": "Búsqueda binaria sobre la velocidad: para una velocidad, propaga el intervalo alcanzable de x puerta a puerta.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11413",
+      "slug": "11413",
+      "fuente": "UVa",
+      "nombre": "Fill the Containers",
+      "enlace": "https://onlinejudge.org/external/114/11413.pdf",
+      "enunciado_curso": null,
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Repartir recipientes consecutivos en m contenedores minimizando la capacidad máxima.",
+      "pista": "Búsqueda binaria sobre la capacidad + verificación voraz contando contenedores necesarios.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12190",
+      "slug": "12190",
+      "fuente": "UVa",
+      "nombre": "Electric Bill",
+      "enlace": "https://onlinejudge.org/external/121/12190.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yc977pO6amXHXMzjY8eQgoR81zoVWuOm/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Con tarifas por tramos, deducir tu consumo a partir del total conjunto y la diferencia con el vecino.",
+      "pista": "Total de consumo por inversa de la tarifa; luego búsqueda binaria sobre tu consumo usando la diferencia.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12097",
+      "slug": "12097",
+      "fuente": "UVa",
+      "nombre": "Pie",
+      "enlace": "https://onlinejudge.org/external/120/12097.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yc977pO6amXHXMzjY8eQgoR81zoVWuOm/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T1",
+        "2024-2 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Repartir porciones iguales de N tortas a F+1 personas maximizando el tamaño de porción.",
+      "pista": "Bisección sobre el área: cuenta floor(area_i / x) por torta y compara con F+1.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12598",
+      "slug": "12598",
+      "fuente": "UVa",
+      "nombre": "Starting School",
+      "enlace": "https://onlinejudge.org/external/125/12598.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yc977pO6amXHXMzjY8eQgoR81zoVWuOm/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Tras K números asignados al azar, el resto recibe el menor libre; responder qué número tiene la posición q.",
+      "pista": "Ordena los K usados; para la posición q > K busca binariamente el menor x con x - (usados <= x) = q - K.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12609",
+      "slug": "12609",
+      "fuente": "UVa",
+      "nombre": "Sequential Thinking",
+      "enlace": "https://onlinejudge.org/external/126/12609.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yc977pO6amXHXMzjY8eQgoR81zoVWuOm/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T1",
+        "2024-2 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Concatenar el menor múltiplo de 4 que empieza por N, para N=1,2,...; hallar el K-ésimo dígito (K hasta 1e15).",
+      "pista": "Cuenta dígitos por bloques de longitud de N y luego búsqueda binaria del N que contiene la posición K.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 183",
+      "slug": "183",
+      "fuente": "UVa",
+      "nombre": "Bit Maps",
+      "enlace": "https://onlinejudge.org/external/1/183.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1_PcxUJx4hYRdfpwCUh_9Hbx8MIJBn7Bv/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Convertir mapas de bits entre la representación matricial y la de descomposición recursiva en cuadrantes.",
+      "pista": "Recursión sobre subrectángulos: si todo es igual emite el dígito, si no 'D' y las cuatro partes.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11701",
+      "slug": "11701",
+      "fuente": "UVa",
+      "nombre": "Cantor",
+      "enlace": "https://onlinejudge.org/external/117/11701.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1_PcxUJx4hYRdfpwCUh_9Hbx8MIJBn7Bv/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Decidir si un número decimal pertenece al conjunto de Cantor.",
+      "pista": "Repite: multiplica por 3; si la parte entera es 1 (y no es exactamente 1.0) no pertenece; detecta ciclos.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "Codeforces 706B",
+      "slug": "706b",
+      "fuente": "Codeforces",
+      "nombre": "Interesting Drink",
+      "enlace": "https://codeforces.com/problemset/problem/706/B",
+      "enunciado_curso": "https://drive.google.com/file/d/1_PcxUJx4hYRdfpwCUh_9Hbx8MIJBn7Bv/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T1",
+        "2025-1 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Para cada día, contar en cuántas tiendas puedes comprar con m monedas.",
+      "pista": "Ordena los precios y usa bisect_right por cada consulta.",
+      "verificacion": "ok (Codeforces bloquea bots con 403; confirmado con la API problemset.problems)"
+    },
+    {
+      "id": "UVa 11692",
+      "slug": "11692",
+      "fuente": "UVa",
+      "nombre": "Rain Fall",
+      "enlace": "https://onlinejudge.org/external/116/11692.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1_PcxUJx4hYRdfpwCUh_9Hbx8MIJBn7Bv/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Tubo con fuga a altura L: calcular la lluvia mínima y máxima consistentes con el nivel observado.",
+      "pista": "Separa los casos H < L y H >= L; la cantidad de lluvia se halla por bisección (o despejando la ecuación).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12255",
+      "slug": "12255",
+      "fuente": "UVa",
+      "nombre": "Underwater Snipers",
+      "enlace": "https://onlinejudge.org/external/122/12255.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1_PcxUJx4hYRdfpwCUh_9Hbx8MIJBn7Bv/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T1",
+        "2025-1 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Ubicar S francotiradores en la orilla lo más lejos posible del río cubriendo a todos los soldados.",
+      "pista": "Búsqueda binaria sobre la distancia; para cada candidata, cada soldado da un intervalo y se cubre de forma voraz.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12965",
+      "slug": "12965",
+      "fuente": "UVa",
+      "nombre": "Angry Bids",
+      "enlace": "https://onlinejudge.org/external/129/12965.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1oV-oT0mebIU0qgI4RpsfkpVtPatDV5MX/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Escoger un precio que minimice productores y consumidores enojados.",
+      "pista": "Los precios candidatos son los valores dados; ordena ambas listas y cuenta con bisect.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "Codeforces 24E",
+      "slug": "24e",
+      "fuente": "Codeforces",
+      "nombre": "Berland Collider",
+      "enlace": "https://codeforces.com/problemset/problem/24/E",
+      "enunciado_curso": "https://drive.google.com/file/d/1oV-oT0mebIU0qgI4RpsfkpVtPatDV5MX/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Partículas en una línea con velocidades: tiempo del primer choque entre partículas en direcciones opuestas.",
+      "pista": "Búsqueda binaria sobre el tiempo t: ¿alguna partícula a la derecha alcanza a una de la izquierda antes de t?",
+      "verificacion": "ok (Codeforces bloquea bots con 403; confirmado con la API problemset.problems)"
+    },
+    {
+      "id": "LightOJ 1048",
+      "slug": "1048",
+      "fuente": "LightOJ",
+      "nombre": "Conquering Keokradong",
+      "enlace": "https://lightoj.com/problem/conquering-keokradong",
+      "enunciado_curso": "https://drive.google.com/file/d/1oV-oT0mebIU0qgI4RpsfkpVtPatDV5MX/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Dividir un camino en K+1 jornadas minimizando la caminata máxima diaria e imprimir el plan.",
+      "pista": "Búsqueda binaria sobre el máximo + reparto voraz; ojo: hay que usar exactamente K noches.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "POJ 2961",
+      "slug": "2961",
+      "fuente": "POJ",
+      "nombre": "Sylvester Construction",
+      "enlace": "http://poj.org/problem?id=2961",
+      "enunciado_curso": "https://drive.google.com/file/d/1oV-oT0mebIU0qgI4RpsfkpVtPatDV5MX/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T1",
+        "2025-2 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Consultar valores de una matriz de Hadamard enorme construida recursivamente.",
+      "pista": "Recursión sobre cuadrantes: el cuadrante inferior derecho invierte el signo; no construyas la matriz.",
+      "verificacion": "sin confirmar (poj.org respondió 502; enlace tomado de la bitácora del curso)"
+    },
+    {
+      "id": "UVa 107",
+      "slug": "107",
+      "fuente": "UVa",
+      "nombre": "The Cat in the Hat",
+      "enlace": "https://onlinejudge.org/external/1/107.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1aUEgGjYK-BKIiS8KO7QzGoMutlUfJ7L0/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Gatos con sombreros recursivos: dada la altura inicial y el número de gatos trabajadores, hallar totales.",
+      "pista": "Busca N tal que (N+1)^k = altura y N^k = trabajadores; prueba N o k con búsqueda y aritmética entera.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10385",
+      "slug": "10385",
+      "fuente": "UVa",
+      "nombre": "Duathlon",
+      "enlace": "https://onlinejudge.org/external/103/10385.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1aUEgGjYK-BKIiS8KO7QzGoMutlUfJ7L0/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Escoger cómo repartir la distancia correr/pedalear para que el último competidor gane por el mayor margen.",
+      "pista": "La ventaja es una función unimodal de r: búsqueda ternaria.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11876",
+      "slug": "11876",
+      "fuente": "UVa",
+      "nombre": "N + NOD (N)",
+      "enlace": "https://onlinejudge.org/external/118/11876.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1aUEgGjYK-BKIiS8KO7QzGoMutlUfJ7L0/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T1",
+        "2026-1 clase"
+      ],
+      "tema": "dyc",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Secuencia N_i = N_{i-1} + número de divisores; contar términos en [A, B].",
+      "pista": "Precalcula la secuencia hasta 10^6 (criba de divisores) y responde con dos bisect.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10245",
+      "slug": "10245",
+      "fuente": "UVa",
+      "nombre": "The Closest Pair Problem",
+      "enlace": "https://onlinejudge.org/external/102/10245.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1aUEgGjYK-BKIiS8KO7QzGoMutlUfJ7L0/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Distancia mínima entre puntos del plano; INFINITY si es >= 10000.",
+      "pista": "Ordena por x y divide y conquista: franja central de ancho d ordenada por y.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1753",
+      "slug": "1753",
+      "fuente": "UVa",
+      "nombre": "Need for Speed",
+      "enlace": "https://onlinejudge.org/external/17/1753.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1aUEgGjYK-BKIiS8KO7QzGoMutlUfJ7L0/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T1"
+      ],
+      "tema": "dyc",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Hallar la constante c del velocímetro tal que el tiempo total del viaje coincide.",
+      "pista": "El tiempo total decrece con c: bisección sobre c empezando en -min(s_i).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1350",
+      "slug": "1350",
+      "fuente": "UVa",
+      "nombre": "Pinary",
+      "enlace": "https://onlinejudge.org/external/13/1350.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Nh_XBZlUNcsHbITdErKHQVY1MOq8fD6F/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T2",
+        "2024-1 clase"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Encontrar el K-ésimo número binario sin dos unos seguidos.",
+      "pista": "La cantidad de pinarios de longitud L es Fibonacci; construye el número dígito a dígito restando conteos.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12621",
+      "slug": "12621",
+      "fuente": "UVa",
+      "nombre": "On a Diet",
+      "enlace": "https://onlinejudge.org/external/126/12621.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Y_bg0185NoxkkBayhxZwupYPofuL0SV-/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T3"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Escoger platos sin repetir con suma de calorías >= objetivo y lo más cercana posible.",
+      "pista": "Suma de subconjuntos (subset sum) con tabla de alcanzables; busca la primera suma >= objetivo.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12324",
+      "slug": "12324",
+      "fuente": "UVa",
+      "nombre": "Philip J. Fry Problem",
+      "enlace": "https://onlinejudge.org/external/123/12324.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Y_bg0185NoxkkBayhxZwupYPofuL0SV-/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T3"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Viajes en orden con esferas que reducen a la mitad el tiempo de un viaje; minimizar el tiempo total.",
+      "pista": "dp[i][esferas disponibles]; las esferas útiles nunca superan n, acota el estado.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10688",
+      "slug": "10688",
+      "fuente": "UVa",
+      "nombre": "The Poor Giant",
+      "enlace": "https://onlinejudge.org/external/106/10688.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Y_bg0185NoxkkBayhxZwupYPofuL0SV-/view",
+      "semestres": [
+        "2024-1",
+        "2026-1"
+      ],
+      "apariciones": [
+        "2024-1 T3",
+        "2026-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Estrategia óptima para encontrar la manzana dulce minimizando el peso total comido en el peor caso.",
+      "pista": "DP de intervalos: costo(i,j) = min sobre la manzana a comer k de peso_k·(j-i+1) + costo de los lados.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11002",
+      "slug": "11002",
+      "fuente": "UVa",
+      "nombre": "Towards Zero",
+      "enlace": "https://onlinejudge.org/external/110/11002.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Y_bg0185NoxkkBayhxZwupYPofuL0SV-/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T3"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Recorrer un tablero rombo sumando o restando números para acercarse lo más posible a cero.",
+      "pista": "dp[celda] = conjunto (o arreglo con desplazamiento) de sumas alcanzables; responde min |s|.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10404",
+      "slug": "10404",
+      "fuente": "UVa",
+      "nombre": "Bachet's Game",
+      "enlace": "https://onlinejudge.org/external/104/10404.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/119KBAYfQSoVMKF1tj77Prbci1_QDOWY5/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Juego de quitar piedras con un conjunto de jugadas permitidas: ¿gana quien empieza?",
+      "pista": "gana[n] = existe jugada m <= n con gana[n-m] falso.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12862",
+      "slug": "12862",
+      "fuente": "UVa",
+      "nombre": "Intrepid climber",
+      "enlace": "https://onlinejudge.org/external/128/12862.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/119KBAYfQSoVMKF1tj77Prbci1_QDOWY5/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Árbol con la cima como raíz; bajar a visitar amigos sin volver al final, minimizando energía.",
+      "pista": "Suma 2·costo de las aristas necesarias y resta la rama más profunda (se recorre una sola vez).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12563",
+      "slug": "12563",
+      "fuente": "UVa",
+      "nombre": "Jin Ge Jin Qu hao",
+      "enlace": "https://onlinejudge.org/external/125/12563.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/119KBAYfQSoVMKF1tj77Prbci1_QDOWY5/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Maximizar canciones (y luego tiempo) antes de que se acabe el tiempo, cerrando con la canción larga.",
+      "pista": "Mochila 0/1 con capacidad t-1 maximizando (cantidad, tiempo); al final suma 678 s.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10163",
+      "slug": "10163",
+      "fuente": "UVa",
+      "nombre": "Storage Keepers",
+      "enlace": "https://onlinejudge.org/external/101/10163.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/119KBAYfQSoVMKF1tj77Prbci1_QDOWY5/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T2",
+        "2024-2 clase"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Escoger guardias para N bodegas maximizando la seguridad mínima y luego minimizando el salario.",
+      "pista": "Primero DP para la máxima seguridad L; luego otra DP de costo mínimo para cubrir N con seguridad >= L.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10069",
+      "slug": "10069",
+      "fuente": "UVa",
+      "nombre": "Distinct Subsequences",
+      "enlace": "https://onlinejudge.org/external/100/10069.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/119KBAYfQSoVMKF1tj77Prbci1_QDOWY5/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Contar de cuántas formas aparece Z como subsecuencia de X.",
+      "pista": "dp[j] += dp[j-1] cuando X[i] == Z[j], recorriendo j de derecha a izquierda (Python maneja enteros grandes).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10448",
+      "slug": "10448",
+      "fuente": "UVa",
+      "nombre": "Unique World",
+      "enlace": "https://onlinejudge.org/external/104/10448.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/119KBAYfQSoVMKF1tj77Prbci1_QDOWY5/view",
+      "semestres": [
+        "2024-2",
+        "2025-1"
+      ],
+      "apariciones": [
+        "2024-2 T2",
+        "2025-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "En un árbol, ir de a a b con costo exacto; puedes ir y volver por aristas del camino.",
+      "pista": "Halla el camino único; el sobrante debe formarse con 2·peso de aristas del camino: cambio de monedas mínimo.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 13314",
+      "slug": "13314",
+      "fuente": "UVa",
+      "nombre": "Arctic Virus",
+      "enlace": "https://onlinejudge.org/external/133/13314.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1YkVI0j010dfLUXntRKKbMGFRXgIdvscw/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Decidir si una cadena de bases se genera con la gramática de mutaciones del virus.",
+      "pista": "Memoriza sobre (inicio, fin, invertida) y prueba las reglas desde fuera hacia dentro.",
+      "verificacion": "id confirmado en uHunt, pero el PDF oficial da 404: usar enunciado_curso"
+    },
+    {
+      "id": "UVa 11514",
+      "slug": "11514",
+      "fuente": "UVa",
+      "nombre": "Batman",
+      "enlace": "https://onlinejudge.org/external/115/11514.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1YkVI0j010dfLUXntRKKbMGFRXgIdvscw/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Usar superpoderes en orden contra villanos en orden sin exceder las calorías.",
+      "pista": "dp[i][j] = mínima energía usando los primeros i poderes para vencer los primeros j villanos (tipo LCS).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10912",
+      "slug": "10912",
+      "fuente": "UVa",
+      "nombre": "Simple Minded Hashing",
+      "enlace": "https://onlinejudge.org/external/109/10912.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1YkVI0j010dfLUXntRKKbMGFRXgIdvscw/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Contar cadenas estrictamente crecientes de longitud L con suma de letras S.",
+      "pista": "dp[letra][largo][suma]; si L > 26 o S > 351 la respuesta es 0.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "Curso ADA: 2025-2-T2-A",
+      "slug": "2025-2-t2-a",
+      "fuente": "Curso ADA",
+      "nombre": "Decoding Messages",
+      "enlace": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "enunciado_curso": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Decidir si un mensaje binario se puede partir en dos subsecuencias que son repeticiones de A y de B.",
+      "pista": "dp[i][j] con i = posición en el mensaje y j = avance dentro de A; el avance en B se deduce de i y j.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "TopCoder: RandomSort",
+      "slug": "randomsort",
+      "fuente": "TopCoder",
+      "nombre": "Random Sort",
+      "enlace": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "enunciado_curso": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Número esperado de intercambios para ordenar una permutación eligiendo inversiones al azar.",
+      "pista": "Memoriza sobre la tupla de la permutación: E(p) = 1 + promedio de E(p tras cada inversión).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "TopCoder: ChangingSounds",
+      "slug": "changingsounds",
+      "fuente": "TopCoder",
+      "nombre": "Changing Sounds",
+      "enlace": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "enunciado_curso": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Sumar o restar cada cambio de volumen sin salir de [0, max]; maximizar el volumen final.",
+      "pista": "Conjunto de volúmenes alcanzables canción a canción; si queda vacío imprime -1.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "Curso ADA: 2025-2-T2-D",
+      "slug": "2025-2-t2-d",
+      "fuente": "Curso ADA",
+      "nombre": "Untangle Them All",
+      "enlace": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "enunciado_curso": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Cuerdas entre dos segmentos: el mayor grupo sin cruces y el mayor grupo donde todas se cruzan.",
+      "pista": "Ordena por un extremo: sin cruces = LIS del otro extremo; todas cruzadas = LDS.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12790",
+      "slug": "12790",
+      "fuente": "UVa",
+      "nombre": "The \"Win-stay and Lose-shift\" Strategy",
+      "enlace": "https://onlinejudge.org/external/127/12790.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1z_pcgmzbRO7nWfUy-nmVP91go5el6aCs/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Comparar el resultado esperado de jugar piedra-papel-tijera con una estrategia contra el resultado real.",
+      "pista": "Probabilidad de cada jugada por ronda depende solo de la ronda anterior: DP hacia adelante sobre 3 estados.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11658",
+      "slug": "11658",
+      "fuente": "UVa",
+      "nombre": "Best Coalitions",
+      "enlace": "https://onlinejudge.org/external/116/11658.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1X6VnBiUHhiZ1NxNNZn0PpeOIXFRuUCdQ/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Formar una coalición con más del 50% de acciones maximizando la parte de un accionista dado.",
+      "pista": "Mochila sobre porcentajes (x100 a enteros): menor suma alcanzable que, con él, supere 5000.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1105",
+      "slug": "1105",
+      "fuente": "UVa",
+      "nombre": "Coffee Central",
+      "enlace": "https://onlinejudge.org/external/11/1105.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1X6VnBiUHhiZ1NxNNZn0PpeOIXFRuUCdQ/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Para varias distancias m, la ubicación con más cafeterías a distancia Manhattan <= m.",
+      "pista": "Rota coordenadas (x+y, x-y) para que el rombo sea un cuadrado y usa sumas prefijas 2D.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10259",
+      "slug": "10259",
+      "fuente": "UVa",
+      "nombre": "Hippity Hopscotch",
+      "enlace": "https://onlinejudge.org/external/102/10259.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1X6VnBiUHhiZ1NxNNZn0PpeOIXFRuUCdQ/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Saltos de hasta k casillas en línea recta a celdas con más monedas; maximizar lo recogido.",
+      "pista": "Memoización: mejor(celda) = monedas + máximo sobre saltos válidos a celdas mayores.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 13286",
+      "slug": "13286",
+      "fuente": "UVa",
+      "nombre": "Ingredients",
+      "enlace": "https://onlinejudge.org/external/132/13286.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1X6VnBiUHhiZ1NxNNZn0PpeOIXFRuUCdQ/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T2"
+      ],
+      "tema": "dp",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Recetas derivadas de otras: con un presupuesto, maximizar el prestigio de los platos escogidos.",
+      "pista": "Calcula costo y prestigio de cada plato con memoización sobre el DAG; luego mochila 0/1.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11890",
+      "slug": "11890",
+      "fuente": "UVa",
+      "nombre": "Calculus Simplified",
+      "enlace": "https://onlinejudge.org/external/118/11890.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bpK5-k4k7Z1C2ExwLzGsQKGpuZ3_bM_P/view",
+      "semestres": [
+        "2024-1",
+        "2026-1"
+      ],
+      "apariciones": [
+        "2024-1 T4",
+        "2026-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Ubicar números en una expresión con +, - y paréntesis para maximizar su valor.",
+      "pista": "Cuenta cuántas posiciones quedan con signo + y cuántas con -; asigna los números más grandes a las +.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12259",
+      "slug": "12259",
+      "fuente": "UVa",
+      "nombre": "Fair Division",
+      "enlace": "https://onlinejudge.org/external/122/12259.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bpK5-k4k7Z1C2ExwLzGsQKGpuZ3_bM_P/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T4"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Repartir el costo de un regalo lo más parejo posible respetando el máximo de cada persona.",
+      "pista": "Ordena por máximo; quien no alcanza la cuota justa paga su máximo y se recalcula la cuota del resto.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1344",
+      "slug": "1344",
+      "fuente": "UVa",
+      "nombre": "Tian Ji -- The Horse Racing",
+      "enlace": "https://onlinejudge.org/external/13/1344.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bpK5-k4k7Z1C2ExwLzGsQKGpuZ3_bM_P/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T4"
+      ],
+      "tema": "voraz",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Emparejar caballos contra los del rey para maximizar las ganancias.",
+      "pista": "Ordena ambos; compara los más rápidos y los más lentos para decidir ganar, empatar o sacrificar.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1395",
+      "slug": "1395",
+      "fuente": "UVa",
+      "nombre": "Slim Span",
+      "enlace": "https://onlinejudge.org/external/13/1395.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bpK5-k4k7Z1C2ExwLzGsQKGpuZ3_bM_P/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T4"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Árbol de expansión con la menor diferencia entre la arista más pesada y la más liviana.",
+      "pista": "Para cada arista inicial (ordenadas), corre Kruskal desde ella y toma la menor diferencia.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12834",
+      "slug": "12834",
+      "fuente": "UVa",
+      "nombre": "Extreme Terror",
+      "enlace": "https://onlinejudge.org/external/128/12834.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bpK5-k4k7Z1C2ExwLzGsQKGpuZ3_bM_P/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T4"
+      ],
+      "tema": "voraz",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Maximizar ganancia sumando Y_i - X_i y pudiendo descartar hasta K negocios.",
+      "pista": "Calcula las ganancias, ordena y descarta las K más negativas.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 13082",
+      "slug": "13082",
+      "fuente": "UVa",
+      "nombre": "High School Assembly",
+      "enlace": "https://onlinejudge.org/external/130/13082.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bpK5-k4k7Z1C2ExwLzGsQKGpuZ3_bM_P/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T4"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Mínimo de estudiantes a enviar al final de la fila para que quede ordenada.",
+      "pista": "Busca la secuencia 1,2,3... en orden en la fila; los que no forman ese prefijo se mueven.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11267",
+      "slug": "11267",
+      "fuente": "UVa",
+      "nombre": "The Hire-a-Coder Business Model",
+      "enlace": "https://onlinejudge.org/external/112/11267.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bpK5-k4k7Z1C2ExwLzGsQKGpuZ3_bM_P/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T4"
+      ],
+      "tema": "voraz",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Elegir transacciones que conecten a todos con costo mínimo, con la restricción de que el grafo sea bipartito.",
+      "pista": "Verifica bipartición con BFS; Kruskal tomando también las aristas de costo negativo.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1346",
+      "slug": "1346",
+      "fuente": "UVa",
+      "nombre": "Songs",
+      "enlace": "https://onlinejudge.org/external/13/1346.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bpK5-k4k7Z1C2ExwLzGsQKGpuZ3_bM_P/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T4"
+      ],
+      "tema": "voraz",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Orden de canciones en una cinta que minimiza el tiempo esperado de acceso.",
+      "pista": "Ordena por longitud/frecuencia ascendente (argumento de intercambio).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11240",
+      "slug": "11240",
+      "fuente": "UVa",
+      "nombre": "Antimonotonicity",
+      "enlace": "https://onlinejudge.org/external/112/11240.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1udo49YuA0mEVrEG6yJzOua2_TJELpUvH/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Subsecuencia más larga que alterna mayor, menor, mayor...",
+      "pista": "Recorre y toma los extremos locales alternando lo que buscas (bajar o subir).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 13127",
+      "slug": "13127",
+      "fuente": "UVa",
+      "nombre": "Bank Robbery",
+      "enlace": "https://onlinejudge.org/external/131/13127.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1udo49YuA0mEVrEG6yJzOua2_TJELpUvH/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Bancos y comisarías en un grafo: qué bancos están más lejos de cualquier policía.",
+      "pista": "Dijkstra multi-fuente desde todas las comisarías a la vez.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12321",
+      "slug": "12321",
+      "fuente": "UVa",
+      "nombre": "Gas Stations",
+      "enlace": "https://onlinejudge.org/external/123/12321.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1udo49YuA0mEVrEG6yJzOua2_TJELpUvH/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Máximo de estaciones que se pueden cerrar manteniendo cubierta toda la carretera.",
+      "pista": "Cubrimiento de intervalos: ordena por inicio y escoge siempre el que más lejos llegue.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10457",
+      "slug": "10457",
+      "fuente": "UVa",
+      "nombre": "Magic Car",
+      "enlace": "https://onlinejudge.org/external/104/10457.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1udo49YuA0mEVrEG6yJzOua2_TJELpUvH/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Ir de s a t minimizando la energía, que depende de la diferencia entre velocidad máxima y mínima usada.",
+      "pista": "Ordena aristas; fija la mínima y agrega en orden con Union-Find hasta conectar s y t.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11230",
+      "slug": "11230",
+      "fuente": "UVa",
+      "nombre": "Annoying painting tool",
+      "enlace": "https://onlinejudge.org/external/112/11230.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1udo49YuA0mEVrEG6yJzOua2_TJELpUvH/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Mínimo de inversiones de rectángulos r x c para obtener la imagen objetivo.",
+      "pista": "Recorre de arriba-izquierda: si el píxel difiere, invierte el rectángulo que empieza ahí.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10821",
+      "slug": "10821",
+      "fuente": "UVa",
+      "nombre": "Constructing BST",
+      "enlace": "https://onlinejudge.org/external/108/10821.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1wyIkZ54s5TyPFD7A2CbjQsq9u7Imqhrk/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Orden de inserción lexicográficamente menor que produce un BST de altura <= H.",
+      "pista": "Para el rango [lo, hi], la raíz es el menor valor que deja al lado derecho caber en altura H-1.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 721",
+      "slug": "721",
+      "fuente": "UVa",
+      "nombre": "Invitation Cards",
+      "enlace": "https://onlinejudge.org/external/7/721.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1wyIkZ54s5TyPFD7A2CbjQsq9u7Imqhrk/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Costo total de ir de la sede a cada parada y volver.",
+      "pista": "Dijkstra desde 1 en el grafo y en el grafo invertido; suma ambas distancias.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1153",
+      "slug": "1153",
+      "fuente": "UVa",
+      "nombre": "Keep the Customer Satisfied",
+      "enlace": "https://onlinejudge.org/external/11/1153.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1wyIkZ54s5TyPFD7A2CbjQsq9u7Imqhrk/view",
+      "semestres": [
+        "2025-1",
+        "2026-1"
+      ],
+      "apariciones": [
+        "2025-1 T3",
+        "2026-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Máximo de pedidos que se pueden cumplir antes de su fecha límite.",
+      "pista": "Ordena por fecha; acepta cada pedido y si te pasas quita el más largo (heap de máximos).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 311",
+      "slug": "311",
+      "fuente": "UVa",
+      "nombre": "Packets",
+      "enlace": "https://onlinejudge.org/external/3/311.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1wyIkZ54s5TyPFD7A2CbjQsq9u7Imqhrk/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Mínimo de cajas 6x6 para empacar paquetes de 1x1 a 6x6.",
+      "pista": "Coloca de mayor a menor y llena los huecos que dejan 4x4 y 3x3 con 2x2 y luego 1x1.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1265",
+      "slug": "1265",
+      "fuente": "UVa",
+      "nombre": "Tour Belt",
+      "enlace": "https://onlinejudge.org/external/12/1265.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1wyIkZ54s5TyPFD7A2CbjQsq9u7Imqhrk/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Contar subconjuntos de islas donde toda arista interna supera a toda arista hacia afuera.",
+      "pista": "Kruskal en orden decreciente; al unir componentes revisa si el grupo cumple la condición.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10382",
+      "slug": "10382",
+      "fuente": "UVa",
+      "nombre": "Watering Grass",
+      "enlace": "https://onlinejudge.org/external/103/10382.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1JXYmDh9iGLzIXB4P95adidClij3T1Vrp/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Mínimo de aspersores circulares para regar toda una franja de pasto.",
+      "pista": "Convierte cada círculo a un intervalo con dx = sqrt(r²-(w/2)²); cubrimiento voraz de intervalos.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11567",
+      "slug": "11567",
+      "fuente": "UVa",
+      "nombre": "Moliu Number Generator",
+      "enlace": "https://onlinejudge.org/external/115/11567.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1JXYmDh9iGLzIXB4P95adidClij3T1Vrp/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Mínimo de operaciones INC, DEC, DBL para ir de 0 a S.",
+      "pista": "Trabaja hacia atrás: si S es par divide; si es impar decide +1 o -1 según cuál deja más ceros.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 12950",
+      "slug": "12950",
+      "fuente": "UVa",
+      "nombre": "Even Obsession",
+      "enlace": "https://onlinejudge.org/external/129/12950.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1JXYmDh9iGLzIXB4P95adidClij3T1Vrp/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Camino más barato de 1 a N usando un número par de peajes.",
+      "pista": "Dijkstra sobre estados (nodo, paridad).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "Curso ADA: 2025-2-T3-D",
+      "slug": "2025-2-t3-d",
+      "fuente": "Curso ADA",
+      "nombre": "Tree Painting",
+      "enlace": "https://drive.google.com/file/d/1JXYmDh9iGLzIXB4P95adidClij3T1Vrp/view",
+      "enunciado_curso": "https://drive.google.com/file/d/1JXYmDh9iGLzIXB4P95adidClij3T1Vrp/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Máximo de caminos disjuntos de exactamente k nodos hacia la raíz en un árbol.",
+      "pista": "Procesa de las hojas hacia arriba: cierra un camino en cuanto alcance k nodos.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10462",
+      "slug": "10462",
+      "fuente": "UVa",
+      "nombre": "Is There A Second Way Left?",
+      "enlace": "https://onlinejudge.org/external/104/10462.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1JXYmDh9iGLzIXB4P95adidClij3T1Vrp/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Costo del segundo mejor árbol de expansión (o decir que no existe).",
+      "pista": "Kruskal para el MST; luego quita cada arista del MST y recalcula, tomando el mínimo.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 166",
+      "slug": "166",
+      "fuente": "UVa",
+      "nombre": "Making Change",
+      "enlace": "https://onlinejudge.org/external/1/166.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bwFtMIxNqLdo7aP5szmQK_zpYq38Ureg/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Minimizar monedas que pagas más las que te devuelven, con monedas limitadas.",
+      "pista": "El cambio devuelto es voraz (monedas ilimitadas); lo que pagas es mochila acotada sobre montos.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10841",
+      "slug": "10841",
+      "fuente": "UVa",
+      "nombre": "Lift Hopping in the Real World",
+      "enlace": "https://onlinejudge.org/external/108/10841.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bwFtMIxNqLdo7aP5szmQK_zpYq38Ureg/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Llegar al piso k con ascensores que tardan distinto y se tienen que esperar.",
+      "pista": "Dijkstra sobre (piso, ascensor) sumando el tiempo de espera al cambiar de ascensor.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1234",
+      "slug": "1234",
+      "fuente": "UVa",
+      "nombre": "RACING",
+      "enlace": "https://onlinejudge.org/external/12/1234.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1bwFtMIxNqLdo7aP5szmQK_zpYq38Ureg/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T3"
+      ],
+      "tema": "voraz",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Mínimo costo de cámaras para que todo ciclo tenga al menos una.",
+      "pista": "Árbol de expansión máximo; la respuesta es la suma de las aristas que quedan fuera.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10001",
+      "slug": "10001",
+      "fuente": "UVa",
+      "nombre": "Garden of Eden",
+      "enlace": "https://onlinejudge.org/external/100/10001.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1CX4bSrkxd72TVadeY2cxqJTXCakh6SVH/view",
+      "semestres": [
+        "2024-1",
+        "2026-1"
+      ],
+      "apariciones": [
+        "2024-1 T5",
+        "2026-1 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Decidir si un estado de un autómata celular circular tiene estado anterior.",
+      "pista": "Backtracking celda a celda fijando 3 bits a la vez y verificando la regla; cierra el círculo al final.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10475",
+      "slug": "10475",
+      "fuente": "UVa",
+      "nombre": "Help the Leaders",
+      "enlace": "https://onlinejudge.org/external/104/10475.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1CX4bSrkxd72TVadeY2cxqJTXCakh6SVH/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T5"
+      ],
+      "tema": "bt",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Generar todas las combinaciones de temas para un discurso sin incluir pares prohibidos.",
+      "pista": "Ordena los temas (largo desc, alfabético); backtracking evitando conflictos ya elegidos.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10344",
+      "slug": "10344",
+      "fuente": "UVa",
+      "nombre": "23 out of 5",
+      "enlace": "https://onlinejudge.org/external/103/10344.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1CX4bSrkxd72TVadeY2cxqJTXCakh6SVH/view",
+      "semestres": [
+        "2024-1",
+        "2025-2"
+      ],
+      "apariciones": [
+        "2024-1 T5",
+        "2025-2 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "¿Pueden 5 números con +, -, * (izq. a der.) dar 23 en algún orden?",
+      "pista": "Permutaciones + backtracking sobre las operaciones acumulando el valor.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 222",
+      "slug": "222",
+      "fuente": "UVa",
+      "nombre": "Budget Travel",
+      "enlace": "https://onlinejudge.org/external/2/222.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1CX4bSrkxd72TVadeY2cxqJTXCakh6SVH/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T5"
+      ],
+      "tema": "bt",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Costo mínimo de un viaje decidiendo en qué gasolineras parar según reglas.",
+      "pista": "Backtracking en cada estación: parar o no, respetando 'debes parar si queda menos de la mitad'.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 208",
+      "slug": "208",
+      "fuente": "UVa",
+      "nombre": "Firetruck",
+      "enlace": "https://onlinejudge.org/external/2/208.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1CX4bSrkxd72TVadeY2cxqJTXCakh6SVH/view",
+      "semestres": [
+        "2024-1",
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-1 T5",
+        "2024-2 clase"
+      ],
+      "tema": "bt",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Listar todas las rutas simples de 1 al incendio en orden lexicográfico.",
+      "pista": "Poda primero: solo visita nodos que pueden llegar al destino (BFS desde el destino).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 604",
+      "slug": "604",
+      "fuente": "UVa",
+      "nombre": "The Boggle Game",
+      "enlace": "https://onlinejudge.org/external/6/604.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1mIAoiJGTNySdFIOrx79-_HjBwYrBQc4B/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Palabras de 4 letras con exactamente 2 vocales comunes a dos tableros de Boggle.",
+      "pista": "DFS de profundidad 4 en cada tablero con poda por vocales; intersección de conjuntos.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10576",
+      "slug": "10576",
+      "fuente": "UVa",
+      "nombre": "Y2K Accounting Bug",
+      "enlace": "https://onlinejudge.org/external/105/10576.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1mIAoiJGTNySdFIOrx79-_HjBwYrBQc4B/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Elegir superávit/déficit por mes para maximizar el total anual con toda ventana de 5 meses negativa.",
+      "pista": "Backtracking sobre 12 meses podando en cuanto una ventana de 5 sea >= 0.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11127",
+      "slug": "11127",
+      "fuente": "UVa",
+      "nombre": "Triple-Free Binary Strings",
+      "enlace": "https://onlinejudge.org/external/111/11127.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1mIAoiJGTNySdFIOrx79-_HjBwYrBQc4B/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Contar cadenas que encajan con un patrón y no contienen SSS como subcadena.",
+      "pista": "Construye bit a bit y verifica solo los sufijos nuevos; poda en cuanto aparezca un triple.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 539",
+      "slug": "539",
+      "fuente": "UVa",
+      "nombre": "The Settlers of Catan",
+      "enlace": "https://onlinejudge.org/external/5/539.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1SMpeoF6bv29ga9btbd8jhPQll-LPLGl6/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Camino más largo usando cada arista a lo sumo una vez.",
+      "pista": "DFS desde cada nodo marcando aristas usadas y desmarcando al regresar.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10503",
+      "slug": "10503",
+      "fuente": "UVa",
+      "nombre": "The dominoes solitaire",
+      "enlace": "https://onlinejudge.org/external/105/10503.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1SMpeoF6bv29ga9btbd8jhPQll-LPLGl6/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "¿Se pueden llenar n espacios entre dos fichas con m fichas disponibles?",
+      "pista": "Backtracking ficha por ficha, probando ambas orientaciones.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10957",
+      "slug": "10957",
+      "fuente": "UVa",
+      "nombre": "So Doku Checker",
+      "enlace": "https://onlinejudge.org/external/109/10957.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1SMpeoF6bv29ga9btbd8jhPQll-LPLGl6/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Clasificar un sudoku: ilegal, imposible, ambiguo o con solución única.",
+      "pista": "Backtracking con máscaras de bits por fila/columna/caja; detente al hallar 2 soluciones (con bandera).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10776",
+      "slug": "10776",
+      "fuente": "UVa",
+      "nombre": "Determine The Combination",
+      "enlace": "https://onlinejudge.org/external/107/10776.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1RQtNeaj5LQNWX-FskwyrUFaGvWk8Bqdv/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Generar todas las combinaciones de r letras de una cadena sin repetir.",
+      "pista": "Ordena; en cada nivel salta letras iguales a la anterior del mismo nivel.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11201",
+      "slug": "11201",
+      "fuente": "UVa",
+      "nombre": "The problem of the crazy linguist",
+      "enlace": "https://onlinejudge.org/external/112/11201.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1RQtNeaj5LQNWX-FskwyrUFaGvWk8Bqdv/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Promedio del 'criterio de belleza' de palabras con patrón consonante-vocal y sin letras repetidas.",
+      "pista": "Genera las palabras por backtracking letra a letra y acumula; compara con el SBC de la palabra dada.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 677",
+      "slug": "677",
+      "fuente": "UVa",
+      "nombre": "All Walks of length \"n\" from the first node",
+      "enlace": "https://onlinejudge.org/external/6/677.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1RQtNeaj5LQNWX-FskwyrUFaGvWk8Bqdv/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Listar todos los caminos simples de longitud n desde el nodo 1.",
+      "pista": "DFS con visitados; imprime al llegar a profundidad n.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11451",
+      "slug": "11451",
+      "fuente": "UVa",
+      "nombre": "Water restrictions",
+      "enlace": "https://onlinejudge.org/external/114/11451.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1RQtNeaj5LQNWX-FskwyrUFaGvWk8Bqdv/view",
+      "semestres": [
+        "2025-2"
+      ],
+      "apariciones": [
+        "2025-2 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Programar aspersores para cubrir el jardín usando a lo sumo C litros.",
+      "pista": "Backtracking: cada aspersor apagado o con el radio mínimo para conectar; poda por consumo.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 487",
+      "slug": "487",
+      "fuente": "UVa",
+      "nombre": "Boggle Blitz",
+      "enlace": "https://onlinejudge.org/external/4/487.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBflZJYC-Xl2fVFO8zJk_Q33kOORYSol/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Listar palabras de letras estrictamente crecientes formadas por celdas adyacentes.",
+      "pista": "DFS desde cada celda solo a vecinos con letra mayor; guarda en un set y ordena por (largo, palabra).",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 1098",
+      "slug": "1098",
+      "fuente": "UVa",
+      "nombre": "Robots on Ice",
+      "enlace": "https://onlinejudge.org/external/10/1098.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBflZJYC-Xl2fVFO8zJk_Q33kOORYSol/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Contar recorridos que visitan todas las celdas pasando por 3 puntos en momentos exactos.",
+      "pista": "Backtracking con podas fuertes: distancia Manhattan al siguiente punto y conectividad de lo no visitado.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10624",
+      "slug": "10624",
+      "fuente": "UVa",
+      "nombre": "Super Number",
+      "enlace": "https://onlinejudge.org/external/106/10624.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBflZJYC-Xl2fVFO8zJk_Q33kOORYSol/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Menor número de m dígitos cuyo prefijo de i dígitos es divisible por i para i en [n, m].",
+      "pista": "Backtracking dígito a dígito manteniendo el número como entero; poda en cuanto falle la divisibilidad.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 331",
+      "slug": "331",
+      "fuente": "UVa",
+      "nombre": "Mapping the Swaps",
+      "enlace": "https://onlinejudge.org/external/3/331.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1yBflZJYC-Xl2fVFO8zJk_Q33kOORYSol/view",
+      "semestres": [
+        "2026-1"
+      ],
+      "apariciones": [
+        "2026-1 T4"
+      ],
+      "tema": "bt",
+      "dificultad": "facil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Contar mapas de intercambios mínimos que ordenan un arreglo pequeño.",
+      "pista": "Backtracking: intercambia solo pares adyacentes invertidos; cuenta al quedar ordenado.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 193",
+      "slug": "193",
+      "fuente": "UVa",
+      "nombre": "Graph Coloring",
+      "enlace": "https://onlinejudge.org/external/1/193.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1SMpeoF6bv29ga9btbd8jhPQll-LPLGl6/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T4"
+      ],
+      "tema": "np",
+      "dificultad": "medio",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Máximo número de nodos negros sin dos negros adyacentes (conjunto independiente máximo).",
+      "pista": "Backtracking: pinta negro solo si ningún vecino es negro; poda si negros + restantes <= mejor.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11813",
+      "slug": "11813",
+      "fuente": "UVa",
+      "nombre": "Shopping",
+      "enlace": "https://onlinejudge.org/external/118/11813.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1Y_bg0185NoxkkBayhxZwupYPofuL0SV-/view",
+      "semestres": [
+        "2024-1"
+      ],
+      "apariciones": [
+        "2024-1 T3"
+      ],
+      "tema": "np",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "nucleo",
+      "resumen": "Salir de casa, visitar hasta 10 tiendas y volver con la menor distancia.",
+      "pista": "Dijkstra desde casa y cada tienda; luego TSP con DP sobre máscaras de bits.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11795",
+      "slug": "11795",
+      "fuente": "UVa",
+      "nombre": "Mega Man's Mission",
+      "enlace": "https://onlinejudge.org/external/117/11795.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1YkVI0j010dfLUXntRKKbMGFRXgIdvscw/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T2"
+      ],
+      "tema": "np",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "reserva",
+      "resumen": "Contar órdenes en que Mega Man puede destruir todos los robots usando las armas ganadas.",
+      "pista": "dp[máscara] = formas; desde una máscara puedes matar el robot i si alguna arma de la máscara lo vence.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10890",
+      "slug": "10890",
+      "fuente": "UVa",
+      "nombre": "Maze",
+      "enlace": "https://onlinejudge.org/external/108/10890.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1mIAoiJGTNySdFIOrx79-_HjBwYrBQc4B/view",
+      "semestres": [
+        "2024-2"
+      ],
+      "apariciones": [
+        "2024-2 T4"
+      ],
+      "tema": "np",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Ir de la entrada a la salida recogiendo al menos S tesoros con el menor número de pasos.",
+      "pista": "Distancias BFS entre puntos clave + backtracking sobre tesoros con poda por el mejor encontrado.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 11699",
+      "slug": "11699",
+      "fuente": "UVa",
+      "nombre": "Rooks",
+      "enlace": "https://onlinejudge.org/external/116/11699.pdf",
+      "enunciado_curso": "https://drive.google.com/file/d/1SMpeoF6bv29ga9btbd8jhPQll-LPLGl6/view",
+      "semestres": [
+        "2025-1"
+      ],
+      "apariciones": [
+        "2025-1 T4"
+      ],
+      "tema": "np",
+      "dificultad": "dificil",
+      "extra": false,
+      "conjunto": "biblioteca",
+      "resumen": "Mínimo de torres para atacar todas las casillas marcadas de un tablero 15x15.",
+      "pista": "Enumera máscaras de filas con torre; las columnas sobrantes se deducen. 2^15 subconjuntos.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 10496",
+      "slug": "10496",
+      "fuente": "UVa",
+      "nombre": "Collecting Beepers",
+      "enlace": "https://onlinejudge.org/external/104/10496.pdf",
+      "enunciado_curso": null,
+      "semestres": [],
+      "apariciones": [
+        "extra"
+      ],
+      "tema": "np",
+      "dificultad": "medio",
+      "extra": true,
+      "conjunto": "nucleo",
+      "resumen": "Recoger hasta 10 beepers en una cuadrícula y volver con la menor distancia Manhattan.",
+      "pista": "TSP clásico: dp[máscara][último] o permutaciones con poda.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 216",
+      "slug": "216",
+      "fuente": "UVa",
+      "nombre": "Getting in Line",
+      "enlace": "https://onlinejudge.org/external/2/216.pdf",
+      "enunciado_curso": null,
+      "semestres": [],
+      "apariciones": [
+        "extra"
+      ],
+      "tema": "np",
+      "dificultad": "medio",
+      "extra": true,
+      "conjunto": "biblioteca",
+      "resumen": "Conectar hasta 8 computadores en cadena minimizando el cable.",
+      "pista": "Prueba permutaciones (8! es pequeño) o DP de máscaras; imprime el orden.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 574",
+      "slug": "574",
+      "fuente": "UVa",
+      "nombre": "Sum It Up",
+      "enlace": "https://onlinejudge.org/external/5/574.pdf",
+      "enunciado_curso": null,
+      "semestres": [],
+      "apariciones": [
+        "extra"
+      ],
+      "tema": "np",
+      "dificultad": "facil",
+      "extra": true,
+      "conjunto": "nucleo",
+      "resumen": "Listar todas las formas distintas de sumar t con los números dados.",
+      "pista": "Subset sum por backtracking; ordena desc y salta repetidos en el mismo nivel.",
+      "verificacion": "ok"
+    },
+    {
+      "id": "UVa 624",
+      "slug": "624",
+      "fuente": "UVa",
+      "nombre": "CD",
+      "enlace": "https://onlinejudge.org/external/6/624.pdf",
+      "enunciado_curso": null,
+      "semestres": [],
+      "apariciones": [
+        "extra"
+      ],
+      "tema": "np",
+      "dificultad": "facil",
+      "extra": true,
+      "conjunto": "biblioteca",
+      "resumen": "Escoger pistas que llenen al máximo una cinta de N minutos.",
+      "pista": "Subset sum con 20 pistas: backtracking o DP guardando la elección.",
+      "verificacion": "ok"
+    }
+  ]
+}

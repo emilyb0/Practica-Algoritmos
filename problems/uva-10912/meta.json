@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "3 10\n2 3\n0 0\n",
+      "salida": "Case 1: 4\nCase 2: 1\n"
+    }
+  ]
+}

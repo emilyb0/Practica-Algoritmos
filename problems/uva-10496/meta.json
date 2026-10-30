@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "1\n10 10\n1 1\n4\n2 3\n5 5\n9 4\n6 5\n",
+      "salida": "The shortest path has length 24\n"
+    }
+  ]
+}

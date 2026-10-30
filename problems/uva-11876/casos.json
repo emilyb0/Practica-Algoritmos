@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "3\n1 18\n1 100\n3000 4000\n",
+  "salida": "Case 1: 7\nCase 2: 20\nCase 3: 87\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "T = 0 (sin casos)",
+  "entrada": "0\n",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "rango de un solo punto",
+  "entrada": "3\n1 1\n3 3\n2 2\n",
+  "salida": "Case 1: 1\nCase 2: 0\nCase 3: 1\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "máximo",
+  "entrada": "2\n1 1000000\n999999 1000000\n",
+  "salida": "Case 1: 64725\nCase 2: 0\n",
+  "ejemplo": false
+ }
+]

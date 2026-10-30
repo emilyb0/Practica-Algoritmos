@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "1\n10 10\n1 1\n4\n2 3\n5 5\n9 4\n6 5\n",
+  "salida": "The shortest path has length 24\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "un beeper",
+  "entrada": "1\n5 5\n1 1\n1\n3 3\n",
+  "salida": "The shortest path has length 8\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "beeper en el inicio",
+  "entrada": "1\n5 5\n2 2\n1\n2 2\n",
+  "salida": "The shortest path has length 0\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "máximo: 10 beepers",
+  "entrada": "1\n20 20\n10 10\n10\n13 5\n17 18\n7 10\n7 6\n5 6\n4 14\n4 3\n2 13\n9 16\n10 16\n",
+  "salida": "The shortest path has length 70\n",
+  "ejemplo": false
+ }
+]

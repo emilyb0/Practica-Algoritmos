@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "abcde 2\nabcd 3\naba 2\n",
+      "salida": "ab\nac\nad\nae\nbc\nbd\nbe\ncd\nce\nde\nabc\nabd\nacd\nbcd\naa\nab\n"
+    }
+  ]
+}

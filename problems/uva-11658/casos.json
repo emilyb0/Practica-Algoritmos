@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "5 5\n20.00\n12.00\n29.00\n14.00\n25.00\n2 1\n56.87\n43.13\n2 2\n56.87\n43.13\n3 1\n10.00\n45.00\n45.00\n0 0\n",
+  "salida": "49.02\n100.00\n43.13\n18.18\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "dueño mayoritario",
+  "entrada": "2 1\n60.00\n40.00\n0 0\n",
+  "salida": "100.00\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "todos iguales",
+  "entrada": "4 3\n25.00\n25.00\n25.00\n25.00\n0 0\n",
+  "salida": "33.33\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "redondeo",
+  "entrada": "3 1\n33.33\n33.33\n33.34\n0 0\n",
+  "salida": "50.00\n",
+  "ejemplo": false
+ }
+]

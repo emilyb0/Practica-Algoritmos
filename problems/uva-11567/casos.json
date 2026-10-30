@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "7\n",
+  "salida": "5\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "S = 0",
+  "entrada": "0\n",
+  "salida": "0\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "pequeños",
+  "entrada": "1\n2\n3\n4\n5\n6\n",
+  "salida": "1\n2\n3\n3\n4\n4\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "máximo",
+  "entrada": "2147483648\n2147483647\n",
+  "salida": "32\n33\n",
+  "ejemplo": false
+ }
+]

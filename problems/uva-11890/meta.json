@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "3\nx\n1\n2\nx-x\n2\n-1 1\n(x)+(x)-(x)\n3\n1 1 1\n",
+      "salida": "2\n2\n1\n"
+    }
+  ]
+}

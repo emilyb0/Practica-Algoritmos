@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "1\n2 5\nAcetaminophen 20\nLoratadine 30\n",
+      "salida": "20 Acetaminophen\n30 Loratadine\n40 Acetaminophen\n60 Acetaminophen\n60 Loratadine\n"
+    }
+  ]
+}

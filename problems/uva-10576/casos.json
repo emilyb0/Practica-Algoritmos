@@ -1,0 +1,32 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "59 237\n375 743\n200000 849694\n2500000 8000000\n",
+  "salida": "116\n28\n300612\nDeficit\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "entrada vacía",
+  "entrada": "",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "s = d",
+  "entrada": "1 1\n",
+  "salida": "0\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "deficit seguro",
+  "entrada": "1000 1\n",
+  "salida": "Deficit\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "valores grandes",
+  "entrada": "10000000 10000000\n2 10000000\n",
+  "salida": "0\nDeficit\n",
+  "ejemplo": false
+ }
+]

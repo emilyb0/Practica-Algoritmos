@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "2\n\n3\none\ntop\ndog\n\n4\nabcd\nbcda\ncdab\ndabc\n",
+  "salida": "dop\ndot\neno\nenp\nent\neop\neot\ngop\ngot\nnop\nnot\nenop\nenot\n\nabc\nabd\nacd\nbcd\nabcd\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "N = 1 (sin palabras)",
+  "entrada": "1\n\n1\na\n",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "N = 2",
+  "entrada": "1\n\n2\nab\ncd\n",
+  "salida": "abc\nabd\nacd\nbcd\nabcd\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "letras repetidas",
+  "entrada": "1\n\n3\naaa\naaa\naaa\n",
+  "salida": "",
+  "ejemplo": false
+ }
+]

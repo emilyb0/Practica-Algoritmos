@@ -1,0 +1,9 @@
+{
+  "conjunto": "reserva",
+  "ejemplos": [
+    {
+      "entrada": "2\n\n3\none\ntop\ndog\n\n4\nabcd\nbcda\ncdab\ndabc\n",
+      "salida": "dop\ndot\neno\nenp\nent\neop\neot\ngop\ngot\nnop\nnot\nenop\nenot\n\nabc\nabd\nacd\nbcd\nabcd\n"
+    }
+  ]
+}

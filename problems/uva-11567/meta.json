@@ -1,0 +1,9 @@
+{
+  "conjunto": "reserva",
+  "ejemplos": [
+    {
+      "entrada": "7\n",
+      "salida": "5\n"
+    }
+  ]
+}

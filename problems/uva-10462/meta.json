@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "4\n5 4\n1 2 5\n3 2 5\n4 2 5\n5 4 5\n5 3\n1 2 5\n3 2 5\n5 4 5\n5 5\n1 2 5\n3 2 5\n4 2 5\n5 4 5\n4 5 6\n1 0\n",
+      "salida": "Case #1 : No second way\nCase #2 : No way\nCase #3 : 21\nCase #4 : No second way\n"
+    }
+  ]
+}

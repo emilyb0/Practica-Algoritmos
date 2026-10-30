@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "5\n2 0\n3 0\n4 0\n5 0\n10 20\n",
+  "salida": "Case 1: 2\nCase 2: 6\nCase 3: 13\nCase 4: 22\nCase 5: 605\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "n = 1",
+  "entrada": "1\n1 0\n",
+  "salida": "Case 1: 0\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "k grande",
+  "entrada": "2\n2 498\n3 497\n",
+  "salida": "Case 1: 998\nCase 2: 1497\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "grande",
+  "entrada": "3\n100 400\n150 0\n120 30\n",
+  "salida": "Case 1: 238218\nCase 2: 65307\nCase 3: 59382\n",
+  "ejemplo": false
+ }
+]

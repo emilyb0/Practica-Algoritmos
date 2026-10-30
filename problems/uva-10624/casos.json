@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "2\n1 10\n3 29\n",
+  "salida": "Case 1: 1020005640\nCase 2: -1\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "T = 0",
+  "entrada": "0\n",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "restriccion solo al final",
+  "entrada": "1\n28 29\n",
+  "salida": "Case 1: 10000000000000000000000000086\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "varios",
+  "entrada": "4\n1 5\n2 12\n5 20\n10 25\n",
+  "salida": "Case 1: 10200\nCase 2: 102006162060\nCase 3: 10165824009642085200\nCase 4: 1000080030482400064054325\n",
+  "ejemplo": false
+ }
+]

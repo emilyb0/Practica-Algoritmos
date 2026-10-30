@@ -1,0 +1,38 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "3 10\n2 3\n0 0\n",
+  "salida": "Case 1: 4\nCase 2: 1\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "solo el terminador",
+  "entrada": "0 0\n",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "L > 26",
+  "entrada": "27 400\n0 0\n",
+  "salida": "Case 1: 0\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "L = 1",
+  "entrada": "1 1\n1 26\n1 27\n0 0\n",
+  "salida": "Case 1: 1\nCase 2: 1\nCase 3: 0\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "suma máxima posible",
+  "entrada": "26 351\n26 350\n0 0\n",
+  "salida": "Case 1: 1\nCase 2: 0\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "S grande",
+  "entrada": "3 9999\n0 0\n",
+  "salida": "Case 1: 0\n",
+  "ejemplo": false
+ }
+]

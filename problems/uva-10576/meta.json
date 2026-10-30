@@ -1,0 +1,9 @@
+{
+  "conjunto": "nucleo",
+  "ejemplos": [
+    {
+      "entrada": "59 237\n375 743\n200000 849694\n2500000 8000000\n",
+      "salida": "116\n28\n300612\nDeficit\n"
+    }
+  ]
+}

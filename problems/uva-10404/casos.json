@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "20 3 1 3 8\n21 3 1 3 8\n22 3 1 3 8\n23 3 1 3 8\n1000000 10 1 23 38 11 7 5 4 8 3 13\n999996 10 1 23 38 11 7 5 4 8 3 13\n",
+  "salida": "Stan wins\nStan wins\nOllie wins\nStan wins\nStan wins\nOllie wins\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "una piedra",
+  "entrada": "1 1 1\n",
+  "salida": "Stan wins\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "no puede mover",
+  "entrada": "1 1 2\n",
+  "salida": "Ollie wins\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "varios",
+  "entrada": "10 2 2 3\n7 1 7\n100 3 3 5 7\n",
+  "salida": "Ollie wins\nStan wins\nOllie wins\n",
+  "ejemplo": false
+ }
+]

@@ -1,0 +1,32 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "abcde 2\nabcd 3\naba 2\n",
+  "salida": "ab\nac\nad\nae\nbc\nbd\nbe\ncd\nce\nde\nabc\nabd\nacd\nbcd\naa\nab\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "entrada vacía",
+  "entrada": "",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "r = largo",
+  "entrada": "cab 3\n",
+  "salida": "abc\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "todas iguales",
+  "entrada": "aaaa 2\n",
+  "salida": "aa\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "más grande",
+  "entrada": "abcdefghij 5\n",
+  "salida": "abcde\nabcdf\nabcdg\nabcdh\nabcdi\nabcdj\nabcef\nabceg\nabceh\nabcei\nabcej\nabcfg\nabcfh\nabcfi\nabcfj\nabcgh\nabcgi\nabcgj\nabchi\nabchj\nabcij\nabdef\nabdeg\nabdeh\nabdei\nabdej\nabdfg\nabdfh\nabdfi\nabdfj\nabdgh\nabdgi\nabdgj\nabdhi\nabdhj\nabdij\nabefg\nabefh\nabefi\nabefj\nabegh\nabegi\nabegj\nabehi\nabehj\nabeij\nabfgh\nabfgi\nabfgj\nabfhi\nabfhj\nabfij\nabghi\nabghj\nabgij\nabhij\nacdef\nacdeg\nacdeh\nacdei\nacdej\nacdfg\nacdfh\nacdfi\nacdfj\nacdgh\nacdgi\nacdgj\nacdhi\nacdhj\nacdij\nacefg\nacefh\nacefi\nacefj\nacegh\nacegi\nacegj\nacehi\nacehj\naceij\nacfgh\nacfgi\nacfgj\nacfhi\nacfhj\nacfij\nacghi\nacghj\nacgij\nachij\nadefg\nadefh\nadefi\nadefj\nadegh\nadegi\nadegj\nadehi\nadehj\nadeij\nadfgh\nadfgi\nadfgj\nadfhi\nadfhj\nadfij\nadghi\nadghj\nadgij\nadhij\naefgh\naefgi\naefgj\naefhi\naefhj\naefij\naeghi\naeghj\naegij\naehij\nafghi\nafghj\nafgij\nafhij\naghij\nbcdef\nbcdeg\nbcdeh\nbcdei\nbcdej\nbcdfg\nbcdfh\nbcdfi\nbcdfj\nbcdgh\nbcdgi\nbcdgj\nbcdhi\nbcdhj\nbcdij\nbcefg\nbcefh\nbcefi\nbcefj\nbcegh\nbcegi\nbcegj\nbcehi\nbcehj\nbceij\nbcfgh\nbcfgi\nbcfgj\nbcfhi\nbcfhj\nbcfij\nbcghi\nbcghj\nbcgij\nbchij\nbdefg\nbdefh\nbdefi\nbdefj\nbdegh\nbdegi\nbdegj\nbdehi\nbdehj\nbdeij\nbdfgh\nbdfgi\nbdfgj\nbdfhi\nbdfhj\nbdfij\nbdghi\nbdghj\nbdgij\nbdhij\nbefgh\nbefgi\nbefgj\nbefhi\nbefhj\nbefij\nbeghi\nbeghj\nbegij\nbehij\nbfghi\nbfghj\nbfgij\nbfhij\nbghij\ncdefg\ncdefh\ncdefi\ncdefj\ncdegh\ncdegi\ncdegj\ncdehi\ncdehj\ncdeij\ncdfgh\ncdfgi\ncdfgj\ncdfhi\ncdfhj\ncdfij\ncdghi\ncdghj\ncdgij\ncdhij\ncefgh\ncefgi\ncefgj\ncefhi\ncefhj\ncefij\nceghi\nceghj\ncegij\ncehij\ncfghi\ncfghj\ncfgij\ncfhij\ncghij\ndefgh\ndefgi\ndefgj\ndefhi\ndefhj\ndefij\ndeghi\ndeghj\ndegij\ndehij\ndfghi\ndfghj\ndfgij\ndfhij\ndghij\nefghi\nefghj\nefgij\nefhij\neghij\nfghij\n",
+  "ejemplo": false
+ }
+]

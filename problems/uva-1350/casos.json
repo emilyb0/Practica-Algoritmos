@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "3\n7\n2000\n22\n",
+  "salida": "1010\n1001000001001000\n1000001\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "K mínimo",
+  "entrada": "1\n3\n",
+  "salida": "100\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "varios pequeños",
+  "entrada": "5\n4\n5\n6\n8\n13\n",
+  "salida": "101\n1000\n1001\n10000\n100000\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "K máximo",
+  "entrada": "1\n89999999\n",
+  "salida": "10100001000100100101000001010010101010\n",
+  "ejemplo": false
+ }
+]

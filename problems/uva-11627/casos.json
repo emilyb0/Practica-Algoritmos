@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "2\n3 2 3\n1 1\n5 2\n1 3\n3\n3\n2\n1\n3 2 3\n1 1\n5 2\n1 3\n1\n3\n",
+  "salida": "2\nIMPOSSIBLE\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "una sola puerta",
+  "entrada": "1\n5 1 1\n3 3\n3\n10\n20\n5\n",
+  "salida": "20\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "ninguno sirve",
+  "entrada": "1\n1 1 2\n1 1\n100 2\n2\n5\n6\n",
+  "salida": "IMPOSSIBLE\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "todos sirven",
+  "entrada": "1\n100 10 2\n1 1\n1 10\n3\n1\n2\n3\n",
+  "salida": "3\n",
+  "ejemplo": false
+ }
+]

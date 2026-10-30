@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "2\n\n0 3 2 4\n1 1\n3 2\n9 1\n\n0 3 1 4\n1 1\n3 2\n9 1\n",
+  "salida": "Case 1: 2\nCase 2: IMPOSSIBLE\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "T = 0",
+  "entrada": "0\n",
+  "salida": "",
+  "ejemplo": false
+ },
+ {
+  "nombre": "un guardia",
+  "entrada": "1\n\n0 1 1 10\n0 5\n",
+  "salida": "Case 1: 5\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "guardia fuera de alcance",
+  "entrada": "1\n\n0 1 1 3\n0 5\n",
+  "salida": "Case 1: IMPOSSIBLE\n",
+  "ejemplo": false
+ }
+]

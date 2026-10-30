@@ -1,0 +1,26 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "3\n1\n1\n1\n2\n11\n01\n10\n3\n110\n011\n100\n000\n",
+  "salida": "Case 1: 1\nCase 2: 2\nCase 3: 3\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "N = 1 imposible",
+  "entrada": "1\n1\n0\n1\n",
+  "salida": "Case 1: 0\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "N = 1 posible",
+  "entrada": "1\n1\n1\n0\n",
+  "salida": "Case 1: 1\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "todo destruible, N = 16",
+  "entrada": "1\n16\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n1111111111111111\n",
+  "salida": "Case 1: 20922789888000\n",
+  "ejemplo": false
+ }
+]

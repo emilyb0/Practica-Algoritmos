@@ -1,0 +1,32 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "1\n6 8\n1 2\n1 3\n2 4\n2 5\n3 4\n3 6\n4 6\n5 6\n",
+  "salida": "3\n1 4 5\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "sin aristas",
+  "entrada": "1\n4 0\n",
+  "salida": "4\n1 2 3 4\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "grafo completo de 5",
+  "entrada": "1\n5 10\n1 2\n1 3\n1 4\n1 5\n2 3\n2 4\n2 5\n3 4\n3 5\n4 5\n",
+  "salida": "1\n1\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "n = 1",
+  "entrada": "1\n1 0\n",
+  "salida": "1\n1\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "mediano: n = 30",
+  "entrada": "1\n30 45\n1 15\n2 3\n2 26\n3 6\n3 9\n3 23\n4 11\n4 15\n4 26\n5 29\n6 25\n6 27\n7 23\n7 25\n8 12\n8 27\n9 14\n10 17\n10 19\n10 23\n11 18\n11 19\n12 13\n12 18\n12 20\n12 27\n12 29\n14 16\n14 22\n14 30\n15 20\n15 28\n16 21\n16 23\n18 23\n19 24\n19 25\n20 24\n20 30\n22 25\n22 28\n23 25\n23 27\n24 25\n25 27\n",
+  "salida": "15\n1 2 4 5 6 7 8 9 10 13 16 18 22 24 30\n",
+  "ejemplo": false
+ }
+]
