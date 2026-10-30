@@ -5,6 +5,14 @@ Entrenamiento de 3 semanas para la mini competencia de ADA (Análisis y Diseño 
 
 ## Cómo abrirla
 
+### En línea (GitHub Pages)
+
+https://emilyb0.github.io/Practica-Algoritmos/
+
+Tu progreso se guarda en ese navegador y sigue ahí cada vez que vuelvas a abrir el enlace.
+
+### En tu computador
+
 Necesitas Python 3 y conexión a internet (para cargar el editor y Python en el navegador).
 
 ```
@@ -73,6 +81,8 @@ Técnicas que usa:
 ## Tu progreso
 
 Se guarda en `localStorage` del navegador: problemas resueltos, tiempos, borradores de código, bitácora, repasos, racha, simulacros y checklist del plan. Usa siempre el mismo navegador. En **Progreso → Exportar** puedes descargar un respaldo.
+
+La versión en línea y la local (`python arena.py`) guardan su progreso por separado, lo mismo que dos navegadores o dos dispositivos. Para pasar tu progreso de uno a otro, usa **Progreso → Exportar** en el primero e **Importar** en el segundo.
 
 ## Estructura
 
