@@ -1,34 +1,37 @@
 import sys
 
 
+def phi(mask, j, d, todos, mem):
+    # menor distancia para visitar los beepers que faltan (fuera de mask) desde el punto j y volver al inicio
+    # punto 0 = inicio, punto k+1 = beeper k
+    if (mask, j) in mem:
+        ans = mem[(mask, j)]
+    else:
+        if mask == todos:
+            ans = d[j][0]
+        else:
+            ans = float("inf")
+            for k in range(len(d) - 1):
+                if not mask & (1 << k):
+                    ans = min(ans, d[j][k + 1] + phi(mask | (1 << k), k + 1, d, todos, mem))
+        mem[(mask, j)] = ans
+    return ans
+
+
 def main():
-    data = [int(x) for x in sys.stdin.read().split()]
-    i = 0
-    t = data[i]; i += 1
-    out = []
-    for _ in range(t):
-        i += 2  # tamano del mundo (no se necesita)
-        sx, sy = data[i], data[i + 1]; i += 2
-        b = data[i]; i += 1
-        pts = [(sx, sy)] + [(data[i + 2 * k], data[i + 2 * k + 1]) for k in range(b)]
-        i += 2 * b
+    casos = int(sys.stdin.readline())
+    for _ in range(casos):
+        sys.stdin.readline()                       # tamano del mundo (no se necesita)
+        sx, sy = map(int, sys.stdin.readline().split())
+        b = int(sys.stdin.readline())
+        pts = [(sx, sy)]
+        for _ in range(b):
+            x, y = map(int, sys.stdin.readline().split())
+            pts.append((x, y))
         d = [[abs(p[0] - q[0]) + abs(p[1] - q[1]) for q in pts] for p in pts]
-        INF = float("inf")
-        # dp[mascara][ultimo] = menor distancia visitando 'mascara' y terminando en 'ultimo'
-        dp = [[INF] * b for _ in range(1 << b)]
-        for j in range(b):
-            dp[1 << j][j] = d[0][j + 1]
-        for mask in range(1, 1 << b):
-            for j in range(b):
-                if dp[mask][j] < INF:
-                    for k in range(b):
-                        if not mask & (1 << k):
-                            c = dp[mask][j] + d[j + 1][k + 1]
-                            if c < dp[mask | (1 << k)][k]:
-                                dp[mask | (1 << k)][k] = c
-        res = min(dp[(1 << b) - 1][j] + d[j + 1][0] for j in range(b)) if b > 0 else 0
-        out.append(f"The shortest path has length {res}")
-    sys.stdout.write("".join(x + "\n" for x in out))
+        ans = phi(0, 0, d, (1 << b) - 1, dict())
+        print(f"The shortest path has length {ans}")
 
 
-main()
+if __name__ == "__main__":
+    main()

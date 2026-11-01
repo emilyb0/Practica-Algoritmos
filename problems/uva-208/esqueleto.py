@@ -2,33 +2,54 @@ import sys
 from collections import deque
 
 
+def alcanzables(ady, destino):
+    # esquinas desde las que se puede llegar al destino (BFS), para podar
+    ans = [False] * 21
+    ans[destino] = True
+    cola = deque([destino])
+    while cola:
+        u = cola.popleft()
+        for v in ady[u]:
+            if not ans[v]:
+                ans[v] = True
+                cola.append(v)
+    return ans
+
+
+def solve(u, destino, ady, alcanza, visitado, camino, rutas):
+    if u == destino:
+        rutas.append(" ".join(map(str, camino)))
+    else:
+        for v in ady[u]:
+            pass  # TODO: si v no esta visitado y alcanza el destino: marcar, avanzar, desmarcar
+
+
 def main():
-    data = [int(x) for x in sys.stdin.read().split()]
-    i, caso = 0, 1
-    while i < len(data):
-        destino = data[i]; i += 1
+    caso = 1
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        destino = int(linea)
         ady = [set() for _ in range(21)]
-        while data[i] != 0 or data[i + 1] != 0:
-            ady[data[i]].add(data[i + 1])
-            ady[data[i + 1]].add(data[i])
-            i += 2
-        i += 2
-        ady = [sorted(v) for v in ady]
-        alcanza = [False] * 21
-        # TODO: BFS desde destino
-        rutas, camino, visitado = [], [1], [False] * 21
+        linea = sys.stdin.readline().strip()
+        while linea != "0 0":
+            a, b = map(int, linea.split())
+            ady[a].add(b)
+            ady[b].add(a)
+            linea = sys.stdin.readline().strip()
+        ady = [sorted(v) for v in ady]    # en orden para imprimir las rutas en orden
+        alcanza = alcanzables(ady, destino)
+        rutas = []
+        visitado = [False] * 21
         visitado[1] = True
-
-        def bt(u):
-            # TODO: si u == destino guardar camino; si no, probar vecinos validos
-            pass
-
-        bt(1)
+        if alcanza[1]:
+            solve(1, destino, ady, alcanza, visitado, [1], rutas)
         print(f"CASE {caso}:")
-        for r in rutas:
-            print(r)
+        for ruta in rutas:
+            print(ruta)
         print(f"There are {len(rutas)} routes from the firestation to streetcorner {destino}.")
         caso += 1
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

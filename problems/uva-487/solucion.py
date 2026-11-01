@@ -1,34 +1,36 @@
 import sys
 
 
+def solve(g, n, r, c, actual, palabras):
+    actual.append(g[r][c])
+    if len(actual) >= 3:
+        palabras.add("".join(actual))
+    for dr in (-1, 0, 1):
+        for dc in (-1, 0, 1):
+            rr, cc = r + dr, c + dc
+            # solo letras estrictamente mayores: no hace falta marcar visitados
+            if 0 <= rr < n and 0 <= cc < n and g[rr][cc] > g[r][c]:
+                solve(g, n, rr, cc, actual, palabras)
+    actual.pop()
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    bloques = []
-    for _ in range(t):
-        n = int(data[i]); i += 1
-        g = data[i:i + n]; i += n
+    casos = int(sys.stdin.readline())
+    for caso in range(casos):
+        sys.stdin.readline()                       # linea en blanco antes de cada caso
+        n = int(sys.stdin.readline())
+        g = []
+        for _ in range(n):
+            g.append(sys.stdin.readline().strip())
         palabras = set()
-        actual = []
-
-        def bt(r, c):
-            actual.append(g[r][c])
-            if len(actual) >= 3:
-                palabras.add("".join(actual))
-            for dr in (-1, 0, 1):
-                for dc in (-1, 0, 1):
-                    rr, cc = r + dr, c + dc
-                    # solo letras estrictamente mayores: no hace falta marcar visitados
-                    if 0 <= rr < n and 0 <= cc < n and g[rr][cc] > g[r][c]:
-                        bt(rr, cc)
-            actual.pop()
-
         for r in range(n):
             for c in range(n):
-                bt(r, c)
-        bloques.append("".join(p + "\n" for p in sorted(palabras, key=lambda p: (len(p), p))))
-    sys.stdout.write("\n".join(bloques))
+                solve(g, n, r, c, [], palabras)
+        if caso > 0:
+            print()                                # linea en blanco entre salidas
+        for p in sorted(palabras, key=lambda p: (len(p), p)):
+            print(p)
 
 
-main()
+if __name__ == "__main__":
+    main()

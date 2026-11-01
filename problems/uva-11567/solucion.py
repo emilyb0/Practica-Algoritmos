@@ -1,9 +1,9 @@
 import sys
 
 
-def operaciones(s):
+def solve(s):
     # se trabaja hacia atras: de s hasta 0
-    ops = 0
+    ans = 0
     while s > 0:
         if s % 2 == 0:
             s //= 2
@@ -11,13 +11,16 @@ def operaciones(s):
             s -= 1
         else:
             s += 1
-        ops += 1
-    return ops
+        ans += 1
+    return ans
 
 
 def main():
-    out = [str(operaciones(int(x))) for x in sys.stdin.read().split()]
-    sys.stdout.write("".join(x + "\n" for x in out))
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        print(solve(int(linea)))
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

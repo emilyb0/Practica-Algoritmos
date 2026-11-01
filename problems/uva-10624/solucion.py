@@ -1,37 +1,39 @@
 import sys
 
 
-def super_numero(n, m):
-    digitos = []
-
-    def bt(prefijo):
-        # prefijo = valor numerico de los digitos ya puestos
-        largo = len(digitos)
-        if largo == m:
-            return True
-        ok = False
-        d = 1 if largo == 0 else 0
-        while not ok and d <= 9:
+def solve(digitos, prefijo, n, m):
+    # prefijo = valor de los digitos ya puestos; True si se pudo completar hasta m digitos
+    largo = len(digitos)
+    if largo == m:
+        ans = True
+    else:
+        ans = False
+        if largo == 0:
+            d = 1    # el primer digito no puede ser 0
+        else:
+            d = 0
+        while not ans and d <= 9:
             nuevo = prefijo * 10 + d
+            # desde el digito n, los primeros (largo + 1) digitos deben ser divisibles por (largo + 1)
             if largo + 1 < n or nuevo % (largo + 1) == 0:
                 digitos.append(str(d))
-                ok = bt(nuevo)
-                if not ok:
+                ans = solve(digitos, nuevo, n, m)
+                if not ans:
                     digitos.pop()
             d += 1
-        return ok
-
-    return "".join(digitos) if bt(0) else "-1"
+    return ans
 
 
 def main():
-    data = sys.stdin.read().split()
-    t = int(data[0]) if data else 0
-    out = []
-    for c in range(1, t + 1):
-        n, m = int(data[2 * c - 1]), int(data[2 * c])
-        out.append(f"Case {c}: {super_numero(n, m)}")
-    sys.stdout.write("".join(x + "\n" for x in out))
+    casos = int(sys.stdin.readline())
+    for c in range(1, casos + 1):
+        n, m = map(int, sys.stdin.readline().split())
+        digitos = []
+        if solve(digitos, 0, n, m):
+            print(f"Case {c}: {''.join(digitos)}")
+        else:
+            print(f"Case {c}: -1")
 
 
-main()
+if __name__ == "__main__":
+    main()

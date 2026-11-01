@@ -384,7 +384,7 @@
 
     // --- editor
     const borrador = Store.borrador(p.slug);
-    $("#codigo").value = borrador ?? "import sys\n\n\ndef main():\n    data = sys.stdin.read().split()\n    i = 0\n    # TODO\n\n\nmain()\n";
+    $("#codigo").value = borrador ?? "import sys\n\n\ndef solve():\n    ans = 0\n    # TODO: la logica del algoritmo\n    return ans\n\n\ndef main():\n    linea = sys.stdin.readline().strip()\n    # TODO: leer la entrada\n    print(solve())\n\n\nif __name__ == \"__main__\":\n    main()\n";
     const cm = CodeMirror.fromTextArea($("#codigo"), {
       mode: "python", lineNumbers: true, indentUnit: 4, tabSize: 4, matchBrackets: true,
       autoCloseBrackets: true, styleActiveLine: true, viewportMargin: Infinity,

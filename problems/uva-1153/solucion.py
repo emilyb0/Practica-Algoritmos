@@ -2,24 +2,32 @@ import sys
 import heapq
 
 
+def solve(pedidos):
+    # pedidos = [(fecha limite, duracion)] ordenados por fecha limite
+    aceptados = []    # monticulo de maximos (duraciones con signo negativo)
+    tiempo = 0
+    for fecha, q in pedidos:
+        heapq.heappush(aceptados, -q)
+        tiempo += q
+        if tiempo > fecha:
+            tiempo += heapq.heappop(aceptados)    # voraz: se quita el pedido mas largo
+    return len(aceptados)
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    out = []
-    for _ in range(t):
-        n = int(data[i]); i += 1
-        pedidos = sorted((int(data[i + 2 * j + 1]), int(data[i + 2 * j])) for j in range(n))
-        i += 2 * n
-        aceptados = []  # monticulo de maximos (con signo negativo)
-        tiempo = 0
-        for fecha, q in pedidos:
-            heapq.heappush(aceptados, -q)
-            tiempo += q
-            if tiempo > fecha:
-                tiempo += heapq.heappop(aceptados)  # quita el pedido mas largo
-        out.append(str(len(aceptados)))
-    sys.stdout.write("\n\n".join(out) + ("\n" if out else ""))
+    casos = int(sys.stdin.readline())
+    for caso in range(casos):
+        sys.stdin.readline()                      # linea en blanco antes de cada caso
+        n = int(sys.stdin.readline())
+        pedidos = []
+        for _ in range(n):
+            q, d = map(int, sys.stdin.readline().split())
+            pedidos.append((d, q))
+        pedidos.sort()
+        if caso > 0:
+            print()                               # linea en blanco entre salidas
+        print(solve(pedidos))
 
 
-main()
+if __name__ == "__main__":
+    main()

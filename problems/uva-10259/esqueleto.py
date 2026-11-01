@@ -1,19 +1,31 @@
 import sys
 
 
+def phi(g, n, k, r, c, mem):
+    # maximo de monedas empezando en (r, c); solo se salta a celdas con mas monedas
+    if (r, c) in mem:
+        ans = mem[(r, c)]
+    else:
+        extra = 0
+        # TODO: para cada direccion y cada paso de 1 a k, si la celda existe y tiene mas monedas,
+        #       extra = max(extra, phi(... de esa celda ...))
+        ans = g[r][c] + extra
+        mem[(r, c)] = ans
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    salidas = []
-    for _ in range(t):
-        n, k = int(data[i]), int(data[i + 1]); i += 2
-        g = [[int(data[i + r * n + c]) for c in range(n)] for r in range(n)]
-        i += n * n
-        mejor = [[0] * n for _ in range(n)]
-        # TODO: recorrer celdas de mayor a menor valor y calcular mejor[r][c]
-        salidas.append(str(mejor[0][0]))
-    print("\n\n".join(salidas))
+    casos = int(sys.stdin.readline())
+    for caso in range(casos):
+        sys.stdin.readline()                     # linea en blanco antes de cada caso
+        n, k = map(int, sys.stdin.readline().split())
+        g = []
+        for _ in range(n):
+            g.append(list(map(int, sys.stdin.readline().split())))
+        if caso > 0:
+            print()                              # linea en blanco entre salidas
+        print(phi(g, n, k, 0, 0, dict()))
 
 
-main()
+if __name__ == "__main__":
+    main()

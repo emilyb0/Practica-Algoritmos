@@ -1,18 +1,23 @@
 import sys
 
 
+def solve(seq):
+    actual = seq[0]
+    ans, bajar = 1, True    # el primer paso debe ser hacia abajo
+    for v in seq[1:]:
+        # TODO: si v va en la direccion que toca, sumar 1 y cambiar de direccion
+        actual = v          # voraz: siempre me quedo con el ultimo valor
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    for _ in range(t):
-        n = int(data[i]); i += 1
-        seq = [int(v) for v in data[i:i + n]]; i += n
-        actual, largo, bajar = seq[0], 1, True
-        for v in seq[1:]:
-            # TODO: si v avanza en la direccion buscada, largo += 1 y cambias direccion
-            actual = v
-        print(largo)
+    casos = int(sys.stdin.readline())
+    for _ in range(casos):
+        linea = list(map(int, sys.stdin.readline().split()))
+        n = linea[0]
+        seq = linea[1:n + 1]
+        print(solve(seq))
 
 
-main()
+if __name__ == "__main__":
+    main()

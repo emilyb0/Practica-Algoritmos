@@ -1,18 +1,31 @@
 import sys
 
 
+def solve(g, n, r, c, actual, palabras):
+    actual.append(g[r][c])
+    if len(actual) >= 3:
+        palabras.add("".join(actual))
+    # TODO: para cada vecino (8 direcciones) con letra estrictamente mayor, llamar solve
+    actual.pop()
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    bloques = []
-    for _ in range(t):
-        n = int(data[i]); i += 1
-        g = data[i:i + n]; i += n
-        palabras, actual = set(), []
-        # TODO: bt(r, c) a las 8 vecinas con letra mayor
-        bloques.append("".join(p + "\n" for p in sorted(palabras, key=lambda p: (len(p), p))))
-    sys.stdout.write("\n".join(bloques))
+    casos = int(sys.stdin.readline())
+    for caso in range(casos):
+        sys.stdin.readline()                       # linea en blanco antes de cada caso
+        n = int(sys.stdin.readline())
+        g = []
+        for _ in range(n):
+            g.append(sys.stdin.readline().strip())
+        palabras = set()
+        for r in range(n):
+            for c in range(n):
+                solve(g, n, r, c, [], palabras)
+        if caso > 0:
+            print()                                # linea en blanco entre salidas
+        for p in sorted(palabras, key=lambda p: (len(p), p)):
+            print(p)
 
 
-main()
+if __name__ == "__main__":
+    main()

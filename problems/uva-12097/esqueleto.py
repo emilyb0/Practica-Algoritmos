@@ -1,19 +1,31 @@
 import sys
+import math
+
+
+def porciones(areas, tam):
+    # cuantas porciones de tamano tam salen de todas las tortas
+    ans = 0
+    # TODO
+    return ans
+
+
+def solve(areas, personas):
+    lo, hi = 0.0, max(areas)
+    for _ in range(100):
+        mid = (lo + hi) / 2
+        # TODO: si porciones(areas, mid) alcanza para todos, mover lo; si no, mover hi
+    return lo
 
 
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    for _ in range(t):
-        n, f = int(data[i]), int(data[i + 1]); i += 2
-        areas = []  # TODO: pi * r^2 para cada radio
-        i += n
-        lo, hi = 0.0, max(areas)
-        for _ in range(100):
-            mid = (lo + hi) / 2
-            # TODO: contar porciones de tamano mid y mover lo o hi
-        print(f"{lo:.4f}")
+    casos = int(sys.stdin.readline())
+    for _ in range(casos):
+        n, f = map(int, sys.stdin.readline().split())
+        radios = list(map(int, sys.stdin.readline().split()))
+        areas = [math.pi * r * r for r in radios]
+        ans = solve(areas, f + 1)    # f amigos + yo
+        print(f"{ans:.4f}")
 
 
-main()
+if __name__ == "__main__":
+    main()

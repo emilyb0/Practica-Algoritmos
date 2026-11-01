@@ -1,21 +1,34 @@
 import sys
 
 
+def solve(intervalos, l):
+    # cubrir [0, l] con la menor cantidad de intervalos (ordenados por inicio)
+    cubierto, ans, j, atascado = 0.0, 0, 0, False
+    while cubierto < l and not atascado:
+        mejor = cubierto
+        # TODO: de los intervalos que empiezan <= cubierto, guardar en mejor el fin mas lejano
+        if mejor == cubierto:
+            atascado = True
+        else:
+            ans += 1
+            cubierto = mejor
+    if atascado:
+        ans = -1
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    while i < len(data):
-        n, l, w = int(data[i]), int(data[i + 1]), int(data[i + 2]); i += 3
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        n, l, w = map(int, linea.split())
         intervalos = []
         for _ in range(n):
-            x, r = int(data[i]), int(data[i + 1]); i += 2
-            # TODO: si sirve, agregar (x - dx, x + dx)
+            x, r = map(int, sys.stdin.readline().split())
+            # TODO: si el circulo cubre todo el ancho, agregar el intervalo (x - dx, x + dx)
         intervalos.sort()
-        cubierto, usados, j, atascado = 0.0, 0, 0, False
-        while cubierto < l and not atascado:
-            # TODO: avanzar j entre los intervalos que empiezan <= cubierto, guardar el mayor fin
-            atascado = True
-        print(-1 if atascado else usados)
+        print(solve(intervalos, l))
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

@@ -1,20 +1,29 @@
 import sys
 
 
+def solve(u, ady, usada):
+    # camino mas largo saliendo de u sin repetir aristas
+    ans = 0
+    for v, e in ady[u]:
+        pass  # TODO: si la arista e no esta usada: marcarla, ans = max(ans, 1 + solve(v, ...)), desmarcarla
+    return ans
+
+
 def main():
-    data = [int(x) for x in sys.stdin.read().split()]
-    i = 0
-    while i + 1 < len(data) and (data[i] != 0 or data[i + 1] != 0):
-        n, m = data[i], data[i + 1]; i += 2
+    linea = sys.stdin.readline().strip()
+    while linea != "" and linea != "0 0":
+        n, m = map(int, linea.split())
         ady = [[] for _ in range(n)]
         for e in range(m):
-            a, b = data[i], data[i + 1]; i += 2
+            a, b = map(int, sys.stdin.readline().split())
             ady[a].append((b, e))
             ady[b].append((a, e))
-        usada = [False] * m
-        mejor = 0
-        # TODO: bt(u, largo) desde cada nodo
-        print(mejor)
+        ans = 0
+        for u in range(n):
+            ans = max(ans, solve(u, ady, [False] * m))
+        print(ans)
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

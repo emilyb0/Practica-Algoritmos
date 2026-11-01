@@ -2,9 +2,10 @@
   data/problemas.json          catalogo completo
   problems/<id>/meta.json      conjunto (nucleo/reserva) y ejemplos oficiales
   problems/<id>/solucion.py    solucion de referencia (genera las salidas esperadas)
-  tools/contenido.py           pistas, esqueletos y casos borde
+  problems/<id>/esqueleto.py   esqueleto con TODOs (pista 3)
+  tools/contenido.py           pistas y casos borde
 
-Tambien escribe problems/<id>/esqueleto.py y problems/<id>/casos.json para consultarlos.
+Tambien escribe problems/<id>/casos.json para consultarlos.
 Uso: python tools/build_arena.py
 """
 import ast
@@ -48,10 +49,10 @@ def main():
         c = CONTENIDO[d.name]
         sol_path = d / "solucion.py"
         solucion = sol_path.read_text(encoding="utf-8")
-        for nombre, codigo in (("solucion", solucion), ("esqueleto", c["esqueleto"])):
+        esqueleto = (d / "esqueleto.py").read_text(encoding="utf-8")
+        for nombre, codigo in (("solucion", solucion), ("esqueleto", esqueleto)):
             if tiene_break(codigo):
                 sys.exit(f"{d.name}: el {nombre} usa break")
-        (d / "esqueleto.py").write_text(c["esqueleto"], encoding="utf-8")
 
         casos = []
         for k, ej in enumerate(meta["ejemplos"], 1):
@@ -66,7 +67,7 @@ def main():
         print(f"{d.name:12s} {meta['conjunto']:8s} {len(casos)} casos, caso mas lento {lento:.2f}s")
 
         arena.append({**p, "slug": d.name, "conjunto": meta["conjunto"],
-                      "pistas": [c["pista1"], c["pista2"]], "esqueleto": c["esqueleto"],
+                      "pistas": [c["pista1"], c["pista2"]], "esqueleto": esqueleto,
                       "solucion": solucion, "casos": casos,
                       "limite": c.get("limite", 10), "comparador": c.get("comparador", "exacto")})
 

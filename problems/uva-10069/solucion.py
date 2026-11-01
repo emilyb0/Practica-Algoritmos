@@ -1,22 +1,24 @@
 import sys
 
 
+def phi(x, z):
+    # dp[j] = formas de formar z[:j] con lo que va leido de x
+    m = len(z)
+    dp = [1] + [0] * m
+    for c in x:
+        for j in range(m, 0, -1):    # de derecha a izquierda para no usar c dos veces
+            if z[j - 1] == c:
+                dp[j] += dp[j - 1]
+    return dp[m]
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    out = []
-    for _ in range(t):
-        x, z = data[i], data[i + 1]; i += 2
-        m = len(z)
-        # dp[j] = formas de formar z[:j] con lo leido de x
-        dp = [1] + [0] * m
-        for c in x:
-            for j in range(m, 0, -1):
-                if z[j - 1] == c:
-                    dp[j] += dp[j - 1]
-        out.append(str(dp[m]))
-    sys.stdout.write("".join(x + "\n" for x in out))
+    casos = int(sys.stdin.readline())
+    for _ in range(casos):
+        x = sys.stdin.readline().strip()
+        z = sys.stdin.readline().strip()
+        print(phi(x, z))
 
 
-main()
+if __name__ == "__main__":
+    main()

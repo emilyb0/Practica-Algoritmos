@@ -1,20 +1,35 @@
 import sys
 
 
+def phi(mask, j, d, todos, mem):
+    # menor distancia para visitar los beepers que faltan (fuera de mask) desde el punto j y volver al inicio
+    # punto 0 = inicio, punto k+1 = beeper k
+    if (mask, j) in mem:
+        ans = mem[(mask, j)]
+    else:
+        if mask == todos:
+            ans = 0  # TODO: ya visite todo, solo falta volver
+        else:
+            ans = float("inf")
+            # TODO: para cada beeper k que no este en mask: ir a k y seguir con phi
+        mem[(mask, j)] = ans
+    return ans
+
+
 def main():
-    data = [int(x) for x in sys.stdin.read().split()]
-    i = 0
-    t = data[i]; i += 1
-    for _ in range(t):
-        i += 2
-        sx, sy = data[i], data[i + 1]; i += 2
-        b = data[i]; i += 1
-        pts = [(sx, sy)] + [(data[i + 2 * k], data[i + 2 * k + 1]) for k in range(b)]
-        i += 2 * b
-        INF = float("inf")
-        dp = [[INF] * b for _ in range(1 << b)]
-        # TODO: casos base, transiciones y respuesta
-        print(f"The shortest path has length {0}")
+    casos = int(sys.stdin.readline())
+    for _ in range(casos):
+        sys.stdin.readline()                       # tamano del mundo (no se necesita)
+        sx, sy = map(int, sys.stdin.readline().split())
+        b = int(sys.stdin.readline())
+        pts = [(sx, sy)]
+        for _ in range(b):
+            x, y = map(int, sys.stdin.readline().split())
+            pts.append((x, y))
+        d = [[abs(p[0] - q[0]) + abs(p[1] - q[1]) for q in pts] for p in pts]
+        ans = phi(0, 0, d, (1 << b) - 1, dict())
+        print(f"The shortest path has length {ans}")
 
 
-main()
+if __name__ == "__main__":
+    main()

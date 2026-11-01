@@ -3,21 +3,38 @@ from math import isqrt
 
 
 def necesarios(m, k, d, guardias):
-    # TODO: intervalos por guardia y conteo voraz de puntos
-    return 0
+    # francotiradores necesarios si todos se ubican a profundidad m (voraz por intervalos)
+    intervalos = []
+    alcanza = True
+    # TODO: para cada guardia, el intervalo del eje x desde donde se le alcanza a distancia d
+    if not alcanza:
+        ans = float("inf")
+    else:
+        ans = 0  # TODO: minimo de puntos que tocan todos los intervalos (ordenar por fin)
+    return ans
+
+
+def solve(k, s, d, guardias):
+    if necesarios(1, k, d, guardias) > s:
+        ans = "IMPOSSIBLE"
+    else:
+        lo, hi = 1, d
+        # TODO: busqueda binaria de la mayor profundidad que sigue alcanzando con s
+        ans = str(lo)
+    return ans
 
 
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]) if data else 0
-    i += 1
-    for caso in range(1, t + 1):
-        k, n, s, d = (int(x) for x in data[i:i + 4]); i += 4
-        guardias = [(int(data[i + 2 * j]), int(data[i + 2 * j + 1])) for j in range(n)]
-        i += 2 * n
-        # TODO: IMPOSSIBLE si con M = 1 no alcanza; si no, busqueda binaria de M
-        print(f"Case {caso}: ")
+    casos = int(sys.stdin.readline())
+    for caso in range(1, casos + 1):
+        sys.stdin.readline()                       # linea en blanco antes de cada caso
+        k, n, s, d = map(int, sys.stdin.readline().split())
+        guardias = []
+        for _ in range(n):
+            x, y = map(int, sys.stdin.readline().split())
+            guardias.append((x, y))
+        print(f"Case {caso}: {solve(k, s, d, guardias)}")
 
 
-main()
+if __name__ == "__main__":
+    main()

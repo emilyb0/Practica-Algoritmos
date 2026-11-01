@@ -1,18 +1,22 @@
 import sys
 
 
-def operaciones(s):
-    ops = 0
+def solve(s):
+    # se trabaja hacia atras: de s hasta 0
+    ans = 0
     while s > 0:
-        # TODO: decision voraz
+        # TODO: si s es par, dividir; si es impar, decidir entre s - 1 y s + 1 (mirar s % 4)
         s -= 1
-        ops += 1
-    return ops
+        ans += 1
+    return ans
 
 
 def main():
-    for x in sys.stdin.read().split():
-        print(operaciones(int(x)))
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        print(solve(int(linea)))
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

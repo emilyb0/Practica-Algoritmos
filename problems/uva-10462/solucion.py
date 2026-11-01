@@ -1,47 +1,59 @@
 import sys
 
 
+def raiz(padre, a):
+    while padre[a] != a:
+        padre[a] = padre[padre[a]]
+        a = padre[a]
+    return a
+
+
 def kruskal(v, aristas, prohibida):
+    # aristas ordenadas por costo; se ignora la arista con indice 'prohibida'
     padre = list(range(v + 1))
-
-    def raiz(a):
-        while padre[a] != a:
-            padre[a] = padre[padre[a]]
-            a = padre[a]
-        return a
-
     costo, usadas = 0, []
-    for idx, (c, a, b) in enumerate(aristas):
+    for idx in range(len(aristas)):
+        c, a, b = aristas[idx]
         if idx != prohibida:
-            ra, rb = raiz(a), raiz(b)
+            ra, rb = raiz(padre, a), raiz(padre, b)
             if ra != rb:
                 padre[ra] = rb
                 costo += c
                 usadas.append(idx)
-    return (costo, usadas) if len(usadas) == v - 1 else (None, usadas)
+    if len(usadas) != v - 1:
+        costo = None    # el grafo no queda conectado
+    return costo, usadas
+
+
+def solve(v, aristas):
+    costo, arbol = kruskal(v, aristas, -1)
+    if costo is None:
+        ans = "No way"
+    else:
+        # segundo mejor: quitar una a una las aristas del arbol minimo
+        segundo = None
+        for idx in arbol:
+            c, _ = kruskal(v, aristas, idx)
+            if c is not None and (segundo is None or c < segundo):
+                segundo = c
+        if segundo is None:
+            ans = "No second way"
+        else:
+            ans = str(segundo)
+    return ans
 
 
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    out = []
-    for caso in range(1, t + 1):
-        v, e = int(data[i]), int(data[i + 1]); i += 2
-        aristas = sorted((int(data[i + 3 * j + 2]), int(data[i + 3 * j]), int(data[i + 3 * j + 1])) for j in range(e))
-        i += 3 * e
-        costo, arbol = kruskal(v, aristas, -1)
-        if costo is None:
-            r = "No way"
-        else:
-            segundo = None
-            for idx in arbol:
-                c, _ = kruskal(v, aristas, idx)
-                if c is not None and (segundo is None or c < segundo):
-                    segundo = c
-            r = "No second way" if segundo is None else str(segundo)
-        out.append(f"Case #{caso} : {r}")
-    sys.stdout.write("".join(x + "\n" for x in out))
+    casos = int(sys.stdin.readline())
+    for caso in range(1, casos + 1):
+        v, e = map(int, sys.stdin.readline().split())
+        aristas = []
+        for _ in range(e):
+            a, b, c = map(int, sys.stdin.readline().split())
+            aristas.append((c, a, b))
+        aristas.sort()
+        print(f"Case #{caso} : {solve(v, aristas)}")
 
 
-main()
+if __name__ == "__main__":
+    main()

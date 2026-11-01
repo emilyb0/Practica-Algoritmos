@@ -1,22 +1,31 @@
 import sys
 
 
+def solve(nums, desde, resto, actual, sumas):
+    # nums en orden no creciente; agrega a sumas cada forma de completar 'resto'
+    if resto == 0:
+        sumas.append("+".join(map(str, actual)))
+    else:
+        for j in range(desde, len(nums)):
+            pass  # TODO: si nums[j] no se repite en este nivel y cabe en resto: agregar, llamar con j + 1, quitar
+
+
 def main():
-    data = [int(x) for x in sys.stdin.read().split()]
-    i = 0
-    while i + 1 < len(data) and data[i + 1] != 0:
-        t, n = data[i], data[i + 1]
-        nums = data[i + 2:i + 2 + n]
-        i += 2 + n
+    linea = sys.stdin.readline().strip()
+    while linea != "" and linea != "0 0":
+        datos = list(map(int, linea.split()))
+        t, n = datos[0], datos[1]
+        nums = datos[2:2 + n]
+        sumas = []
+        solve(nums, 0, t, [], sumas)
         print(f"Sums of {t}:")
-        sumas, actual = [], []
-
-        def bt(desde, resto):
-            # TODO: si resto == 0 guardar "+".join; si no, probar nums[j] sin repetir en el nivel
-            pass
-
-        bt(0, t)
-        print("\n".join(sumas) if sumas else "NONE")
+        if len(sumas) == 0:
+            print("NONE")
+        else:
+            for s in sumas:
+                print(s)
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

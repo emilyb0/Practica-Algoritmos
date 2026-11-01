@@ -1,28 +1,35 @@
 import sys
 
 
-def super_numero(n, m):
-    digitos = []
-
-    def bt(prefijo):
-        largo = len(digitos)
-        if largo == m:
-            return True
-        ok = False
-        d = 1 if largo == 0 else 0
-        while not ok and d <= 9:
-            # TODO: si el nuevo prefijo cumple, agregar d, recursion y quitar si fallo
+def solve(digitos, prefijo, n, m):
+    # prefijo = valor de los digitos ya puestos; True si se pudo completar hasta m digitos
+    largo = len(digitos)
+    if largo == m:
+        ans = True
+    else:
+        ans = False
+        if largo == 0:
+            d = 1    # el primer digito no puede ser 0
+        else:
+            d = 0
+        while not ans and d <= 9:
+            nuevo = prefijo * 10 + d
+            # TODO: si largo + 1 < n o nuevo es divisible por largo + 1:
+            #       agregar d, llamar solve y quitar d si no funciono
             d += 1
-        return ok
-
-    return "".join(digitos) if bt(0) else "-1"
+    return ans
 
 
 def main():
-    data = sys.stdin.read().split()
-    t = int(data[0]) if data else 0
-    for c in range(1, t + 1):
-        print(f"Case {c}: {super_numero(int(data[2 * c - 1]), int(data[2 * c]))}")
+    casos = int(sys.stdin.readline())
+    for c in range(1, casos + 1):
+        n, m = map(int, sys.stdin.readline().split())
+        digitos = []
+        if solve(digitos, 0, n, m):
+            print(f"Case {c}: {''.join(digitos)}")
+        else:
+            print(f"Case {c}: -1")
 
 
-main()
+if __name__ == "__main__":
+    main()

@@ -1,32 +1,41 @@
 import sys
 
 
+def phi(X, armas_de, n, mem):
+    # formas de destruir exactamente los robots de X (mascara de bits) en un orden valido
+    if X in mem:
+        ans = mem[X]
+    else:
+        if X == 0:
+            ans = 1    # no destruir nada se hace de una sola forma
+        else:
+            ans = 0
+            for r in range(n):                   # pruebo cada robot r de X como el ultimo
+                if X & (1 << r):
+                    Y = X ^ (1 << r)             # X sin r: los robots destruidos antes de r
+                    if armas_de[Y] & (1 << r):   # con las armas de Y (y la de Mega Man) puedo matar a r?
+                        ans += phi(Y, armas_de, n, mem)
+        mem[X] = ans
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    out = []
-    for caso in range(1, t + 1):
-        n = int(data[i]); i += 1
-        filas = [int(data[i + r][::-1], 2) for r in range(n + 1)]; i += n + 1
-        buster, armas = filas[0], filas[1:]
-        total = 1 << n
-        # armas_de[mask] = lo que se puede destruir tras destruir los robots de 'mask'
-        armas_de = [buster] * total
-        for mask in range(1, total):
-            bajo = mask & -mask
-            armas_de[mask] = armas_de[mask ^ bajo] | armas[bajo.bit_length() - 1]
-        dp = [0] * total
-        dp[0] = 1
-        for mask in range(total):
-            if dp[mask]:
-                libres = armas_de[mask] & ~mask & (total - 1)
-                while libres:
-                    bajo = libres & -libres
-                    dp[mask | bajo] += dp[mask]
-                    libres ^= bajo
-        out.append(f"Case {caso}: {dp[total - 1]}")
-    sys.stdout.write("".join(x + "\n" for x in out))
+    casos = int(sys.stdin.readline())
+    for c in range(1, casos + 1):
+        n = int(sys.stdin.readline())
+        filas = []
+        for _ in range(n + 1):
+            fila = sys.stdin.readline().strip()
+            filas.append(int(fila[::-1], 2))     # el caracter r pasa a ser el bit r
+        mega, armas = filas[0], filas[1:]
+        # armas_de[Y] = robots que se pueden matar despues de destruir los de Y
+        armas_de = [mega] * (1 << n)
+        for Y in range(1, 1 << n):
+            bajo = Y & -Y
+            armas_de[Y] = armas_de[Y ^ bajo] | armas[bajo.bit_length() - 1]
+        X = (1 << n) - 1
+        print(f"Case {c}: {phi(X, armas_de, n, dict())}")
 
 
-main()
+if __name__ == "__main__":
+    main()

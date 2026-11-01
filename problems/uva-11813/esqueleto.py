@@ -6,25 +6,41 @@ def dijkstra(ady, n, origen):
     dist = [float("inf")] * n
     dist[origen] = 0
     pq = [(0, origen)]
-    # TODO: Dijkstra con heapq
+    # TODO: Dijkstra con heapq (ignorar entradas viejas del monticulo)
     return dist
 
 
+def phi(mask, j, d, todos, mem):
+    # TSP: menor distancia para visitar las tiendas que faltan desde el punto j y volver a casa
+    if (mask, j) in mem:
+        ans = mem[(mask, j)]
+    else:
+        if mask == todos:
+            ans = 0  # TODO
+        else:
+            ans = float("inf")
+            # TODO: probar cada tienda k que no este en mask
+        mem[(mask, j)] = ans
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    for _ in range(t):
-        n, m = int(data[i]), int(data[i + 1]); i += 2
+    casos = int(sys.stdin.readline())
+    for _ in range(casos):
+        n, m = map(int, sys.stdin.readline().split())
         ady = [[] for _ in range(n)]
         for _ in range(m):
-            x, y, d = int(data[i]), int(data[i + 1]), int(data[i + 2]); i += 3
-            ady[x].append((y, d))
-            ady[y].append((x, d))
-        s = int(data[i]); i += 1
-        puntos = [0] + [int(x) for x in data[i:i + s]]; i += s
-        # TODO: matriz de distancias entre puntos y TSP con mascaras
-        print(0)
+            x, y, w = map(int, sys.stdin.readline().split())
+            ady[x].append((y, w))
+            ady[y].append((x, w))
+        s = int(sys.stdin.readline())
+        puntos = [0]
+        for _ in range(s):
+            puntos.append(int(sys.stdin.readline()))
+        dist = [dijkstra(ady, n, p) for p in puntos]
+        d = [[dist[a][puntos[b]] for b in range(s + 1)] for a in range(s + 1)]
+        print(phi(0, 0, d, (1 << s) - 1, dict()))
 
 
-main()
+if __name__ == "__main__":
+    main()

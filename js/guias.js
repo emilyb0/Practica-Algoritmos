@@ -39,127 +39,165 @@ GUIAS.reconocer = {
 };
 
 GUIAS.lectura = {
-  titulo: "Lectura de entrada rápida",
-  intro: "Lee toda la entrada de una vez con sys.stdin.read().split() y avanza con un índice. Es más rápido que input() y no te importan los saltos de línea ni las líneas en blanco.",
+  titulo: "Lectura de entrada",
+  intro: "El main lee la entrada línea por línea con sys.stdin.readline(), llama a la función que resuelve y escribe lo que ella retorna. El ciclo termina con la condición del while: la línea vacía (fin de archivo) o el terminador.",
   patrones: [
-    { nombre: "Base: todo de una vez + índice", codigo:
+    { nombre: "Base: una línea con varios números", codigo:
 `import sys
 
 
+def solve(nums):
+    ans = sum(nums)
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    n = int(data[i]); i += 1
-    nums = [int(x) for x in data[i:i + n]]; i += n
-    print(sum(nums))
+    n = int(sys.stdin.readline())
+    nums = list(map(int, sys.stdin.readline().split()))
+    print(solve(nums))
 
 
-main()` },
+if __name__ == "__main__":
+    main()` },
     { nombre: "T casos de prueba", codigo:
 `import sys
 
 
+def solve(nums):
+    ans = max(nums)
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    out = []
-    for caso in range(1, t + 1):
-        n = int(data[i]); i += 1
-        nums = [int(x) for x in data[i:i + n]]; i += n
-        out.append(f"Case {caso}: {max(nums)}")
-    print("\\n".join(out))
+    casos = int(sys.stdin.readline())
+    for c in range(1, casos + 1):
+        n = int(sys.stdin.readline())
+        nums = list(map(int, sys.stdin.readline().split()))
+        print(f"Case {c}: {solve(nums)}")
 
 
-main()` },
+if __name__ == "__main__":
+    main()` },
     { nombre: "Hasta fin de archivo (EOF)", codigo:
 `import sys
 
 
+def solve(a, b):
+    ans = a + b
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    out = []
-    while i < len(data):          # el ciclo termina solo, sin break
-        a, b = int(data[i]), int(data[i + 1]); i += 2
-        out.append(str(a + b))
-    print("\\n".join(out))
+    linea = sys.stdin.readline().strip()
+    while linea != "":                    # readline() devuelve "" al final del archivo
+        a, b = map(int, linea.split())
+        print(solve(a, b))
+        linea = sys.stdin.readline().strip()
 
 
-main()` },
+if __name__ == "__main__":
+    main()` },
     { nombre: "Termina en 0 (o en «0 0»)", codigo:
 `import sys
 
 
+def solve(t, nums):
+    ans = t + sum(nums)
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    out = []
-    n = int(data[i]) if data else 0
-    while n != 0:                 # la condicion del while detecta el terminador
-        i += 1
-        nums = [int(x) for x in data[i:i + n]]; i += n
-        out.append(str(sum(nums)))
-        n = int(data[i]) if i < len(data) else 0
-    print("\\n".join(out))
+    linea = sys.stdin.readline().strip()
+    while linea != "" and linea != "0 0":    # la condicion del while detecta el terminador
+        datos = list(map(int, linea.split()))
+        t = datos[0]
+        n = datos[1]
+        nums = datos[2:2 + n]
+        print(solve(t, nums))
+        linea = sys.stdin.readline().strip()
 
 
-main()` },
+if __name__ == "__main__":
+    main()` },
     { nombre: "Listas y matrices", codigo:
 `import sys
 
 
+def solve(M, grilla):
+    ans = sum(sum(fila) for fila in M)
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    filas, cols = int(data[i]), int(data[i + 1]); i += 2
-    # matriz de numeros
-    m = [[int(data[i + r * cols + c]) for c in range(cols)] for r in range(filas)]
-    i += filas * cols
-    # grilla de caracteres: cada fila es una "palabra" sin espacios
-    k = int(data[i]); i += 1
-    grilla = data[i:i + k]; i += k
-    print(m, grilla)
+    filas, cols = map(int, sys.stdin.readline().split())
+    M = []
+    for _ in range(filas):                # matriz de numeros: una fila por linea
+        M.append(list(map(int, sys.stdin.readline().split())))
+    k = int(sys.stdin.readline())
+    grilla = []
+    for _ in range(k):                    # grilla de caracteres: cada fila es un string
+        grilla.append(sys.stdin.readline().strip())
+    print(solve(M, grilla))
 
 
-main()` },
-    { nombre: "Líneas completas (cuando importan los espacios)", codigo:
+if __name__ == "__main__":
+    main()` },
+    { nombre: "Línea en blanco entre casos (entrada y salida)", codigo:
 `import sys
 
 
+def solve(nums):
+    ans = sum(nums)
+    return ans
+
+
 def main():
-    lineas = sys.stdin.read().split("\\n")
+    casos = int(sys.stdin.readline())
+    for caso in range(casos):
+        sys.stdin.readline()              # linea en blanco antes de cada caso
+        n = int(sys.stdin.readline())
+        nums = []
+        for _ in range(n):
+            nums.append(int(sys.stdin.readline()))
+        if caso > 0:
+            print()                       # linea en blanco ENTRE salidas (no al final)
+        print(solve(nums))
+
+
+if __name__ == "__main__":
+    main()` },
+    { nombre: "Cuando los números vienen partidos en varias líneas", codigo:
+`import sys
+
+
+def solve(nums):
+    ans = sum(nums)
+    return ans
+
+
+def main():
+    # si el enunciado no garantiza en que linea esta cada numero, se lee todo de una vez
+    data = sys.stdin.read().split()
     i = 0
-    out = []
-    while i < len(lineas) and lineas[i].strip() != "":
-        palabras = lineas[i].split()
-        out.append(" ".join(reversed(palabras)))
+    casos = int(data[i])
+    i += 1
+    for _ in range(casos):
+        n = int(data[i])
         i += 1
-    print("\\n".join(out))
+        nums = [int(x) for x in data[i:i + n]]
+        i += n
+        print(solve(nums))
 
 
-main()` },
-    { nombre: "Salida rápida y casos separados por línea en blanco", codigo:
-`import sys
-
-
-def main():
-    data = sys.stdin.read().split()
-    t = int(data[0])
-    bloques = []
-    for c in range(t):
-        bloques.append(str(int(data[1 + c]) * 2))
-    # "\\n\\n".join pone una linea en blanco ENTRE casos (no al final)
-    sys.stdout.write("\\n\\n".join(bloques) + "\\n")
-
-
-main()` },
+if __name__ == "__main__":
+    main()` },
   ],
   errores: [
-    "Olvidar avanzar el índice i después de leer → lees el mismo dato dos veces.",
-    "Usar input() en un ciclo con miles de líneas → tiempo excedido.",
-    "Imprimir dentro del ciclo con print() muchas veces → usa una lista y '\\n'.join al final.",
+    "Olvidar leer la siguiente línea al final del while → ciclo infinito.",
+    "Olvidar .strip() → la línea trae el salto de línea y «0\\n» no es igual a «0».",
+    "Revisar solo el terminador: si la entrada se acaba sin él, readline() devuelve \"\". Por eso el while revisa también linea != \"\".",
     "Leer el terminador como un caso más → revisa la condición del while.",
+    "Líneas en blanco entre casos: léelas con sys.stdin.readline() antes de cada caso.",
     "Formato exacto: «Case 1: 5» no es «Case 1:5». Copia el formato del ejemplo.",
   ],
 };
@@ -169,75 +207,205 @@ GUIAS.plantillas = {
   temas: [
     { tema: "dyc", nombre: "Dividir y conquistar", items: [
       { nombre: "Búsqueda binaria sobre la respuesta (enteros)", codigo:
-`def factible(x):
-    # TODO: ¿se puede con x? (debe ser monotono)
-    return True
+`import sys
 
 
-def mayor_factible(lo, hi):
+def factible(x, n):
+    # TODO: se puede con x? Debe ser monotono: si x sirve, todo lo menor tambien
+    ans = x * x <= n
+    return ans
+
+
+def solve(lo, hi, n):
     # mayor x en [lo, hi] con factible(x); supone factible(lo)
     while lo < hi:
         mid = (lo + hi + 1) // 2
-        if factible(mid):
+        if factible(mid, n):
             lo = mid
         else:
             hi = mid - 1
-    return lo` },
+    return lo
+
+
+def main():
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        n = int(linea)
+        print(solve(0, n, n))
+        linea = sys.stdin.readline().strip()
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Bisección en reales", codigo:
-`def biseccion(lo, hi, f):
+`import sys
+
+
+def f(x, c):
+    # TODO: funcion creciente; se busca x con f(x) = 0
+    ans = x * x - c
+    return ans
+
+
+def solve(lo, hi, c):
     # f(lo) < 0 <= f(hi); 100 iteraciones dan precision de sobra
     for _ in range(100):
         mid = (lo + hi) / 2
-        if f(mid) < 0:
+        if f(mid, c) < 0:
             lo = mid
         else:
             hi = mid
-    return hi` },
+    return hi
+
+
+def main():
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        c = float(linea)
+        print(f"{solve(0, max(1.0, c), c):.4f}")
+        linea = sys.stdin.readline().strip()
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Dividir, conquistar y combinar (merge sort contando inversiones)", codigo:
-`def ordenar(a):
+`import sys
+
+
+def phi(a):
+    # retorna (a ordenado, numero de inversiones de a)
     if len(a) <= 1:
-        return a, 0
-    mid = len(a) // 2
-    izq, ci = ordenar(a[:mid])
-    der, cd = ordenar(a[mid:])
-    res, inv, i, j = [], ci + cd, 0, 0
-    while i < len(izq) and j < len(der):
-        if izq[i] <= der[j]:
-            res.append(izq[i]); i += 1
+        ans = (a, 0)
+    else:
+        mid = len(a) // 2
+        izq, ci = phi(a[:mid])
+        der, cd = phi(a[mid:])
+        res, inv, i, j = [], ci + cd, 0, 0
+        while i < len(izq) and j < len(der):     # combinar
+            if izq[i] <= der[j]:
+                res.append(izq[i])
+                i += 1
+            else:
+                res.append(der[j])
+                j += 1
+                inv += len(izq) - i
+        res.extend(izq[i:])
+        res.extend(der[j:])
+        ans = (res, inv)
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    a = list(map(int, sys.stdin.readline().split()))
+    ordenado, inv = phi(a)
+    print(inv)
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Dividir una matriz en 4 cuadrantes", codigo:
+`import sys
+import math
+
+
+def phi(M, l, r, h, w):
+    # codifica el bloque de M que empieza en (l, r) con h filas y w columnas
+    if h == 0 or w == 0:
+        res = ""
+    elif h == 1 and w == 1:
+        res = str(M[l][r])
+    else:
+        p1 = phi(M, l, r, math.ceil(h / 2), math.ceil(w / 2))
+        p2 = phi(M, l, r + math.ceil(w / 2), math.ceil(h / 2), math.floor(w / 2))
+        p3 = phi(M, l + math.ceil(h / 2), r, math.floor(h / 2), math.ceil(w / 2))
+        p4 = phi(M, l + math.ceil(h / 2), r + math.ceil(w / 2), math.floor(h / 2), math.floor(w / 2))
+        ans = p1 + p2 + p3 + p4
+        if ans == "0" * len(ans):
+            res = "0"
+        elif ans == "1" * len(ans):
+            res = "1"
         else:
-            res.append(der[j]); j += 1
-            inv += len(izq) - i
-    res.extend(izq[i:]); res.extend(der[j:])
-    return res, inv` },
+            res = "D" + ans
+    return res
+
+
+def main():
+    h, w = map(int, sys.stdin.readline().split())
+    M = []
+    for _ in range(h):
+        M.append(list(map(int, sys.stdin.readline().split())))
+    print(phi(M, 0, 0, h, w))
+
+
+if __name__ == "__main__":
+    main()` },
     ] },
     { tema: "dp", nombre: "Programación dinámica", items: [
-      { nombre: "Memoización (de arriba hacia abajo)", codigo:
+      { nombre: "Memoización con phi y mem (de arriba hacia abajo)", codigo:
 `import sys
-from functools import lru_cache
-
-sys.setrecursionlimit(10000)
 
 
-@lru_cache(maxsize=None)
-def f(i, resto):
-    if i == N:
-        return 0
-    mejor = f(i + 1, resto)                    # no tomar
-    if peso[i] <= resto:
-        mejor = max(mejor, valor[i] + f(i + 1, resto - peso[i]))  # tomar
-    return mejor` },
-      { nombre: "Mochila 0/1 (tabla de una fila)", codigo:
-`def mochila(pesos, valores, cap):
+def phi(i, resto, pesos, valores, mem):
+    # mejor valor usando los objetos i..n-1 con capacidad resto
+    if (i, resto) in mem:
+        ans = mem[(i, resto)]
+    else:
+        if i == len(pesos):
+            ans = 0
+        else:
+            ans = phi(i + 1, resto, pesos, valores, mem)          # no tomo el objeto i
+            if pesos[i] <= resto:                                 # tomo el objeto i
+                ans = max(ans, valores[i] + phi(i + 1, resto - pesos[i], pesos, valores, mem))
+        mem[(i, resto)] = ans
+    return ans
+
+
+def main():
+    n, cap = map(int, sys.stdin.readline().split())
+    pesos, valores = [], []
+    for _ in range(n):
+        p, v = map(int, sys.stdin.readline().split())
+        pesos.append(p)
+        valores.append(v)
+    print(phi(0, cap, pesos, valores, dict()))
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Mochila 0/1 con tabla (de abajo hacia arriba)", codigo:
+`import sys
+
+
+def phi(pesos, valores, cap):
+    # dp[c] = mejor valor con capacidad c usando los objetos vistos
     dp = [0] * (cap + 1)
-    for w, v in zip(pesos, valores):
-        for c in range(cap, w - 1, -1):    # de mayor a menor: cada objeto una vez
+    for k in range(len(pesos)):
+        w, v = pesos[k], valores[k]
+        for c in range(cap, w - 1, -1):    # de mayor a menor: cada objeto una sola vez
             dp[c] = max(dp[c], dp[c - w] + v)
-    return dp[cap]` },
+    return dp[cap]
+
+
+def main():
+    n, cap = map(int, sys.stdin.readline().split())
+    pesos, valores = [], []
+    for _ in range(n):
+        p, v = map(int, sys.stdin.readline().split())
+        pesos.append(p)
+        valores.append(v)
+    print(phi(pesos, valores, cap))
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "LIS en O(n log n)", codigo:
-`from bisect import bisect_left
+`import sys
+from bisect import bisect_left
 
 
 def lis(a):
+    # colas[k] = menor final posible de una subsecuencia creciente de largo k + 1
     colas = []
     for x in a:
         k = bisect_left(colas, x)
@@ -245,9 +413,23 @@ def lis(a):
             colas.append(x)
         else:
             colas[k] = x
-    return len(colas)` },
+    return len(colas)
+
+
+def main():
+    n = int(sys.stdin.readline())
+    a = list(map(int, sys.stdin.readline().split()))
+    print(lis(a))
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "LCS (dos índices)", codigo:
-`def lcs(a, b):
+`import sys
+
+
+def phi(a, b):
+    # dp[i][j] = LCS de a[:i] y b[:j]
     dp = [[0] * (len(b) + 1) for _ in range(len(a) + 1)]
     for i in range(1, len(a) + 1):
         for j in range(1, len(b) + 1):
@@ -255,186 +437,404 @@ def lis(a):
                 dp[i][j] = dp[i - 1][j - 1] + 1
             else:
                 dp[i][j] = max(dp[i - 1][j], dp[i][j - 1])
-    return dp[len(a)][len(b)]` },
-      { nombre: "DP de intervalos", codigo:
-`def intervalos(n, costo_union):
-    dp = [[0] * n for _ in range(n)]
-    for largo in range(2, n + 1):
-        for i in range(n - largo + 1):
-            j = i + largo - 1
-            dp[i][j] = min(dp[i][k] + dp[k + 1][j] for k in range(i, j)) + costo_union(i, j)
-    return dp[0][n - 1]` },
+    return dp[len(a)][len(b)]
+
+
+def main():
+    a = sys.stdin.readline().strip()
+    while a != "":
+        b = sys.stdin.readline().strip()
+        print(phi(a, b))
+        a = sys.stdin.readline().strip()
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "DP de intervalos (multiplicar matrices)", codigo:
+`import sys
+
+
+def phi(i, j, dims, mem):
+    # costo minimo de multiplicar las matrices i..j (la matriz k mide dims[k] x dims[k+1])
+    if (i, j) in mem:
+        ans = mem[(i, j)]
+    else:
+        if i == j:
+            ans = 0
+        else:
+            ans = float("inf")
+            for k in range(i, j):             # k = donde se parte el intervalo
+                costo = phi(i, k, dims, mem) + phi(k + 1, j, dims, mem) + dims[i] * dims[k + 1] * dims[j + 1]
+                ans = min(ans, costo)
+        mem[(i, j)] = ans
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    dims = list(map(int, sys.stdin.readline().split()))    # n + 1 numeros
+    print(phi(0, n - 1, dims, dict()))
+
+
+if __name__ == "__main__":
+    main()` },
     ] },
     { tema: "voraz", nombre: "Algoritmos voraces", items: [
       { nombre: "Selección de actividades (ordenar por fin)", codigo:
-`def actividades(intervalos):
-    cuenta, fin = 0, float("-inf")
+`import sys
+
+
+def solve(intervalos):
+    # voraz: siempre la actividad que termina primero
+    ans, fin = 0, float("-inf")
     for ini, f in sorted(intervalos, key=lambda x: x[1]):
         if ini >= fin:
-            cuenta += 1
+            ans += 1
             fin = f
-    return cuenta` },
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    intervalos = []
+    for _ in range(n):
+        ini, f = map(int, sys.stdin.readline().split())
+        intervalos.append((ini, f))
+    print(solve(intervalos))
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Cubrimiento de intervalos (sin break)", codigo:
-`def cubrir(intervalos, L):
+`import sys
+
+
+def solve(intervalos, L):
+    # menor cantidad de intervalos para cubrir [0, L]; -1 si no se puede
     intervalos.sort()
-    cubierto, usados, j, atascado = 0, 0, 0, False
+    cubierto, ans, j, atascado = 0, 0, 0, False
     while cubierto < L and not atascado:
         mejor = cubierto
         while j < len(intervalos) and intervalos[j][0] <= cubierto:
-            mejor = max(mejor, intervalos[j][1])
+            mejor = max(mejor, intervalos[j][1])    # voraz: el que llega mas lejos
             j += 1
         if mejor == cubierto:
             atascado = True
         else:
-            usados += 1
+            ans += 1
             cubierto = mejor
-    return -1 if atascado else usados` },
+    if atascado:
+        ans = -1
+    return ans
+
+
+def main():
+    n, L = map(int, sys.stdin.readline().split())
+    intervalos = []
+    for _ in range(n):
+        a, b = map(int, sys.stdin.readline().split())
+        intervalos.append((a, b))
+    print(solve(intervalos, L))
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Kruskal con Union-Find", codigo:
-`def kruskal(n, aristas):           # aristas = [(costo, a, b)]
+`import sys
+
+
+def raiz(padre, x):
+    while padre[x] != x:
+        padre[x] = padre[padre[x]]
+        x = padre[x]
+    return x
+
+
+def solve(n, aristas):
+    # costo del arbol de expansion minimo; None si el grafo no es conexo
     padre = list(range(n))
-
-    def raiz(x):
-        while padre[x] != x:
-            padre[x] = padre[padre[x]]
-            x = padre[x]
-        return x
-
-    total, usadas = 0, 0
-    for c, a, b in sorted(aristas):
-        ra, rb = raiz(a), raiz(b)
+    ans, usadas = 0, 0
+    for c, a, b in sorted(aristas):           # voraz: la arista mas barata que no forme ciclo
+        ra, rb = raiz(padre, a), raiz(padre, b)
         if ra != rb:
             padre[ra] = rb
-            total += c
+            ans += c
             usadas += 1
-    return total if usadas == n - 1 else None` },
+    if usadas != n - 1:
+        ans = None
+    return ans
+
+
+def main():
+    n, m = map(int, sys.stdin.readline().split())
+    aristas = []
+    for _ in range(m):
+        a, b, c = map(int, sys.stdin.readline().split())
+        aristas.append((c, a, b))
+    print(solve(n, aristas))
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Dijkstra con heapq", codigo:
-`import heapq
+`import sys
+import heapq
 
 
-def dijkstra(ady, origen):        # ady[u] = [(v, peso)]
+def dijkstra(ady, origen):
+    # ady[u] = [(v, peso)]; dist[v] = menor distancia desde origen
     dist = [float("inf")] * len(ady)
     dist[origen] = 0
     pq = [(0, origen)]
     while pq:
         d, u = heapq.heappop(pq)
-        if d == dist[u]:
+        if d == dist[u]:                      # ignora entradas viejas del monticulo
             for v, w in ady[u]:
                 if d + w < dist[v]:
                     dist[v] = d + w
                     heapq.heappush(pq, (dist[v], v))
-    return dist` },
+    return dist
+
+
+def main():
+    n, m = map(int, sys.stdin.readline().split())
+    ady = [[] for _ in range(n)]
+    for _ in range(m):
+        a, b, w = map(int, sys.stdin.readline().split())
+        ady[a].append((b, w))
+        ady[b].append((a, w))
+    dist = dijkstra(ady, 0)
+    print(dist[n - 1])
+
+
+if __name__ == "__main__":
+    main()` },
     ] },
     { tema: "bt", nombre: "Backtracking", items: [
-      { nombre: "Esquema general (con bandera para detenerse)", codigo:
-`def bt(paso, estado):
-    if es_solucion(paso, estado):
-        return True
-    encontrado = False
-    opciones = candidatos(paso, estado)
-    k = 0
-    while not encontrado and k < len(opciones):   # sin break: la bandera corta
-        op = opciones[k]
-        if es_valida(op, estado):
-            aplicar(op, estado)
-            encontrado = bt(paso + 1, estado)
-            deshacer(op, estado)
-        k += 1
-    return encontrado` },
-      { nombre: "Subconjuntos sin repetidos", codigo:
-`def subconjuntos(nums, objetivo):
-    nums.sort()
-    res, actual = [], []
+      { nombre: "Esquema general: feasible + solve (con bandera para detenerse)", codigo:
+`import sys
 
-    def bt(desde, resto):
-        if resto == 0:
-            res.append(actual[:])
+
+def feasible(T, f, c):
+    # se puede poner una reina en (f, c) sin que la ataquen las de las filas anteriores?
+    for i in range(f):
+        if T[i] == c or abs(T[i] - c) == f - i:
+            return False
+    return True
+
+
+def solve(f, T, n):
+    # T[i] = columna de la reina de la fila i; True si se pudo completar desde la fila f
+    if f == n:
+        ans = True
+    else:
+        ans = False
+        c = 0
+        while not ans and c < n:              # sin break: la bandera ans corta el ciclo
+            if feasible(T, f, c):
+                T[f] = c
+                ans = solve(f + 1, T, n)
+                if not ans:
+                    T[f] = None               # deshacer
+            c += 1
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    T = [None] * n
+    if solve(0, T, n):
+        print(" ".join(map(str, T)))
+    else:
+        print("NO")
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Subconjuntos sin repetidos", codigo:
+`import sys
+
+
+def solve(nums, desde, resto, actual, ans):
+    # nums ordenado; agrega a ans cada subconjunto que suma exactamente resto
+    if resto == 0:
+        ans.append(actual[:])
+    else:
         for j in range(desde, len(nums)):
+            # en un mismo nivel no se repite el mismo numero
             if (j == desde or nums[j] != nums[j - 1]) and nums[j] <= resto:
                 actual.append(nums[j])
-                bt(j + 1, resto - nums[j])
+                solve(nums, j + 1, resto - nums[j], actual, ans)
                 actual.pop()
 
-    bt(0, objetivo)
-    return res` },
-      { nombre: "Permutaciones con marcas", codigo:
-`def permutaciones(n):
-    usado, actual, res = [False] * n, [], []
 
-    def bt():
-        if len(actual) == n:
-            res.append(actual[:])
+def main():
+    n, objetivo = map(int, sys.stdin.readline().split())
+    nums = sorted(map(int, sys.stdin.readline().split()))
+    ans = []
+    solve(nums, 0, objetivo, [], ans)
+    for sub in ans:
+        print(sub)
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Permutaciones con marcas", codigo:
+`import sys
+
+
+def solve(n, usado, actual, ans):
+    if len(actual) == n:
+        ans.append(actual[:])
+    else:
         for v in range(n):
             if not usado[v]:
-                usado[v] = True
+                usado[v] = True               # marcar
                 actual.append(v)
-                bt()
-                actual.pop()
+                solve(n, usado, actual, ans)
+                actual.pop()                  # desmarcar
                 usado[v] = False
 
-    bt()
-    return res` },
-      { nombre: "N reinas (poda por columnas y diagonales)", codigo:
-`def reinas(n):
-    col, d1, d2 = [False] * n, [False] * (2 * n), [False] * (2 * n)
-    cuenta = 0
 
-    def bt(f):
-        nonlocal cuenta
-        if f == n:
-            cuenta += 1
+def main():
+    n = int(sys.stdin.readline())
+    ans = []
+    solve(n, [False] * n, [], ans)
+    for p in ans:
+        print(" ".join(map(str, p)))
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "N reinas: contar todas (poda por columnas y diagonales)", codigo:
+`import sys
+
+
+def solve(f, n, col, d1, d2):
+    # cuantas formas hay de completar desde la fila f
+    if f == n:
+        ans = 1
+    else:
+        ans = 0
         for c in range(n):
             if not col[c] and not d1[f + c] and not d2[f - c + n]:
                 col[c] = d1[f + c] = d2[f - c + n] = True
-                bt(f + 1)
+                ans += solve(f + 1, n, col, d1, d2)
                 col[c] = d1[f + c] = d2[f - c + n] = False
+    return ans
 
-    bt(0)
-    return cuenta` },
+
+def main():
+    n = int(sys.stdin.readline())
+    print(solve(0, n, [False] * n, [False] * (2 * n), [False] * (2 * n)))
+
+
+if __name__ == "__main__":
+    main()` },
     ] },
     { tema: "np", nombre: "NP-completo con entrada pequeña", items: [
-      { nombre: "TSP con máscara de bits", codigo:
-`def tsp(d):                     # d = matriz de distancias, 0 es el inicio
-    n = len(d)
-    INF = float("inf")
-    dp = [[INF] * n for _ in range(1 << n)]
-    dp[1][0] = 0
-    for mask in range(1 << n):
-        for u in range(n):
-            if dp[mask][u] < INF:
-                for v in range(n):
-                    if not mask & (1 << v):
-                        nm = mask | (1 << v)
-                        dp[nm][v] = min(dp[nm][v], dp[mask][u] + d[u][v])
-    return min(dp[(1 << n) - 1][u] + d[u][0] for u in range(n))` },
+      { nombre: "TSP con máscara de bits (phi y mem)", codigo:
+`import sys
+
+
+def phi(mask, j, d, todos, mem):
+    # menor costo para visitar las ciudades que faltan (fuera de mask) desde j y volver a 0
+    if (mask, j) in mem:
+        ans = mem[(mask, j)]
+    else:
+        if mask == todos:
+            ans = d[j][0]
+        else:
+            ans = float("inf")
+            for k in range(len(d)):
+                if not mask & (1 << k):
+                    ans = min(ans, d[j][k] + phi(mask | (1 << k), k, d, todos, mem))
+        mem[(mask, j)] = ans
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    d = []
+    for _ in range(n):
+        d.append(list(map(int, sys.stdin.readline().split())))
+    todos = (1 << n) - 1
+    print(phi(1, 0, d, todos, dict()))     # empiezo en la ciudad 0 (ya visitada)
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Subset sum (DP pseudo-polinomial)", codigo:
-`def subset_sum(nums, objetivo):
-    posible = [False] * (objetivo + 1)
-    posible[0] = True
-    for x in nums:
-        for s in range(objetivo, x - 1, -1):
-            if posible[s - x]:
-                posible[s] = True
-    return posible[objetivo]` },
+`import sys
+
+
+def phi(i, resto, nums, mem):
+    # se puede sumar exactamente resto usando nums[i..]?
+    if (i, resto) in mem:
+        ans = mem[(i, resto)]
+    else:
+        if resto == 0:
+            ans = True
+        elif i == len(nums) or resto < 0:
+            ans = False
+        else:
+            ans = phi(i + 1, resto - nums[i], nums, mem) or phi(i + 1, resto, nums, mem)
+        mem[(i, resto)] = ans
+    return ans
+
+
+def main():
+    n, objetivo = map(int, sys.stdin.readline().split())
+    nums = list(map(int, sys.stdin.readline().split()))
+    if phi(0, objetivo, nums, dict()):
+        print("SI")
+    else:
+        print("NO")
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Ramificación y poda (máximo)", codigo:
-`def mejor_subconjunto(n, valor, compatible):
-    mejor = 0
-    elegidos = []
+`import sys
 
-    def bt(i, acumulado):
-        nonlocal mejor
-        cota = acumulado + sum(valor[i:])       # cota optimista
-        if cota > mejor:                         # poda: si no puede mejorar, no sigue
-            if i == n:
-                mejor = acumulado
-            else:
-                if compatible(elegidos, i):
-                    elegidos.append(i)
-                    bt(i + 1, acumulado + valor[i])
-                    elegidos.pop()
-                bt(i + 1, acumulado)
 
-    bt(0, 0)
-    return mejor` },
+def compatible(elegidos, i, conflictos):
+    ans = True
+    for e in elegidos:
+        if (e, i) in conflictos:
+            ans = False
+    return ans
+
+
+def solve(i, acumulado, valor, conflictos, elegidos, mejor):
+    # mejor[0] = mayor valor encontrado hasta ahora
+    cota = acumulado + sum(valor[i:])         # cota optimista
+    if cota > mejor[0]:                       # poda: si no puede mejorar, no sigue
+        if i == len(valor):
+            mejor[0] = acumulado
+        else:
+            if compatible(elegidos, i, conflictos):
+                elegidos.append(i)
+                solve(i + 1, acumulado + valor[i], valor, conflictos, elegidos, mejor)
+                elegidos.pop()
+            solve(i + 1, acumulado, valor, conflictos, elegidos, mejor)
+
+
+def main():
+    n, m = map(int, sys.stdin.readline().split())
+    valor = list(map(int, sys.stdin.readline().split()))
+    conflictos = set()
+    for _ in range(m):
+        a, b = map(int, sys.stdin.readline().split())
+        conflictos.add((a, b))
+        conflictos.add((b, a))
+    mejor = [0]
+    solve(0, 0, valor, conflictos, [], mejor)
+    print(mejor[0])
+
+
+if __name__ == "__main__":
+    main()` },
     ] },
   ],
 };

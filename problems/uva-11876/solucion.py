@@ -5,7 +5,7 @@ LIM = 1000000
 
 
 def construir():
-    # menor factor primo de cada numero (criba) para factorizar rapido
+    # spf[x] = menor factor primo de x (criba), para contar divisores rapido
     spf = list(range(LIM + 1))
     i = 2
     while i * i <= LIM:
@@ -14,6 +14,7 @@ def construir():
                 if spf[j] == j:
                     spf[j] = i
         i += 1
+    # seq = 1, 1 + NOD(1), ... hasta pasar LIM
     seq = [1]
     while seq[-1] <= LIM:
         x, nod = seq[-1], 1
@@ -27,15 +28,19 @@ def construir():
     return seq
 
 
+def solve(seq, a, b):
+    # cuantos terminos de seq caen en [a, b] (busqueda binaria)
+    return bisect_right(seq, b) - bisect_left(seq, a)
+
+
 def main():
-    data = sys.stdin.read().split()
-    t = int(data[0]) if data else 0
-    seq = construir() if t > 0 else []
-    out = []
-    for c in range(t):
-        a, b = int(data[1 + 2 * c]), int(data[2 + 2 * c])
-        out.append(f"Case {c + 1}: {bisect_right(seq, b) - bisect_left(seq, a)}")
-    sys.stdout.write("".join(x + "\n" for x in out))
+    casos = int(sys.stdin.readline())
+    if casos > 0:
+        seq = construir()
+    for c in range(1, casos + 1):
+        a, b = map(int, sys.stdin.readline().split())
+        print(f"Case {c}: {solve(seq, a, b)}")
 
 
-main()
+if __name__ == "__main__":
+    main()

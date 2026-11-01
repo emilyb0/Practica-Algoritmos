@@ -1,28 +1,32 @@
 import sys
 
 
+def solve(v, n, ady, negro, actual, mejor):
+    # decide el color del nodo v; mejor guarda la mayor coloracion encontrada
+    # poda: ni pintando de negro todos los que faltan se supera al mejor
+    if len(actual) + (n - v + 1) > len(mejor):
+        if v > n:
+            mejor[:] = actual
+        else:
+            # TODO: si ningun vecino de v es negro: pintarlo negro, llamar con v + 1, despintarlo
+            solve(v + 1, n, ady, negro, actual, mejor)    # v queda blanco
+
+
 def main():
-    data = [int(x) for x in sys.stdin.read().split()]
-    i = 0
-    m = data[i]; i += 1
-    for _ in range(m):
-        n, k = data[i], data[i + 1]; i += 2
+    casos = int(sys.stdin.readline())
+    for _ in range(casos):
+        n, k = map(int, sys.stdin.readline().split())
         ady = [set() for _ in range(n + 1)]
         for _ in range(k):
-            a, b = data[i], data[i + 1]; i += 2
-            ady[a].add(b)
-            ady[b].add(a)
-        negro = [False] * (n + 1)
-        mejor, actual = [], []
-
-        def bt(v):
-            nonlocal mejor
-            # TODO: poda; si v > n actualizar mejor; si no, probar negro y luego blanco
-            pass
-
-        bt(1)
+            a, b = map(int, sys.stdin.readline().split())
+            if a != b:
+                ady[a].add(b)
+                ady[b].add(a)
+        mejor = []
+        solve(1, n, ady, [False] * (n + 1), [], mejor)
         print(len(mejor))
         print(" ".join(map(str, mejor)))
 
 
-main()
+if __name__ == "__main__":
+    main()

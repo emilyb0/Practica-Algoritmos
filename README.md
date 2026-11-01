@@ -18,6 +18,8 @@ Tu progreso se guarda en el navegador. Para pasarlo a otro navegador o dispositi
 
 Regla del curso: no se permite `break`. El juez avisa si lo usas.
 
+Todo el código (soluciones, esqueletos y plantillas) sigue la misma estructura: `main` lee la entrada con `sys.stdin.readline()` e imprime, y una función (`phi`, `solve`) resuelve con el algoritmo y retorna la respuesta.
+
 ## Estructura
 
 ```

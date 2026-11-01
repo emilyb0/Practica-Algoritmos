@@ -1,26 +1,30 @@
 import sys
 
 
+def solve(s, r, desde, actual, ans):
+    # s ordenada; agrega a ans todas las combinaciones de r letras sin repetir
+    if len(actual) == r:
+        ans.append("".join(actual))
+    else:
+        for j in range(desde, len(s)):
+            # en un mismo nivel no se repite la misma letra
+            if j == desde or s[j] != s[j - 1]:
+                actual.append(s[j])
+                solve(s, r, j + 1, actual, ans)
+                actual.pop()
+
+
 def main():
-    data = sys.stdin.read().split()
-    out = []
-    for i in range(0, len(data) - 1, 2):
-        s, r = sorted(data[i]), int(data[i + 1])
-        actual = []
-
-        def bt(desde):
-            if len(actual) == r:
-                out.append("".join(actual))
-            else:
-                for j in range(desde, len(s)):
-                    # en un mismo nivel no se repite la misma letra
-                    if j == desde or s[j] != s[j - 1]:
-                        actual.append(s[j])
-                        bt(j + 1)
-                        actual.pop()
-
-        bt(0)
-    sys.stdout.write("".join(x + "\n" for x in out))
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        palabra, r = linea.split()
+        s = sorted(palabra)
+        ans = []
+        solve(s, int(r), 0, [], ans)
+        for comb in ans:
+            print(comb)
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

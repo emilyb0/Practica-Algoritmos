@@ -1,22 +1,29 @@
 import sys
 from bisect import bisect_left, bisect_right
 
+LIM = 1000000
 
-def nod(x):
-    # TODO: numero de divisores de x (factorizando)
-    return 1
+
+def construir():
+    # TODO: criba con el menor factor primo de cada numero hasta LIM
+    # TODO: seq = [1]; agregar seq[-1] + NOD(seq[-1]) mientras no pase LIM
+    seq = [1]
+    return seq
+
+
+def solve(seq, a, b):
+    # TODO: cuantos terminos de seq caen en [a, b] (bisect_left / bisect_right)
+    return 0
 
 
 def main():
-    data = sys.stdin.read().split()
-    t = int(data[0]) if data else 0
-    seq = [1]
-    while seq[-1] <= 1000000:
-        seq.append(seq[-1] + nod(seq[-1]))
-    for c in range(1, t + 1):
-        a, b = int(data[2 * c - 1]), int(data[2 * c])
-        # TODO: contar con bisect
-        print(f"Case {c}: {0}")
+    casos = int(sys.stdin.readline())
+    if casos > 0:
+        seq = construir()
+    for c in range(1, casos + 1):
+        a, b = map(int, sys.stdin.readline().split())
+        print(f"Case {c}: {solve(seq, a, b)}")
 
 
-main()
+if __name__ == "__main__":
+    main()

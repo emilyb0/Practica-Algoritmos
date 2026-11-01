@@ -1,29 +1,48 @@
 import sys
 
 
+def raiz(padre, a):
+    while padre[a] != a:
+        padre[a] = padre[padre[a]]
+        a = padre[a]
+    return a
+
+
 def kruskal(v, aristas, prohibida):
+    # aristas ordenadas por costo; se ignora la arista con indice 'prohibida'
     padre = list(range(v + 1))
-
-    def raiz(a):
-        while padre[a] != a:
-            a = padre[a]
-        return a
-
     costo, usadas = 0, []
-    # TODO: recorrer aristas ordenadas (saltando 'prohibida') y unir componentes
-    return (costo, usadas) if len(usadas) == v - 1 else (None, usadas)
+    # TODO: Kruskal; guardar en usadas los indices de las aristas que entran al arbol
+    if len(usadas) != v - 1:
+        costo = None    # el grafo no queda conectado
+    return costo, usadas
+
+
+def solve(v, aristas):
+    costo, arbol = kruskal(v, aristas, -1)
+    if costo is None:
+        ans = "No way"
+    else:
+        segundo = None
+        # TODO: para cada arista del arbol, correr kruskal sin ella y quedarse con el menor costo
+        if segundo is None:
+            ans = "No second way"
+        else:
+            ans = str(segundo)
+    return ans
 
 
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    t = int(data[i]); i += 1
-    for caso in range(1, t + 1):
-        v, e = int(data[i]), int(data[i + 1]); i += 2
-        aristas = sorted((int(data[i + 3 * j + 2]), int(data[i + 3 * j]), int(data[i + 3 * j + 1])) for j in range(e))
-        i += 3 * e
-        # TODO: "No way", "No second way" o el segundo costo
-        print(f"Case #{caso} : ")
+    casos = int(sys.stdin.readline())
+    for caso in range(1, casos + 1):
+        v, e = map(int, sys.stdin.readline().split())
+        aristas = []
+        for _ in range(e):
+            a, b, c = map(int, sys.stdin.readline().split())
+            aristas.append((c, a, b))
+        aristas.sort()
+        print(f"Case #{caso} : {solve(v, aristas)}")
 
 
-main()
+if __name__ == "__main__":
+    main()

@@ -1,16 +1,24 @@
 import sys
 
 
+def phi(n):
+    # g(n): sumar los digitos hasta que quede uno solo
+    if n < 10:
+        ans = n
+    else:
+        s = 0
+        # TODO: sumar los digitos de n en s (n % 10 y n //= 10)
+        ans = 0  # TODO: llamar phi con la suma
+    return ans
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    out = []
-    while i < len(data) and data[i] != "0":
-        n = int(data[i])
-        # TODO: mientras n >= 10, reemplazar n por la suma de sus digitos
-        out.append(str(n))
-        i += 1
-    print("\n".join(out))
+    linea = sys.stdin.readline().strip()
+    while linea != "" and linea != "0":
+        n = int(linea)
+        print(phi(n))
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

@@ -1,21 +1,26 @@
 import sys
 
 
-def raiz_entera(n):
+def solve(n):
+    # mayor r con r*r <= n (n puede tener 100 digitos: no usar float)
     lo, hi = 0, 1
     while hi * hi <= n:
         hi *= 2
-    # TODO: busqueda binaria del mayor r con r*r <= n
+    while lo < hi:
+        mid = (lo + hi + 1) // 2
+        # TODO: si mid*mid <= n, lo = mid; si no, hi = mid - 1
+        hi = mid - 1
     return lo
 
 
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    while i < len(data) and data[i] != "0":
-        r = raiz_entera(int(data[i]))
+    linea = sys.stdin.readline().strip()
+    while linea != "" and linea != "0":
+        n = int(linea)
+        r = solve(n)
         print(r * r)
-        i += 1
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

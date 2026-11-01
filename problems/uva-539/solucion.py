@@ -1,32 +1,32 @@
 import sys
 
 
+def solve(u, ady, usada):
+    # camino mas largo saliendo de u sin repetir aristas
+    ans = 0
+    for v, e in ady[u]:
+        if not usada[e]:
+            usada[e] = True
+            ans = max(ans, 1 + solve(v, ady, usada))
+            usada[e] = False
+    return ans
+
+
 def main():
-    data = [int(x) for x in sys.stdin.read().split()]
-    i, out = 0, []
-    while i + 1 < len(data) and (data[i] != 0 or data[i + 1] != 0):
-        n, m = data[i], data[i + 1]; i += 2
+    linea = sys.stdin.readline().strip()
+    while linea != "" and linea != "0 0":
+        n, m = map(int, linea.split())
         ady = [[] for _ in range(n)]
         for e in range(m):
-            a, b = data[i], data[i + 1]; i += 2
+            a, b = map(int, sys.stdin.readline().split())
             ady[a].append((b, e))
             ady[b].append((a, e))
-        usada = [False] * m
-        mejor = 0
-
-        def bt(u, largo):
-            nonlocal mejor
-            mejor = max(mejor, largo)
-            for v, e in ady[u]:
-                if not usada[e]:
-                    usada[e] = True
-                    bt(v, largo + 1)
-                    usada[e] = False
-
+        ans = 0
         for u in range(n):
-            bt(u, 0)
-        out.append(str(mejor))
-    sys.stdout.write("".join(x + "\n" for x in out))
+            ans = max(ans, solve(u, ady, [False] * m))
+        print(ans)
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()

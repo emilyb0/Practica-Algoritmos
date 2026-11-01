@@ -1,19 +1,34 @@
 import sys
 
 
+def tiempo(d, s, c):
+    # tiempo total si la constante es c
+    ans = 0
+    # TODO: sumar d[i] / (s[i] + c)
+    return ans
+
+
+def solve(d, s, t):
+    # cuidado: s[i] + c debe ser positivo
+    lo, hi = -min(s), 1e7
+    for _ in range(200):
+        c = (lo + hi) / 2
+        # TODO: si tiempo(d, s, c) > t, c es muy chico; si no, es muy grande
+    return hi
+
+
 def main():
-    data = sys.stdin.read().split()
-    i = 0
-    while i < len(data):
-        n, t = int(data[i]), int(data[i + 1]); i += 2
-        d = [int(x) for x in data[i:i + 2 * n:2]]
-        s = [int(x) for x in data[i + 1:i + 2 * n:2]]
-        i += 2 * n
-        lo, hi = -min(s), 1e7
-        for _ in range(200):
-            c = (lo + hi) / 2
-            # TODO: calcular el tiempo total con c y mover lo o hi
-        print(f"{hi:.4f}")
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        n, t = map(int, linea.split())
+        d, s = [], []
+        for _ in range(n):
+            di, si = map(int, sys.stdin.readline().split())
+            d.append(di)
+            s.append(si)
+        print(f"{solve(d, s, t):.4f}")
+        linea = sys.stdin.readline().strip()
 
 
-main()
+if __name__ == "__main__":
+    main()
