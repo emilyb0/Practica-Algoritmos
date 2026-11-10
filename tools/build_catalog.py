@@ -1,6 +1,9 @@
 """Genera data/problemas.json a partir de la lista recolectada de las tareas de ADA.
 
-conjunto: "nucleo" (30 problemas del plan), "reserva" (9, para simulacros) o "biblioteca" (resto, sin juez).
+conjunto: "nucleo" (problemas de los módulos), "reserva" (para simulacros) o "biblioteca" (resto, sin juez).
+El examen evalúa 4 temas (EXAMEN). Un problema de otro tema queda con fuera_examen = true y la app lo oculta.
+Los problemas que antes estaban en NP-completitud se reclasificaron por la técnica con que se resuelven
+(tema_anterior = "np").
 
 Uso: python tools/build_catalog.py [--verify]
   --verify  hace una petición HTTP a cada enlace oficial y guarda el código obtenido.
@@ -43,7 +46,7 @@ TEMAS = {
     "bt": "Backtracking",
     "dp": "Programación dinámica",
     "voraz": "Algoritmos voraces",
-    "np": "NP-completitud (entrada pequeña)",
+    "np": "NP-completitud (fuera del examen)",
     "repaso": "Repaso / lectura de entrada",
 }
 
@@ -348,36 +351,39 @@ P = [
      "Contar mapas de intercambios mínimos que ordenan un arreglo pequeño.",
      "Backtracking: intercambia solo pares adyacentes invertidos; cuenta al quedar ordenado."),
 
-    # ---------------- NP-completos con entrada pequeña ----------------
-    ("UVa", 193, "Graph Coloring", "np", "medio", ["2025-1 T4"],
+    # ---------------- Antes en NP-completitud: reclasificados por la técnica que los resuelve ----------------
+    ("UVa", 193, "Graph Coloring", "bt", "medio", ["2025-1 T4"],
      "Máximo número de nodos negros sin dos negros adyacentes (conjunto independiente máximo).",
      "Backtracking: pinta negro solo si ningún vecino es negro; poda si negros + restantes <= mejor."),
-    ("UVa", 11813, "Shopping", "np", "dificil", ["2024-1 T3"],
+    ("UVa", 11813, "Shopping", "dp", "dificil", ["2024-1 T3"],
      "Salir de casa, visitar hasta 10 tiendas y volver con la menor distancia.",
      "Dijkstra desde casa y cada tienda; luego TSP con DP sobre máscaras de bits."),
-    ("UVa", 11795, "Mega Man's Mission", "np", "dificil", ["2025-1 T2"],
+    ("UVa", 11795, "Mega Man's Mission", "dp", "dificil", ["2025-1 T2"],
      "Contar órdenes en que Mega Man puede destruir todos los robots usando las armas ganadas.",
      "dp[máscara] = formas; desde una máscara puedes matar el robot i si alguna arma de la máscara lo vence."),
-    ("UVa", 10890, "Maze", "np", "dificil", ["2024-2 T4"],
+    ("UVa", 10890, "Maze", "bt", "dificil", ["2024-2 T4"],
      "Ir de la entrada a la salida recogiendo al menos S tesoros con el menor número de pasos.",
      "Distancias BFS entre puntos clave + backtracking sobre tesoros con poda por el mejor encontrado."),
-    ("UVa", 11699, "Rooks", "np", "dificil", ["2025-1 T4"],
+    ("UVa", 11699, "Rooks", "bt", "dificil", ["2025-1 T4"],
      "Mínimo de torres para atacar todas las casillas marcadas de un tablero 15x15.",
      "Enumera máscaras de filas con torre; las columnas sobrantes se deducen. 2^15 subconjuntos."),
-    ("UVa", 10496, "Collecting Beepers", "np", "medio", ["extra"],
+    ("UVa", 10496, "Collecting Beepers", "dp", "medio", ["extra"],
      "Recoger hasta 10 beepers en una cuadrícula y volver con la menor distancia Manhattan.",
      "TSP clásico: dp[máscara][último] o permutaciones con poda."),
-    ("UVa", 216, "Getting in Line", "np", "medio", ["extra"],
+    ("UVa", 216, "Getting in Line", "bt", "medio", ["extra"],
      "Conectar hasta 8 computadores en cadena minimizando el cable.",
      "Prueba permutaciones (8! es pequeño) o DP de máscaras; imprime el orden."),
-    ("UVa", 574, "Sum It Up", "np", "facil", ["extra"],
+    ("UVa", 574, "Sum It Up", "bt", "facil", ["extra"],
      "Listar todas las formas distintas de sumar t con los números dados.",
      "Subset sum por backtracking; ordena desc y salta repetidos en el mismo nivel."),
-    ("UVa", 624, "CD", "np", "facil", ["extra"],
+    ("UVa", 624, "CD", "bt", "facil", ["extra"],
      "Escoger pistas que llenen al máximo una cinta de N minutos.",
      "Subset sum con 20 pistas: backtracking o DP guardando la elección."),
 ]
 
+
+EXAMEN = {"dyc", "bt", "dp", "voraz"}
+ANTES_NP = {193, 11813, 11795, 10890, 11699, 10496, 216, 574, 624}
 
 # Casos en que la petición directa no devuelve 200 pero el problema se confirmó por otra vía.
 NOTAS = {
@@ -438,19 +444,27 @@ def main():
             "semestres": semestres,
             "apariciones": apar,
             "tema": tema,
+            "tema_anterior": "np" if fuente == "UVa" and num in ANTES_NP else None,
+            "fuera_examen": tema not in EXAMEN and tema != "repaso",
             "dificultad": dif,
             "extra": apar == ["extra"],
             "conjunto": conjunto,
             "resumen": resumen,
             "pista": pista,
         })
+    path = ROOT / "data" / "problemas.json"
+    previo = {}
+    if path.exists():
+        previo = {q["id"]: q.get("verificacion") for q in json.loads(path.read_text(encoding="utf-8"))["problemas"]}
+    for q in out:
+        if previo.get(q["id"]):
+            q["verificacion"] = previo[q["id"]]   # se conserva la última verificación
     if verify:
         with ThreadPoolExecutor(12) as ex:
             codes = list(ex.map(lambda p: check(p["enlace"]), out))
         for p, c in zip(out, codes):
             p["verificacion"] = "ok" if c == 200 else NOTAS.get(p["id"], f"falló ({c})")
-    doc = {"generado": "2026-10-29", "temas": TEMAS, "problemas": out}
-    path = ROOT / "data" / "problemas.json"
+    doc = {"generado": "2026-11-10", "temas": TEMAS, "problemas": out}
     path.parent.mkdir(exist_ok=True)
     path.write_text(json.dumps(doc, ensure_ascii=False, indent=2), encoding="utf-8")
     print(f"{len(out)} problemas -> {path}")

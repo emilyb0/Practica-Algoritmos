@@ -1,11 +1,11 @@
 {
-  "generado": "2026-10-29",
+  "generado": "2026-11-10",
   "temas": {
     "dyc": "Dividir y conquistar",
     "bt": "Backtracking",
     "dp": "Programación dinámica",
     "voraz": "Algoritmos voraces",
-    "np": "NP-completitud (entrada pequeña)",
+    "np": "NP-completitud (fuera del examen)",
     "repaso": "Repaso / lectura de entrada"
   },
   "problemas": [
@@ -24,6 +24,8 @@
         "2024-1 clase"
       ],
       "tema": "repaso",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -45,6 +47,8 @@
         "2024-1 T1"
       ],
       "tema": "repaso",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -66,6 +70,8 @@
         "2024-1 T1"
       ],
       "tema": "repaso",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -88,6 +94,8 @@
         "2024-1 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -109,6 +117,8 @@
         "2024-1 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "nucleo",
@@ -133,6 +143,8 @@
         "2024-1 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -154,6 +166,8 @@
         "2024-1 T2"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -175,6 +189,8 @@
         "2024-1 T2"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -197,6 +213,8 @@
         "2024-1 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "reserva",
@@ -218,6 +236,8 @@
         "2024-1 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -239,6 +259,8 @@
         "2024-2 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -261,6 +283,8 @@
         "2024-2 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -282,6 +306,8 @@
         "2024-2 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -304,6 +330,8 @@
         "2024-2 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -325,6 +353,8 @@
         "2025-1 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -346,6 +376,8 @@
         "2025-1 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -368,6 +400,8 @@
         "2025-1 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -389,6 +423,8 @@
         "2025-1 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -411,6 +447,8 @@
         "2025-1 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "reserva",
@@ -432,6 +470,8 @@
         "2025-2 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -453,9 +493,11 @@
         "2025-2 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
-      "conjunto": "biblioteca",
+      "conjunto": "reserva",
       "resumen": "Partículas en una línea con velocidades: tiempo del primer choque entre partículas en direcciones opuestas.",
       "pista": "Búsqueda binaria sobre el tiempo t: ¿alguna partícula a la derecha alcanza a una de la izquierda antes de t?",
       "verificacion": "ok (Codeforces bloquea bots con 403; confirmado con la API problemset.problems)"
@@ -474,6 +516,8 @@
         "2025-2 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -496,6 +540,8 @@
         "2025-2 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -517,6 +563,8 @@
         "2026-1 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -538,6 +586,8 @@
         "2026-1 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -560,6 +610,8 @@
         "2026-1 clase"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -581,6 +633,8 @@
         "2026-1 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -602,6 +656,8 @@
         "2026-1 T1"
       ],
       "tema": "dyc",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -624,6 +680,8 @@
         "2024-1 clase"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -645,6 +703,8 @@
         "2024-1 T3"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -666,6 +726,8 @@
         "2024-1 T3"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -689,6 +751,8 @@
         "2026-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "nucleo",
@@ -710,6 +774,8 @@
         "2024-1 T3"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -731,6 +797,8 @@
         "2024-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "reserva",
@@ -752,6 +820,8 @@
         "2024-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -773,6 +843,8 @@
         "2024-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -795,6 +867,8 @@
         "2024-2 clase"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -816,6 +890,8 @@
         "2024-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -839,6 +915,8 @@
         "2025-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -860,6 +938,8 @@
         "2025-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -881,6 +961,8 @@
         "2025-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -902,6 +984,8 @@
         "2025-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -923,6 +1007,8 @@
         "2025-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -944,6 +1030,8 @@
         "2025-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -965,6 +1053,8 @@
         "2025-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -986,6 +1076,8 @@
         "2025-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1007,6 +1099,8 @@
         "2025-2 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1028,6 +1122,8 @@
         "2026-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "reserva",
@@ -1049,6 +1145,8 @@
         "2026-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1070,6 +1168,8 @@
         "2026-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -1091,6 +1191,8 @@
         "2026-1 T2"
       ],
       "tema": "dp",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1114,6 +1216,8 @@
         "2026-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "nucleo",
@@ -1135,6 +1239,8 @@
         "2024-1 T4"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1156,9 +1262,11 @@
         "2024-1 T4"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
-      "conjunto": "biblioteca",
+      "conjunto": "reserva",
       "resumen": "Emparejar caballos contra los del rey para maximizar las ganancias.",
       "pista": "Ordena ambos; compara los más rápidos y los más lentos para decidir ganar, empatar o sacrificar.",
       "verificacion": "ok"
@@ -1177,6 +1285,8 @@
         "2024-1 T4"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1198,6 +1308,8 @@
         "2024-1 T4"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -1219,6 +1331,8 @@
         "2024-1 T4"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1240,6 +1354,8 @@
         "2024-1 T4"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1261,6 +1377,8 @@
         "2024-1 T4"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1282,6 +1400,8 @@
         "2024-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -1303,6 +1423,8 @@
         "2024-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1324,6 +1446,8 @@
         "2024-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1345,6 +1469,8 @@
         "2024-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1366,6 +1492,8 @@
         "2024-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1387,6 +1515,8 @@
         "2025-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1408,6 +1538,8 @@
         "2025-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1431,6 +1563,8 @@
         "2026-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -1452,6 +1586,8 @@
         "2025-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "reserva",
@@ -1473,6 +1609,8 @@
         "2025-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1494,6 +1632,8 @@
         "2025-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -1515,6 +1655,8 @@
         "2025-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "reserva",
@@ -1536,6 +1678,8 @@
         "2025-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1557,6 +1701,8 @@
         "2025-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1578,6 +1724,8 @@
         "2025-2 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -1599,6 +1747,8 @@
         "2026-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1620,6 +1770,8 @@
         "2026-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1641,6 +1793,8 @@
         "2026-1 T3"
       ],
       "tema": "voraz",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1664,6 +1818,8 @@
         "2026-1 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "nucleo",
@@ -1685,6 +1841,8 @@
         "2024-1 T5"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1708,6 +1866,8 @@
         "2025-2 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -1729,6 +1889,8 @@
         "2024-1 T5"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1752,6 +1914,8 @@
         "2024-2 clase"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -1773,6 +1937,8 @@
         "2024-2 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1794,6 +1960,8 @@
         "2024-2 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -1815,6 +1983,8 @@
         "2024-2 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1836,6 +2006,8 @@
         "2025-1 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "reserva",
@@ -1857,6 +2029,8 @@
         "2025-1 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1878,9 +2052,11 @@
         "2025-1 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
-      "conjunto": "biblioteca",
+      "conjunto": "reserva",
       "resumen": "Clasificar un sudoku: ilegal, imposible, ambiguo o con solución única.",
       "pista": "Backtracking con máscaras de bits por fila/columna/caja; detente al hallar 2 soluciones (con bandera).",
       "verificacion": "ok"
@@ -1899,6 +2075,8 @@
         "2025-2 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "nucleo",
@@ -1920,6 +2098,8 @@
         "2025-2 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1941,6 +2121,8 @@
         "2025-2 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1962,6 +2144,8 @@
         "2025-2 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "biblioteca",
@@ -1983,6 +2167,8 @@
         "2026-1 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "reserva",
@@ -2004,6 +2190,8 @@
         "2026-1 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -2025,6 +2213,8 @@
         "2026-1 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -2046,6 +2236,8 @@
         "2026-1 T4"
       ],
       "tema": "bt",
+      "tema_anterior": null,
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -2066,7 +2258,9 @@
       "apariciones": [
         "2025-1 T4"
       ],
-      "tema": "np",
+      "tema": "bt",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": false,
       "conjunto": "nucleo",
@@ -2087,7 +2281,9 @@
       "apariciones": [
         "2024-1 T3"
       ],
-      "tema": "np",
+      "tema": "dp",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "nucleo",
@@ -2108,7 +2304,9 @@
       "apariciones": [
         "2025-1 T2"
       ],
-      "tema": "np",
+      "tema": "dp",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "reserva",
@@ -2129,7 +2327,9 @@
       "apariciones": [
         "2024-2 T4"
       ],
-      "tema": "np",
+      "tema": "bt",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -2150,7 +2350,9 @@
       "apariciones": [
         "2025-1 T4"
       ],
-      "tema": "np",
+      "tema": "bt",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "dificil",
       "extra": false,
       "conjunto": "biblioteca",
@@ -2169,7 +2371,9 @@
       "apariciones": [
         "extra"
       ],
-      "tema": "np",
+      "tema": "dp",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": true,
       "conjunto": "nucleo",
@@ -2188,7 +2392,9 @@
       "apariciones": [
         "extra"
       ],
-      "tema": "np",
+      "tema": "bt",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "medio",
       "extra": true,
       "conjunto": "biblioteca",
@@ -2207,7 +2413,9 @@
       "apariciones": [
         "extra"
       ],
-      "tema": "np",
+      "tema": "bt",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": true,
       "conjunto": "nucleo",
@@ -2226,7 +2434,9 @@
       "apariciones": [
         "extra"
       ],
-      "tema": "np",
+      "tema": "bt",
+      "tema_anterior": "np",
+      "fuera_examen": false,
       "dificultad": "facil",
       "extra": true,
       "conjunto": "biblioteca",

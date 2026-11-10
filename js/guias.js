@@ -1,28 +1,87 @@
-// Contenido de las guias: reconocer la tecnica, lectura rapida y plantillas por tema.
+// Contenido de las guias: tecnicas, reconocer la tecnica, facil o dificil, lectura y plantillas por tema.
 // Todo el codigo termina los ciclos con la condicion del while o con banderas (sin break).
 window.GUIAS = {};
+
+// Repaso corto de cada tecnica (se muestra junto a su animacion).
+GUIAS.tecnicas = {
+  dyc: {
+    idea: "Partir el problema en partes más pequeñas del mismo tipo, resolver cada parte y combinar. En el examen casi siempre aparece como búsqueda binaria o bisección sobre la respuesta: en cada paso se descarta la mitad que no puede tener la respuesta.",
+    cuando: ["La pregunta «¿se puede con X?» es monótona: si X sirve, todo lo menor (o mayor) también.",
+             "La respuesta es un número muy grande (hasta 10^9) o un real con decimales.",
+             "Se pide combinar dos mitades: merge sort, par de puntos más cercano, cuadrantes de una matriz."],
+    pasos: ["Define la función factible(x) y verifica que sea monótona.",
+            "Escoge lo y hi que seguro encierran la respuesta.",
+            "Repite: mid; si factible(mid) mueve un extremo, si no el otro. En reales, 100 iteraciones.",
+            "Si es divide y combina: caso base pequeño, dos llamadas recursivas y el paso de combinar."],
+    complejidad: "O(log(rango) · costo de factible). Divide y combina: O(n log n).",
+    errores: ["mid = (lo + hi) // 2 con lo = mid → ciclo infinito: usa (lo + hi + 1) // 2.",
+              "Comparar reales con == en vez de iterar un número fijo de veces.",
+              "Olvidar que factible debe ser monótona: si no lo es, la búsqueda binaria no sirve."],
+  },
+  bt: {
+    idea: "Construir la solución decisión por decisión. Si una decisión parcial ya no puede llevar a una solución válida, se poda y se vuelve atrás para probar otra opción.",
+    cuando: ["n es pequeño (n ≤ 10…20) y piden todas las formas, listar, o decidir si existe alguna.",
+             "Hay restricciones que se pueden revisar a medida que avanzas (sudoku, reinas, sumas).",
+             "No ves una recurrencia con subproblemas repetidos (si la ves, quizá es DP)."],
+    pasos: ["Define qué decide cada nivel (qué número, qué casilla, qué color).",
+            "Escribe feasible: ¿esta decisión respeta las reglas con lo que ya decidí?",
+            "solve(nivel): caso base al completar; si no, prueba cada opción factible, avanza y deshaz.",
+            "Agrega poda: corta en cuanto lo parcial no pueda mejorar o completar la solución.",
+            "Para detenerte al encontrar una solución usa una bandera en el while, no break."],
+    complejidad: "Exponencial en el peor caso (k^n o n!), pero la poda lo hace viable con n pequeño.",
+    errores: ["Olvidar deshacer la decisión al volver (actual.pop(), desmarcar).",
+              "Generar repetidos: en un mismo nivel no pruebes dos veces el mismo valor.",
+              "Usar break para cortar la búsqueda: el curso no lo permite."],
+  },
+  dp: {
+    idea: "Cuando la recursión repite los mismos subproblemas, se guarda cada respuesta (mem) para calcularla una sola vez. Se puede hacer de arriba hacia abajo (phi con mem) o llenando una tabla.",
+    cuando: ["Piden contar formas, o un máximo o mínimo, con decisiones encadenadas.",
+             "Al escribir la recursión ingenua ves llamadas repetidas con los mismos argumentos.",
+             "El voraz falla con un contraejemplo pequeño (por ejemplo, monedas {1, 3, 4})."],
+    pasos: ["Define el estado: ¿qué necesito saber para seguir? (índice, capacidad restante, máscara).",
+            "Escribe la recurrencia: caso base y cómo se combina con estados más pequeños.",
+            "Memoriza: if estado in mem: ans = mem[estado] … mem[estado] = ans.",
+            "Si la recursión es muy profunda, pásala a tabla en el orden correcto."],
+    complejidad: "número de estados × costo de cada transición.",
+    errores: ["Estado incompleto: falta un dato y la recurrencia da valores mezclados.",
+              "En mochila 0/1 con una sola fila, recorrer la capacidad de menor a mayor (usa el objeto dos veces).",
+              "Recursión muy profunda en Python: cambia a tabla."],
+  },
+  voraz: {
+    idea: "En cada paso tomar la opción que se ve mejor ahora y no volver atrás. Funciona solo si esa elección local nunca impide llegar al óptimo, así que hay que justificarla.",
+    cuando: ["Ordenar los datos hace obvia la elección (terminar primero, el más grande, el más barato).",
+             "Intervalos, emparejamientos ordenados, árboles de expansión mínima, caminos mínimos.",
+             "Probaste 3 o 4 casos pequeños a mano y no encontraste contraejemplo."],
+    pasos: ["Decide el criterio de orden.",
+            "Recorre una vez tomando lo que sirva y descartando lo que choque.",
+            "Busca un contraejemplo pequeño; si no lo hay, argumenta por intercambio.",
+            "Cuida los empates: a veces cambian la respuesta."],
+    complejidad: "Normalmente O(n log n) por el ordenamiento.",
+    errores: ["Ordenar por el criterio equivocado (por inicio en vez de por fin).",
+              "Confiar en el voraz sin buscar contraejemplo: quizá era DP.",
+              "Olvidar el caso en que no se puede (devolver -1 o IMPOSSIBLE)."],
+  },
+};
 
 GUIAS.reconocer = {
   titulo: "Cómo reconocer la técnica",
   intro: "Antes de escribir código, lee las restricciones: el tamaño de la entrada casi siempre delata la técnica. Escribe en 2 líneas qué técnica usarás y por qué (recuerdo activo).",
   senales: [
-    { senal: "n pequeño (n ≤ 10…20), «todas las formas», «listar», «existe alguna»", tecnica: "Backtracking", tema: "bt",
+    { senal: "n pequeño (n ≤ 10…20), «todas las formas», «listar», «existe alguna», sudoku o reinas", tecnica: "Backtracking", tema: "bt",
       detalle: "Explora decisiones una por una y deshaz al volver. Poda en cuanto una solución parcial ya no pueda servir." },
     { senal: "Subproblemas que se repiten, «cuántas formas», «máximo / mínimo» con decisiones encadenadas", tecnica: "Programación dinámica", tema: "dp",
-      detalle: "Define el estado (qué necesito saber para continuar), la recurrencia y el orden de cálculo. Si la recursión repite llamadas, memoriza." },
+      detalle: "Define el estado, la recurrencia y memoriza. Con n ≤ 16…20 y «visitar todos», el estado puede ser una máscara de bits (TSP)." },
     { senal: "«Ordenar y escoger», cada paso toma la mejor opción local", tecnica: "Voraz", tema: "voraz",
       detalle: "Antes de confiar, busca un contraejemplo pequeño (3 o 4 elementos). Si no lo encuentras, intenta un argumento de intercambio." },
-    { senal: "Partir en mitades, «buscar en un rango», respuesta monótona («¿alcanza con X?»)", tecnica: "Dividir y conquistar", tema: "dyc",
+    { senal: "Partir en mitades, «buscar en un rango», respuesta monótona («¿alcanza con X?»), respuesta real", tecnica: "Dividir y conquistar", tema: "dyc",
       detalle: "Búsqueda binaria sobre la respuesta, bisección en reales, o recursión que combina dos mitades (merge sort, par más cercano)." },
-    { senal: "Problema NP-completo (TSP, mochila, subset sum, coloreo, conjunto independiente) con entrada pequeña", tecnica: "Backtracking con poda, DP de mochila o DP con máscara de bits", tema: "np",
-      detalle: "n ≤ 20 → máscara de bits (2^n estados). Valores pequeños (suma ≤ 10^5) → DP de mochila pseudo-polinomial. Si no, backtracking con buena poda." },
   ],
   tamanos: [
-    ["n ≤ 10", "O(n!) — permutaciones"],
-    ["n ≤ 20", "O(2^n · n) — subconjuntos, máscaras de bits"],
-    ["n ≤ 500", "O(n^3) — DP de intervalos, Floyd"],
+    ["n ≤ 10", "O(n!) — permutaciones (backtracking)"],
+    ["n ≤ 20", "O(2^n · n) — subconjuntos o máscaras de bits (backtracking o DP)"],
+    ["n ≤ 500", "O(n^3) — DP de intervalos"],
     ["n ≤ 5 000", "O(n^2) — DP de dos índices (LCS)"],
-    ["n ≤ 10^5 … 10^6", "O(n log n) — ordenar, búsqueda binaria, heap, árbol de segmentos"],
+    ["n ≤ 10^5 … 10^6", "O(n log n) — ordenar (voraz), búsqueda binaria, heap, árbol de segmentos"],
     ["n ≥ 10^9 o respuesta real", "O(log n) — búsqueda binaria o bisección sobre la respuesta"],
   ],
   preguntas: [
@@ -30,12 +89,35 @@ GUIAS.reconocer = {
     "¿Si escribo la recursión ingenua, se repiten llamadas con los mismos argumentos? → DP.",
     "¿Ordenar los datos hace obvia la elección? ¿Encontré un contraejemplo? → voraz o DP.",
     "¿«¿Se puede con X?» es monótono en X? → búsqueda binaria sobre la respuesta.",
-    "¿El problema se parece a TSP, mochila o subset sum? → mira el tamaño: máscara, mochila o poda.",
   ],
   voraz_contraejemplo: {
     titulo: "Ejemplo de contraejemplo para un voraz",
     texto: "Monedas {1, 3, 4} y monto 6. El voraz «siempre la moneda más grande» da 4 + 1 + 1 (3 monedas), pero 3 + 3 usa 2. Por eso el cambio de monedas general es DP, no voraz.",
   },
+};
+
+// Senales para estimar la dificultad durante la lectura del examen.
+GUIAS.dificultad = {
+  intro: "En el examen 2 aceptados ya son 5.0. Por eso lo más importante de los primeros 10 minutos es leer los 4 problemas y empezar por los que se ven más fáciles.",
+  positivas: [
+    { id: "entiendo", texto: "Entiendo qué piden después de una sola lectura" },
+    { id: "parecido", texto: "Se parece a un problema o plantilla que ya hice" },
+    { id: "frase", texto: "Puedo explicar la idea de la solución en una frase" },
+    { id: "lectura", texto: "La entrada es fácil de leer (un patrón que conozco)" },
+  ],
+  negativas: [
+    { id: "limites", texto: "Los límites son grandes y la idea obvia sería muy lenta" },
+    { id: "especiales", texto: "Tiene muchos casos especiales o un formato de salida raro" },
+    { id: "combina", texto: "Parece necesitar dos técnicas a la vez" },
+    { id: "atascada", texto: "Después de 5 minutos no veo cómo empezar" },
+  ],
+  estrategia: [
+    "Minutos 0–10: lee los 4, marca las señales y ordénalos de más fácil a más difícil.",
+    "Empieza por el más fácil: el primer aceptado da calma y tiempo.",
+    "Si llevas 35–40 minutos en un problema sin avanzar, pasa al siguiente y vuelve después.",
+    "Con 2 aceptados ya tienes 5.0: lo que resuelvas después es bono.",
+    "En los últimos 15 minutos envía tu mejor versión de cada problema empezado: un intento bien encaminado vale 3.0–4.0.",
+  ],
 };
 
 GUIAS.lectura = {
@@ -203,9 +285,35 @@ if __name__ == "__main__":
 };
 
 GUIAS.plantillas = {
-  titulo: "Plantillas por tema",
+  titulo: "Plantillas y esqueletos por tema",
   temas: [
     { tema: "dyc", nombre: "Dividir y conquistar", items: [
+      { esqueleto: true, nombre: "Esqueleto de la técnica: dividir, conquistar y combinar", codigo:
+`import sys
+
+
+def phi(datos, ini, fin):
+    # resuelve el problema para datos[ini:fin]
+    if fin - ini <= 1:
+        ans = 0  # TODO: caso base (problema pequeño que se resuelve directo)
+    else:
+        mid = (ini + fin) // 2
+        izq = phi(datos, ini, mid)        # conquistar la mitad izquierda
+        der = phi(datos, mid, fin)        # conquistar la mitad derecha
+        ans = izq + der  # TODO: combinar las dos respuestas
+    return ans
+
+
+def main():
+    linea = sys.stdin.readline().strip()
+    while linea != "":
+        datos = list(map(int, linea.split()))
+        print(phi(datos, 0, len(datos)))
+        linea = sys.stdin.readline().strip()
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Búsqueda binaria sobre la respuesta (enteros)", codigo:
 `import sys
 
@@ -341,7 +449,236 @@ def main():
 if __name__ == "__main__":
     main()` },
     ] },
+    { tema: "bt", nombre: "Backtracking", items: [
+      { esqueleto: true, nombre: "Esqueleto de la técnica: feasible + solve", codigo:
+`import sys
+
+
+def feasible(estado, nivel, opcion):
+    ans = True
+    # TODO: la opcion respeta las reglas con lo que ya decidi?
+    return ans
+
+
+def solve(estado, nivel, n):
+    # True si se pudo completar la solucion desde este nivel
+    if nivel == n:
+        ans = True  # TODO: o guardar / contar la solucion
+    else:
+        ans = False
+        opciones = []  # TODO: valores que se pueden probar en este nivel
+        k = 0
+        while not ans and k < len(opciones):    # la bandera ans reemplaza al break
+            op = opciones[k]
+            if feasible(estado, nivel, op):
+                estado.append(op)               # decidir
+                ans = solve(estado, nivel + 1, n)
+                if not ans:
+                    estado.pop()                # deshacer
+            k += 1
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    estado = []
+    if solve(estado, 0, n):
+        print(" ".join(map(str, estado)))
+    else:
+        print("NO")
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Esquema general: feasible + solve (con bandera para detenerse)", codigo:
+`import sys
+
+
+def feasible(T, f, c):
+    # se puede poner una reina en (f, c) sin que la ataquen las de las filas anteriores?
+    for i in range(f):
+        if T[i] == c or abs(T[i] - c) == f - i:
+            return False
+    return True
+
+
+def solve(f, T, n):
+    # T[i] = columna de la reina de la fila i; True si se pudo completar desde la fila f
+    if f == n:
+        ans = True
+    else:
+        ans = False
+        c = 0
+        while not ans and c < n:              # sin break: la bandera ans corta el ciclo
+            if feasible(T, f, c):
+                T[f] = c
+                ans = solve(f + 1, T, n)
+                if not ans:
+                    T[f] = None               # deshacer
+            c += 1
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    T = [None] * n
+    if solve(0, T, n):
+        print(" ".join(map(str, T)))
+    else:
+        print("NO")
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Subconjuntos sin repetidos", codigo:
+`import sys
+
+
+def solve(nums, desde, resto, actual, ans):
+    # nums ordenado; agrega a ans cada subconjunto que suma exactamente resto
+    if resto == 0:
+        ans.append(actual[:])
+    else:
+        for j in range(desde, len(nums)):
+            # en un mismo nivel no se repite el mismo numero
+            if (j == desde or nums[j] != nums[j - 1]) and nums[j] <= resto:
+                actual.append(nums[j])
+                solve(nums, j + 1, resto - nums[j], actual, ans)
+                actual.pop()
+
+
+def main():
+    n, objetivo = map(int, sys.stdin.readline().split())
+    nums = sorted(map(int, sys.stdin.readline().split()))
+    ans = []
+    solve(nums, 0, objetivo, [], ans)
+    for sub in ans:
+        print(sub)
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Permutaciones con marcas", codigo:
+`import sys
+
+
+def solve(n, usado, actual, ans):
+    if len(actual) == n:
+        ans.append(actual[:])
+    else:
+        for v in range(n):
+            if not usado[v]:
+                usado[v] = True               # marcar
+                actual.append(v)
+                solve(n, usado, actual, ans)
+                actual.pop()                  # desmarcar
+                usado[v] = False
+
+
+def main():
+    n = int(sys.stdin.readline())
+    ans = []
+    solve(n, [False] * n, [], ans)
+    for p in ans:
+        print(" ".join(map(str, p)))
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "N reinas: contar todas (poda por columnas y diagonales)", codigo:
+`import sys
+
+
+def solve(f, n, col, d1, d2):
+    # cuantas formas hay de completar desde la fila f
+    if f == n:
+        ans = 1
+    else:
+        ans = 0
+        for c in range(n):
+            if not col[c] and not d1[f + c] and not d2[f - c + n]:
+                col[c] = d1[f + c] = d2[f - c + n] = True
+                ans += solve(f + 1, n, col, d1, d2)
+                col[c] = d1[f + c] = d2[f - c + n] = False
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    print(solve(0, n, [False] * n, [False] * (2 * n), [False] * (2 * n)))
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Ramificación y poda (máximo)", codigo:
+`import sys
+
+
+def compatible(elegidos, i, conflictos):
+    ans = True
+    for e in elegidos:
+        if (e, i) in conflictos:
+            ans = False
+    return ans
+
+
+def solve(i, acumulado, valor, conflictos, elegidos, mejor):
+    # mejor[0] = mayor valor encontrado hasta ahora
+    cota = acumulado + sum(valor[i:])         # cota optimista
+    if cota > mejor[0]:                       # poda: si no puede mejorar, no sigue
+        if i == len(valor):
+            mejor[0] = acumulado
+        else:
+            if compatible(elegidos, i, conflictos):
+                elegidos.append(i)
+                solve(i + 1, acumulado + valor[i], valor, conflictos, elegidos, mejor)
+                elegidos.pop()
+            solve(i + 1, acumulado, valor, conflictos, elegidos, mejor)
+
+
+def main():
+    n, m = map(int, sys.stdin.readline().split())
+    valor = list(map(int, sys.stdin.readline().split()))
+    conflictos = set()
+    for _ in range(m):
+        a, b = map(int, sys.stdin.readline().split())
+        conflictos.add((a, b))
+        conflictos.add((b, a))
+    mejor = [0]
+    solve(0, 0, valor, conflictos, [], mejor)
+    print(mejor[0])
+
+
+if __name__ == "__main__":
+    main()` },
+    ] },
     { tema: "dp", nombre: "Programación dinámica", items: [
+      { esqueleto: true, nombre: "Esqueleto de la técnica: phi con mem", codigo:
+`import sys
+
+
+def phi(i, resto, datos, mem):
+    # TODO: que significa phi(i, resto)? escribelo en una frase antes de seguir
+    if (i, resto) in mem:
+        ans = mem[(i, resto)]
+    else:
+        if i == len(datos):
+            ans = 0  # TODO: caso base
+        else:
+            ans = phi(i + 1, resto, datos, mem)    # opcion 1 (por ejemplo, no tomar datos[i])
+            # TODO: opcion 2 (por ejemplo, tomar datos[i]) y quedarse con la mejor
+        mem[(i, resto)] = ans
+    return ans
+
+
+def main():
+    n, total = map(int, sys.stdin.readline().split())
+    datos = list(map(int, sys.stdin.readline().split()))
+    print(phi(0, total, datos, dict()))
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Memoización con phi y mem (de arriba hacia abajo)", codigo:
 `import sys
 
@@ -478,8 +815,97 @@ def main():
 
 if __name__ == "__main__":
     main()` },
+      { nombre: "DP con máscara de bits: TSP (phi y mem)", codigo:
+`import sys
+
+
+def phi(mask, j, d, todos, mem):
+    # menor costo para visitar las ciudades que faltan (fuera de mask) desde j y volver a 0
+    if (mask, j) in mem:
+        ans = mem[(mask, j)]
+    else:
+        if mask == todos:
+            ans = d[j][0]
+        else:
+            ans = float("inf")
+            for k in range(len(d)):
+                if not mask & (1 << k):
+                    ans = min(ans, d[j][k] + phi(mask | (1 << k), k, d, todos, mem))
+        mem[(mask, j)] = ans
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    d = []
+    for _ in range(n):
+        d.append(list(map(int, sys.stdin.readline().split())))
+    todos = (1 << n) - 1
+    print(phi(1, 0, d, todos, dict()))     # empiezo en la ciudad 0 (ya visitada)
+
+
+if __name__ == "__main__":
+    main()` },
+      { nombre: "Subset sum (phi y mem)", codigo:
+`import sys
+
+
+def phi(i, resto, nums, mem):
+    # se puede sumar exactamente resto usando nums[i..]?
+    if (i, resto) in mem:
+        ans = mem[(i, resto)]
+    else:
+        if resto == 0:
+            ans = True
+        elif i == len(nums) or resto < 0:
+            ans = False
+        else:
+            ans = phi(i + 1, resto - nums[i], nums, mem) or phi(i + 1, resto, nums, mem)
+        mem[(i, resto)] = ans
+    return ans
+
+
+def main():
+    n, objetivo = map(int, sys.stdin.readline().split())
+    nums = list(map(int, sys.stdin.readline().split()))
+    if phi(0, objetivo, nums, dict()):
+        print("SI")
+    else:
+        print("NO")
+
+
+if __name__ == "__main__":
+    main()` },
     ] },
     { tema: "voraz", nombre: "Algoritmos voraces", items: [
+      { esqueleto: true, nombre: "Esqueleto de la técnica: ordenar y escoger", codigo:
+`import sys
+
+
+def solve(elementos):
+    # TODO: criterio de orden (el que termina primero, el mas grande, el mas barato...)
+    elementos.sort(key=lambda e: e[1])
+    ans = 0
+    ultimo = None
+    for e in elementos:
+        # TODO: si e es compatible con lo que ya escogi, tomarlo
+        if ultimo is None or e[0] >= ultimo:
+            ans += 1
+            ultimo = e[1]
+    return ans
+
+
+def main():
+    n = int(sys.stdin.readline())
+    elementos = []
+    for _ in range(n):
+        a, b = map(int, sys.stdin.readline().split())
+        elementos.append((a, b))
+    print(solve(elementos))
+
+
+if __name__ == "__main__":
+    main()` },
       { nombre: "Selección de actividades (ordenar por fin)", codigo:
 `import sys
 
@@ -605,232 +1031,6 @@ def main():
         ady[b].append((a, w))
     dist = dijkstra(ady, 0)
     print(dist[n - 1])
-
-
-if __name__ == "__main__":
-    main()` },
-    ] },
-    { tema: "bt", nombre: "Backtracking", items: [
-      { nombre: "Esquema general: feasible + solve (con bandera para detenerse)", codigo:
-`import sys
-
-
-def feasible(T, f, c):
-    # se puede poner una reina en (f, c) sin que la ataquen las de las filas anteriores?
-    for i in range(f):
-        if T[i] == c or abs(T[i] - c) == f - i:
-            return False
-    return True
-
-
-def solve(f, T, n):
-    # T[i] = columna de la reina de la fila i; True si se pudo completar desde la fila f
-    if f == n:
-        ans = True
-    else:
-        ans = False
-        c = 0
-        while not ans and c < n:              # sin break: la bandera ans corta el ciclo
-            if feasible(T, f, c):
-                T[f] = c
-                ans = solve(f + 1, T, n)
-                if not ans:
-                    T[f] = None               # deshacer
-            c += 1
-    return ans
-
-
-def main():
-    n = int(sys.stdin.readline())
-    T = [None] * n
-    if solve(0, T, n):
-        print(" ".join(map(str, T)))
-    else:
-        print("NO")
-
-
-if __name__ == "__main__":
-    main()` },
-      { nombre: "Subconjuntos sin repetidos", codigo:
-`import sys
-
-
-def solve(nums, desde, resto, actual, ans):
-    # nums ordenado; agrega a ans cada subconjunto que suma exactamente resto
-    if resto == 0:
-        ans.append(actual[:])
-    else:
-        for j in range(desde, len(nums)):
-            # en un mismo nivel no se repite el mismo numero
-            if (j == desde or nums[j] != nums[j - 1]) and nums[j] <= resto:
-                actual.append(nums[j])
-                solve(nums, j + 1, resto - nums[j], actual, ans)
-                actual.pop()
-
-
-def main():
-    n, objetivo = map(int, sys.stdin.readline().split())
-    nums = sorted(map(int, sys.stdin.readline().split()))
-    ans = []
-    solve(nums, 0, objetivo, [], ans)
-    for sub in ans:
-        print(sub)
-
-
-if __name__ == "__main__":
-    main()` },
-      { nombre: "Permutaciones con marcas", codigo:
-`import sys
-
-
-def solve(n, usado, actual, ans):
-    if len(actual) == n:
-        ans.append(actual[:])
-    else:
-        for v in range(n):
-            if not usado[v]:
-                usado[v] = True               # marcar
-                actual.append(v)
-                solve(n, usado, actual, ans)
-                actual.pop()                  # desmarcar
-                usado[v] = False
-
-
-def main():
-    n = int(sys.stdin.readline())
-    ans = []
-    solve(n, [False] * n, [], ans)
-    for p in ans:
-        print(" ".join(map(str, p)))
-
-
-if __name__ == "__main__":
-    main()` },
-      { nombre: "N reinas: contar todas (poda por columnas y diagonales)", codigo:
-`import sys
-
-
-def solve(f, n, col, d1, d2):
-    # cuantas formas hay de completar desde la fila f
-    if f == n:
-        ans = 1
-    else:
-        ans = 0
-        for c in range(n):
-            if not col[c] and not d1[f + c] and not d2[f - c + n]:
-                col[c] = d1[f + c] = d2[f - c + n] = True
-                ans += solve(f + 1, n, col, d1, d2)
-                col[c] = d1[f + c] = d2[f - c + n] = False
-    return ans
-
-
-def main():
-    n = int(sys.stdin.readline())
-    print(solve(0, n, [False] * n, [False] * (2 * n), [False] * (2 * n)))
-
-
-if __name__ == "__main__":
-    main()` },
-    ] },
-    { tema: "np", nombre: "NP-completo con entrada pequeña", items: [
-      { nombre: "TSP con máscara de bits (phi y mem)", codigo:
-`import sys
-
-
-def phi(mask, j, d, todos, mem):
-    # menor costo para visitar las ciudades que faltan (fuera de mask) desde j y volver a 0
-    if (mask, j) in mem:
-        ans = mem[(mask, j)]
-    else:
-        if mask == todos:
-            ans = d[j][0]
-        else:
-            ans = float("inf")
-            for k in range(len(d)):
-                if not mask & (1 << k):
-                    ans = min(ans, d[j][k] + phi(mask | (1 << k), k, d, todos, mem))
-        mem[(mask, j)] = ans
-    return ans
-
-
-def main():
-    n = int(sys.stdin.readline())
-    d = []
-    for _ in range(n):
-        d.append(list(map(int, sys.stdin.readline().split())))
-    todos = (1 << n) - 1
-    print(phi(1, 0, d, todos, dict()))     # empiezo en la ciudad 0 (ya visitada)
-
-
-if __name__ == "__main__":
-    main()` },
-      { nombre: "Subset sum (DP pseudo-polinomial)", codigo:
-`import sys
-
-
-def phi(i, resto, nums, mem):
-    # se puede sumar exactamente resto usando nums[i..]?
-    if (i, resto) in mem:
-        ans = mem[(i, resto)]
-    else:
-        if resto == 0:
-            ans = True
-        elif i == len(nums) or resto < 0:
-            ans = False
-        else:
-            ans = phi(i + 1, resto - nums[i], nums, mem) or phi(i + 1, resto, nums, mem)
-        mem[(i, resto)] = ans
-    return ans
-
-
-def main():
-    n, objetivo = map(int, sys.stdin.readline().split())
-    nums = list(map(int, sys.stdin.readline().split()))
-    if phi(0, objetivo, nums, dict()):
-        print("SI")
-    else:
-        print("NO")
-
-
-if __name__ == "__main__":
-    main()` },
-      { nombre: "Ramificación y poda (máximo)", codigo:
-`import sys
-
-
-def compatible(elegidos, i, conflictos):
-    ans = True
-    for e in elegidos:
-        if (e, i) in conflictos:
-            ans = False
-    return ans
-
-
-def solve(i, acumulado, valor, conflictos, elegidos, mejor):
-    # mejor[0] = mayor valor encontrado hasta ahora
-    cota = acumulado + sum(valor[i:])         # cota optimista
-    if cota > mejor[0]:                       # poda: si no puede mejorar, no sigue
-        if i == len(valor):
-            mejor[0] = acumulado
-        else:
-            if compatible(elegidos, i, conflictos):
-                elegidos.append(i)
-                solve(i + 1, acumulado + valor[i], valor, conflictos, elegidos, mejor)
-                elegidos.pop()
-            solve(i + 1, acumulado, valor, conflictos, elegidos, mejor)
-
-
-def main():
-    n, m = map(int, sys.stdin.readline().split())
-    valor = list(map(int, sys.stdin.readline().split()))
-    conflictos = set()
-    for _ in range(m):
-        a, b = map(int, sys.stdin.readline().split())
-        conflictos.add((a, b))
-        conflictos.add((b, a))
-    mejor = [0]
-    solve(0, 0, valor, conflictos, [], mejor)
-    print(mejor[0])
 
 
 if __name__ == "__main__":

@@ -19,7 +19,7 @@
  },
  {
   "nombre": "máximo: 10 beepers",
-  "entrada": "1\n20 20\n10 10\n10\n13 5\n17 18\n7 10\n7 6\n5 6\n4 14\n4 3\n2 13\n9 16\n10 16\n",
+  "entrada": "1\n20 20\n10 10\n10\n4 8\n11 2\n19 18\n8 2\n4 3\n18 15\n8 2\n17 20\n20 5\n12 5\n",
   "salida": "The shortest path has length 70\n",
   "ejemplo": false
  }

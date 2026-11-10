@@ -5,16 +5,20 @@
   <meta name="viewport" content="width=device-width, initial-scale=1">
   <title>Arena ADA</title>
   <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;600&display=swap">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:ital,wght@0,400;0,700;1,400&family=Fraunces:opsz,wght@9..144,500;9..144,600&family=JetBrains+Mono:wght@400;600&display=swap">
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/codemirror.min.css">
   <link rel="stylesheet" href="css/styles.css">
 </head>
 <body>
   <header class="barra">
-    <a class="marca" href="#/inicio">Arena <b>ADA</b></a>
-    <nav class="nav">
+    <a class="marca" href="#/inicio" aria-label="Arena ADA, inicio">
+      <svg viewBox="0 0 32 32" aria-hidden="true"><path d="M4 30V15a12 12 0 0 1 24 0v15" fill="none" stroke="currentColor" stroke-width="2.5"/><path d="M10 30V17a6 6 0 0 1 12 0v13" fill="none" stroke="var(--acento)" stroke-width="2.5"/><path d="M2 30h28" stroke="currentColor" stroke-width="2.5"/></svg>
+      <span>Arena <b>ADA</b></span>
+    </a>
+    <nav class="nav" aria-label="Secciones">
       <a href="#/inicio" data-r="inicio">Inicio</a>
-      <a href="#/plan" data-r="plan">Plan 21 días</a>
+      <a href="#/modulos" data-r="modulos">Módulos</a>
       <a href="#/practica" data-r="practica">Práctica</a>
       <a href="#/competencia" data-r="competencia">Competencia <span id="nav-comp-reloj"></span></a>
       <a href="#/bitacora" data-r="bitacora">Bitácora</a>
@@ -22,12 +26,12 @@
       <a href="#/progreso" data-r="progreso">Progreso</a>
     </nav>
     <div class="derecha">
-      <span class="racha" title="Días seguidos practicando">🔥 <b id="racha">0</b></span>
       <div class="pomo" id="pomo" title="Pomodoro: 50 min de trabajo, 10 de descanso">
         <span id="pomo-fase">Trabajo</span> <b id="pomo-tiempo">50:00</b>
         <button class="btn mini" id="pomo-btn">Iniciar</button>
-        <button class="btn mini sec" id="pomo-reset" title="Reiniciar">↺</button>
+        <button class="btn mini sec" id="pomo-reset" title="Reiniciar" aria-label="Reiniciar Pomodoro">↺</button>
       </div>
+      <button class="btn sec tema-btn" id="tema-btn" title="Cambiar entre claro y oscuro" aria-label="Cambiar entre claro y oscuro">◐</button>
     </div>
   </header>
   <main id="vista"></main>
@@ -39,9 +43,11 @@
   <script src="https://cdnjs.cloudflare.com/ajax/libs/codemirror/5.65.16/addon/selection/active-line.min.js"></script>
   <script src="js/data.js"></script>
   <script src="js/guias.js"></script>
-  <script src="js/plan.js"></script>
+  <script src="js/rubrica.js"></script>
+  <script src="js/modulos.js"></script>
   <script src="js/storage.js"></script>
   <script src="js/judge.js"></script>
+  <script src="js/animaciones.js"></script>
   <script src="js/app.js"></script>
 </body>
 </html>

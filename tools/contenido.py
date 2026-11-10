@@ -328,7 +328,51 @@ def g_11795():
             ("todo destruible, N = 16", "1\n16\n" + "\n".join(["1" * 16] * 17) + "\n")]
 
 
+def g_24e():
+    n = 20000
+    xs = sorted(R.sample(range(-10 ** 9, 10 ** 9), n))
+    vs = [R.choice([-1, 1]) * R.randint(1, 10 ** 9) for _ in range(n)]
+    grande = f"{n}\n" + "".join(f"{a} {b}\n" for a, b in zip(xs, vs))
+    return [("entrada vacía", ""),
+            ("n = 1 (no hay choque)", "1\n5 3\n"),
+            ("todas hacia la derecha", "3\n1 2\n2 5\n3 1\n"),
+            ("la izquierda va primero (nunca chocan)", "2\n0 -5\n10 5\n"),
+            ("valores extremos", "2\n-1000000000 1\n1000000000 -1\n"),
+            ("grande: n = 20000", grande)]
+
+
+def g_1344():
+    n = 1000
+    t = " ".join(str(R.randint(1, 1000)) for _ in range(n))
+    k = " ".join(str(R.randint(1, 1000)) for _ in range(n))
+    return [("solo el terminador", "0\n"),
+            ("n = 1 empate", "1\n5\n5\n0\n"),
+            ("todo empate", "3\n4 4 4\n4 4 4\n0\n"),
+            ("sacrificar el lento", "3\n1 3 5\n2 4 6\n0\n"),
+            ("grande: n = 1000", f"{n}\n{t}\n{k}\n0\n")]
+
+
+def g_10957():
+    base = [[(3 * (r % 3) + r // 3 + c) % 9 + 1 for c in range(9)] for r in range(9)]
+
+    def grilla(T):
+        return "\n".join(" ".join(map(str, f)) for f in T)
+
+    vacio = [[0] * 9 for _ in range(9)]
+    duro = [[0, 0, 0, 0, 0, 0, 0, 1, 2], [0, 0, 0, 0, 3, 5, 0, 0, 0], [0, 0, 0, 6, 0, 0, 0, 7, 0],
+            [7, 0, 0, 0, 0, 0, 3, 0, 0], [0, 0, 0, 4, 0, 0, 8, 0, 0], [1, 0, 0, 0, 0, 0, 0, 0, 0],
+            [0, 0, 0, 1, 2, 0, 0, 0, 0], [0, 8, 0, 0, 0, 0, 0, 4, 0], [0, 5, 0, 0, 0, 0, 6, 0, 0]]
+    repetido = [fila[:] for fila in base]
+    repetido[0][0] = repetido[0][1]
+    return [("tablero completo y correcto", grilla(base) + "\n"),
+            ("tablero vacío (ambiguo)", grilla(vacio) + "\n"),
+            ("tablero completo con un repetido", grilla(repetido) + "\n"),
+            ("sudoku difícil (17 pistas)", grilla(duro) + "\n"),
+            ("varios separados por línea en blanco", grilla(base) + "\n\n" + grilla(vacio) + "\n")]
+
+
 # ---------------------------------------------------------------- contenido
+
 CONTENIDO = {
     "uva-11332": dict(
         pista1="Repaso: ciclo con terminador (lectura hasta encontrar 0).",
@@ -409,16 +453,16 @@ CONTENIDO = {
         pista1="Backtracking: reconstruir el estado anterior bit a bit.",
         pista2="El nuevo valor de la celda i depende de (p[i-1], p[i], p[i+1]). Fija p[0] y p[1], y cada bit siguiente se valida contra la celda anterior. Al final verifica las dos celdas que cierran el circulo.", casos=g_10001),
     "uva-574": dict(
-        pista1="NP-completo con entrada pequeña (subset sum): backtracking.",
+        pista1="Backtracking: subset sum listando todas las formas.",
         pista2="Los números ya vienen en orden no creciente. En cada nivel recorre desde 'desde' y salta un número si es igual al anterior del mismo nivel: así no repites sumas y salen en el orden pedido.", casos=g_574),
     "uva-193": dict(
-        pista1="NP-completo (conjunto independiente máximo): backtracking con poda.",
+        pista1="Backtracking con poda (ramificación y poda): conjunto independiente máximo.",
         pista2="Decide los nodos en orden 1..n: primero intenta pintarlo negro (si ningún vecino lo es) y luego blanco. Poda si negros + nodos restantes <= mejor. Solo actualiza con un tamaño estrictamente mayor: así te quedas con la lexicográficamente menor.", casos=g_193),
     "uva-10496": dict(
-        pista1="NP-completo con entrada pequeña (TSP): DP sobre máscaras de bits.",
+        pista1="Programación dinámica sobre máscaras de bits (TSP con pocos puntos).",
         pista2="Con a lo sumo 10 beepers: dp[máscara][último] = menor distancia Manhattan que visita 'máscara' y termina en 'último'. Respuesta: min(dp[todas][j] + distancia de j al inicio).", casos=g_10496),
     "uva-11813": dict(
-        pista1="NP-completo (TSP) + caminos minimos: Dijkstra + DP de máscaras.",
+        pista1="Programación dinámica sobre máscaras de bits (TSP), después de Dijkstra para las distancias.",
         pista2="El grafo es grande pero hay a lo sumo 10 tiendas: corre Dijkstra desde la casa y desde cada tienda para tener la matriz de distancias entre puntos clave. Luego TSP con dp[máscara][última].", casos=g_11813, limite=20),
     "uva-11627": dict(
         pista1="Dividir y conquistar: búsqueda binaria sobre los esquis ordenados.",
@@ -445,6 +489,18 @@ CONTENIDO = {
         pista1="Backtracking: DFS por letras estrictamente crecientes.",
         pista2="Como las letras deben crecer, nunca vuelves a una celda: no hace falta marcar visitados. Guarda en un set las palabras de largo >= 3 y ordena por (largo, palabra). Linea en blanco entre casos.", casos=g_487),
     "uva-11795": dict(
-        pista1="NP-completo con N <= 16: DP sobre máscaras de bits.",
+        pista1="Programación dinámica sobre máscaras de bits (N <= 16).",
         pista2="dp[máscara] = formas de destruir exactamente esos robots. Las armas disponibles dependen solo de la máscara (Mega Buster OR armas de los destruidos). Desde una máscara puedes destruir cualquier robot vivo que alguna arma alcance.", casos=g_11795),
+    "codeforces-24e": dict(
+        pista1="Dividir y conquistar: bisección sobre el tiempo t.",
+        pista2="«¿Ya hubo un choque antes de t?» es monótono. Para un t fijo recorre de izquierda a derecha guardando la posición más lejana (en el tiempo t) de las partículas que van a la derecha; si una que va a la izquierda queda en o antes de esa posición, ya chocaron. Si ninguna partícula que va a la izquierda tiene a su izquierda una que va a la derecha, la respuesta es -1.",
+        casos=g_24e, comparador="tolerancia:0.000000001", limite=20),
+    "uva-1344": dict(
+        pista1="Voraz: ordenar y comparar los extremos.",
+        pista2="Ordena ambos. Si tu más rápido le gana al más rápido del rey, gana esa carrera. Si no, si tu más lento le gana al más lento del rey, gana esa. Si no, sacrifica tu más lento contra el más rápido del rey (pierdes 200 salvo que empaten).",
+        casos=g_1344),
+    "uva-10957": dict(
+        pista1="Backtracking con poda: llenar el sudoku y contar soluciones hasta 2.",
+        pista2="Primero revisa si es legal (sin repetidos en fila, columna y caja). Luego cuenta soluciones con backtracking, deteniéndote con una bandera al llegar a 2. Llena primero la casilla con menos opciones: así hasta los sudokus difíciles se resuelven rápido. Guarda los dígitos usados de cada fila, columna y caja como máscaras de bits.",
+        casos=g_10957, limite=20),
 }

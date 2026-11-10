@@ -1,0 +1,38 @@
+[
+ {
+  "nombre": "ejemplo del enunciado",
+  "entrada": "0 0 3 9 0 0 7 6 0\n0 4 0 0 0 6 0 0 9\n6 0 7 0 1 0 0 0 4\n2 0 0 6 7 0 0 9 0\n0 0 4 3 0 5 6 0 0\n0 1 0 0 4 9 0 0 7\n7 0 0 0 9 0 2 0 1\n3 0 0 2 0 0 0 4 0\n0 2 9 0 0 8 5 0 0\n\n0 0 3 9 0 0 7 6 0\n0 4 0 0 0 6 0 0 9\n6 0 0 0 1 0 0 0 4\n0 0 0 6 7 0 0 9 0\n0 0 4 0 0 5 6 0 0\n0 1 0 0 4 9 0 0 0\n7 0 0 0 9 0 2 0 1\n3 0 0 2 0 0 0 4 0\n0 2 0 0 0 8 5 0 0\n\n0 0 3 9 0 0 7 6 0\n0 4 0 0 0 6 0 0 9\n6 0 7 0 1 0 0 0 4\n2 0 0 6 7 0 0 9 0\n0 0 4 3 0 5 6 0 0\n0 1 0 0 4 9 0 0 7\n7 2 0 0 9 0 2 0 1\n3 0 0 2 0 0 0 4 0\n0 2 9 0 0 8 5 0 0\n\n0 0 3 9 0 0 7 6 0\n0 4 0 0 0 6 0 0 9\n6 0 7 0 1 0 0 0 4\n2 0 0 6 7 0 0 9 0\n0 0 4 3 0 5 6 0 0\n0 1 0 0 4 9 0 0 7\n7 5 0 0 9 0 2 0 1\n3 0 0 2 0 0 0 4 0\n0 2 9 0 0 8 5 0 0\n",
+  "salida": "Case 1: Unique.\nCase 2: Ambiguous.\nCase 3: Illegal.\nCase 4: Impossible.\n",
+  "ejemplo": true
+ },
+ {
+  "nombre": "tablero completo y correcto",
+  "entrada": "1 2 3 4 5 6 7 8 9\n4 5 6 7 8 9 1 2 3\n7 8 9 1 2 3 4 5 6\n2 3 4 5 6 7 8 9 1\n5 6 7 8 9 1 2 3 4\n8 9 1 2 3 4 5 6 7\n3 4 5 6 7 8 9 1 2\n6 7 8 9 1 2 3 4 5\n9 1 2 3 4 5 6 7 8\n",
+  "salida": "Case 1: Unique.\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "tablero vacío (ambiguo)",
+  "entrada": "0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n",
+  "salida": "Case 1: Ambiguous.\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "tablero completo con un repetido",
+  "entrada": "2 2 3 4 5 6 7 8 9\n4 5 6 7 8 9 1 2 3\n7 8 9 1 2 3 4 5 6\n2 3 4 5 6 7 8 9 1\n5 6 7 8 9 1 2 3 4\n8 9 1 2 3 4 5 6 7\n3 4 5 6 7 8 9 1 2\n6 7 8 9 1 2 3 4 5\n9 1 2 3 4 5 6 7 8\n",
+  "salida": "Case 1: Illegal.\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "sudoku difícil (17 pistas)",
+  "entrada": "0 0 0 0 0 0 0 1 2\n0 0 0 0 3 5 0 0 0\n0 0 0 6 0 0 0 7 0\n7 0 0 0 0 0 3 0 0\n0 0 0 4 0 0 8 0 0\n1 0 0 0 0 0 0 0 0\n0 0 0 1 2 0 0 0 0\n0 8 0 0 0 0 0 4 0\n0 5 0 0 0 0 6 0 0\n",
+  "salida": "Case 1: Unique.\n",
+  "ejemplo": false
+ },
+ {
+  "nombre": "varios separados por línea en blanco",
+  "entrada": "1 2 3 4 5 6 7 8 9\n4 5 6 7 8 9 1 2 3\n7 8 9 1 2 3 4 5 6\n2 3 4 5 6 7 8 9 1\n5 6 7 8 9 1 2 3 4\n8 9 1 2 3 4 5 6 7\n3 4 5 6 7 8 9 1 2\n6 7 8 9 1 2 3 4 5\n9 1 2 3 4 5 6 7 8\n\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n0 0 0 0 0 0 0 0 0\n",
+  "salida": "Case 1: Unique.\nCase 2: Ambiguous.\n",
+  "ejemplo": false
+ }
+]

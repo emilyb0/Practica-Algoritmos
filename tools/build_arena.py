@@ -73,7 +73,7 @@ def main():
 
     datos = {"temas": catalogo["temas"], "arena": arena,
              "biblioteca": [{k: p[k] for k in ("id", "nombre", "enlace", "enunciado_curso", "semestres",
-                                                "tema", "dificultad", "resumen", "pista")} for p in biblioteca]}
+                                                "tema", "dificultad", "resumen", "pista", "tema_anterior", "fuera_examen")} for p in biblioteca]}
     js = "// Generado por tools/build_arena.py. No editar a mano.\nwindow.ARENA_DATA = " + \
          json.dumps(datos, ensure_ascii=False) + ";\n"
     (ROOT / "js" / "data.js").write_text(js, encoding="utf-8")
